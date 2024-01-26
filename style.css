@@ -14,8 +14,7 @@ body {
 header {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 3rem;
+    justify-content: space-evenly;
     padding: 2rem;
 }
 
@@ -32,32 +31,33 @@ header {
 
 .main-title {
     font-family: Caveat;
-    font-size: 50px;
+    font-size: 75px;
 }
 
 header input {
     border: 0;
     background-color: rgba(0, 0, 0, 0.1);
-    padding: .75rem 1rem;
+    padding: 1rem 1.5rem;
     border-radius: 1rem;
     position: relative;
     outline: 0;
     width: 100%;
+    font-size: 20px;
 }
 
 .input-wrapper{
     position: relative;
-    width: 20rem;
+    width: 40rem;
 }
 
 .search-icon {
     position: absolute;
-    top: .7rem;
-    right: 1rem;
+    top: 1.1rem;
+    right: 2rem;
     z-index: 10;
     border: 0;
     background-color: transparent;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .nav-functions {
@@ -75,11 +75,11 @@ header input {
 }
 
 .departments {
-    padding: 1rem;
+    padding: 2rem;
     display: flex;
     justify-content: center;
     gap: 4rem;
-    font-size: 18px;
+    font-size: 22px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
@@ -87,3 +87,81 @@ header input {
     color: rgba(0, 0, 0, 0.5);
 }
 
+.notebook-card {
+    margin: 2rem;
+    background: linear-gradient(to right, #f0efeb, #eeee);
+    border-radius: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.best-offer {
+    text-align: center;
+}
+.best-offer-btn {
+    background-color: #fdc62e;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-size: 20px;
+}
+
+.notebook-card h1 {
+    margin-top: 4rem;
+    font-weight: 200;
+    font-size: 45px;
+}
+.notebook-card h2 {
+    font-size: 55px;
+    margin: 2rem 0 1rem 0;
+}
+
+.notebook-img {
+    width: 35rem;
+    padding: 4rem;
+}
+
+.buy-btn {
+    margin-top: 3rem;
+    padding: 1rem 2rem;
+    border: 0;
+    border-radius: 2rem;
+    background-color: #111111;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 1s;
+}
+.buy-btn:hover {
+    background-color: rgba(17, 17, 17, 0.4);
+}
+
+.advantages {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.advantages div {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    width: 20rem;
+    height: 3.5rem;
+    border-radius: 3rem;
+    border: 1px solid rgba(17, 17, 17, 0.4);
+    background-color: transparent;
+    font-size: 22px;
+}
+
+.bi-currency-dollar,
+.bi-percent,
+.bi-truck {
+    font-size: 30px;
+    background-color: transparent;
+    padding: .6rem;
+    border-radius: 100%;
+    color: #111111;
+    border: 1px solid #111111;
+}   

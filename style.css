@@ -1,167 +1,211 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Ubuntu";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu";
 }
 
 body {
-    background-color: #fff;
-    color: #111111;
-    padding: 1rem;
+  background-color: #fff;
+  color: #111111;
+  padding: 1rem;
 }
 
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 2rem;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .logo-img {
-    width: 3rem;
-    height: 3rem;
+  width: 3rem;
+  height: 3rem;
 }
 
 .main-title {
-    font-family: Caveat;
-    font-size: 75px;
+  font-family: Caveat;
+  font-size: 75px;
 }
 
 header input {
-    border: 0;
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 1rem 1.5rem;
-    border-radius: 1rem;
-    position: relative;
-    outline: 0;
-    width: 100%;
-    font-size: 20px;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  position: relative;
+  outline: 0;
+  width: 100%;
+  font-size: 20px;
 }
 
-.input-wrapper{
-    position: relative;
-    width: 40rem;
+.input-wrapper {
+  position: relative;
+  width: 40rem;
 }
 
 .search-icon {
-    position: absolute;
-    top: 1.1rem;
-    right: 2rem;
-    z-index: 10;
-    border: 0;
-    background-color: transparent;
-    font-size: 20px;
+  position: absolute;
+  top: 1.1rem;
+  right: 2rem;
+  z-index: 10;
+  border: 0;
+  background-color: transparent;
+  font-size: 20px;
 }
 
 .nav-functions {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: .75rem;
-    font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-size: 18px;
 }
 
 .bi-person-circle,
 .bi-heart,
 .bi-bag {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 .departments {
-    padding: 2rem;
-    display: flex;
-    justify-content: center;
-    gap: 4rem;
-    font-size: 22px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 8rem;
+  font-size: 22px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .function {
-    color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .notebook-card {
-    margin: 2rem;
-    background: linear-gradient(to right, #f0efeb, #eeee);
-    border-radius: 2rem;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  margin: 2rem;
+  background: linear-gradient(to right, #f0efeb, #eeee);
+  border-radius: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .best-offer {
-    text-align: center;
+  text-align: center;
 }
 .best-offer-btn {
-    background-color: #fdc62e;
-    padding: 1rem 2rem;
-    border-radius: 1rem;
-    font-size: 20px;
+  background-color: #fdc62e;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  font-size: 20px;
 }
 
 .notebook-card h1 {
-    margin-top: 4rem;
-    font-weight: 200;
-    font-size: 45px;
+  margin-top: 4rem;
+  font-weight: 200;
+  font-size: 45px;
 }
 .notebook-card h2 {
-    font-size: 55px;
-    margin: 2rem 0 1rem 0;
+  font-size: 55px;
+  margin: 2rem 0 1rem 0;
 }
 
 .notebook-img {
-    width: 35rem;
-    padding: 4rem;
+  width: 35rem;
+  padding: 4rem;
 }
 
 .buy-btn {
-    margin-top: 3rem;
-    padding: 1rem 2rem;
-    border: 0;
-    border-radius: 2rem;
-    background-color: #111111;
-    color: #fff;
-    font-size: 20px;
-    cursor: pointer;
-    transition: 1s;
+  margin-top: 3rem;
+  padding: 1rem 2rem;
+  border: 0;
+  border-radius: 2rem;
+  background-color: #111111;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 1s;
 }
 .buy-btn:hover {
-    background-color: rgba(17, 17, 17, 0.4);
+  background-color: rgba(17, 17, 17, 0.4);
 }
 
 .advantages {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .advantages div {
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    width: 20rem;
-    height: 3.5rem;
-    border-radius: 3rem;
-    border: 1px solid rgba(17, 17, 17, 0.4);
-    background-color: transparent;
-    font-size: 22px;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 20rem;
+  height: 3.5rem;
+  border-radius: 3rem;
+  border: 1px solid rgba(17, 17, 17, 0.4);
+  background-color: transparent;
+  font-size: 22px;
 }
 
 .bi-currency-dollar,
 .bi-percent,
 .bi-truck {
-    font-size: 30px;
-    background-color: transparent;
-    padding: .6rem;
-    border-radius: 100%;
-    color: #111111;
-    border: 1px solid #111111;
-}   
+  font-size: 30px;
+  background-color: transparent;
+  padding: 0.6rem;
+  border-radius: 100%;
+  color: #111111;
+  border: 1px solid #111111;
+}
+
+.main-container {
+  padding: 3rem;
+}
+
+.main-container div:nth-child(1) {
+  background: linear-gradient(to right, #000000, #434343);
+  color: #fff;
+  padding: 2rem;
+  border-radius: 2rem;
+  width: 30rem;
+  position: relative;
+  z-index: -2;
+}
+
+.card-title {
+  position: absolute;
+  font-size: 80px;
+  z-index: -1;
+  top: 0;
+  left: 4rem;
+  letter-spacing: 1rem;
+}
+
+.card-desc {
+  font-size: 40px;
+}
+
+.nav-btn {
+  padding: 1rem 2.5rem;
+  border: 0;
+  border-radius: 2rem;
+  background-color: #fff;
+  color: #111111;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 1s;
+  margin-top: 2rem;
+}
+
+.mouse-img {
+  width: 20rem;
+  margin-left: 6rem;
+}

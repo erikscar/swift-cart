@@ -176,7 +176,8 @@ header input {
   gap: 2rem;
 }
 
-.card {
+.mouse-card {
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   background: linear-gradient(to right, #000000, #434343);
   color: #fff;
   padding: 2rem;
@@ -185,24 +186,24 @@ header input {
   position: relative;
 }
 
-.card-desc {
-  margin-top: 10rem;
+.mouse-desc {
+  margin-top: 3rem;
+  padding: 3rem;
 }
 
-.card-top-title {
+.mouse-top-title {
   margin-top: 4rem;
   font-size: 40px;
   font-weight: 200;
 }
 
-.card-title {
-  text-align: center;
-  font-size: 100px;
+.mouse-title {
+  font-size: 80px;
   letter-spacing: 1rem;
   color: rgba(255, 255, 255, 0.3);
 }
 
-.card-subtitle {
+.mouse-subtitle {
   font-size: 40px;
   margin: 1rem 0;
 }
@@ -220,7 +221,7 @@ header input {
   font-size: 20px;
   cursor: pointer;
   transition: 1s;
-  margin: 2rem 0;
+  margin-top: 2rem;
 }
 
 .mouse-img {
@@ -228,4 +229,44 @@ header input {
   position: absolute;
   top: 4rem;
   left: 7rem;
+}
+
+.monitor-card {
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  width: 60rem;
+  background: linear-gradient(to right, #170d43, rgba(23, 13, 67, 0.6));
+  border-radius: 2rem;
+  position: relative;
+  padding: 2rem;
+}
+
+.monitor-img {
+  width: 28rem;
+  position: absolute;
+  top: 4rem;
+  left: 30rem;
+}
+
+.monitor-desc {
+  margin-top: 8rem;
+  padding: 3rem;
+  color: #fff;
+}
+
+.monitor-top-title {
+  font-size: 50px;
+  font-weight: 200;
+}
+
+.monitor-subtitle {
+  font-size: 60px;
+}
+
+.monitor-title {
+  font-size: 65px;
+  letter-spacing: 1rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+.is-purple {
+  color: #170d43;
 }

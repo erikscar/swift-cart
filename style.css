@@ -270,3 +270,38 @@ header input {
 .is-purple {
   color: #170d43;
 }
+
+.phone-card {
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  width: 30rem;
+  background: linear-gradient(to right, #465cb3, rgba(70, 92, 179, 0.2));
+  border-radius: 2rem;
+  position: relative;
+  padding: 1rem;
+}
+
+.phone-img {
+  position: absolute;
+  width: 26rem;
+  top: 0;
+  right: 0;
+}
+.phone-desc {
+  padding: 3rem;
+  margin-top: 15rem;
+  color: #fff;
+}
+
+.phone-top-title {
+  font-weight: 200;
+  font-size: 50px;
+}
+
+.phone-title {
+  letter-spacing: 1rem;
+  font-size: 45px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.is-blue {
+  color: #215e7b;
+}

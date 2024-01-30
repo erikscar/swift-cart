@@ -102,6 +102,7 @@
   border: 0;
   margin: 1rem;
   font-weight: bold;
+  color: #013256;
 }
 
 .monitor-card {
@@ -152,6 +153,7 @@
   border: 0;
   margin: 1rem;
   font-weight: bold;
+  color: #170d43;
 }
 
 .notebook-card {
@@ -170,7 +172,7 @@
   top: 0rem;
   bottom: 0rem;
   right: 0rem;
-  transform: translateX(10%);
+  transform: translateX(30%);
 }
 
 .notebook-card-desc {
@@ -191,7 +193,7 @@
 
 .notebook-card-desc h3 {
   font-size: 60px;
-  color: rgba(255, 254, 254, 0.2);
+  color: rgba(255, 254, 254, 0.3);
 }
 
 .notebook-card-desc button {
@@ -202,4 +204,107 @@
   border: 0;
   margin: 1rem;
   font-weight: bold;
+  color: #f52d37;
+}
+
+.earphone-card {
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  background: linear-gradient(to right, #f9c522, #f8cb42);
+  border-radius: 1rem;
+  position: relative;
+  width: 22%;
+  overflow: hidden;
+  height: 22rem;
+}
+
+.earphone-card img {
+  width: 25rem;
+  position: absolute;
+  top: 3rem;
+  bottom: 0rem;
+  right: 0rem;
+  transform: translateX(30%);
+}
+
+.earphone-card-desc {
+  margin-top: 3rem;
+  padding: 2rem;
+}
+
+.earphone-card-desc h1 {
+  margin: 0.4rem 0;
+  font-size: 20px;
+  color: #fff;
+}
+
+.earphone-card-desc h2 {
+  font-size: 40px;
+  color: #fff;
+}
+
+.earphone-card-desc h3 {
+  font-size: 55px;
+  color: rgba(255, 254, 254, 0.3);
+}
+
+.earphone-card-desc button {
+  font-size: 18px;
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+  background-color: #fff;
+  border: 0;
+  margin: 1rem;
+  font-weight: bold;
+  color: #f9c522;
+}
+
+.control-card {
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  background: linear-gradient(to right, #c9e337, #8fa90e);
+  border-radius: 1rem;
+  position: relative;
+  width: 22%;
+  overflow: hidden;
+  height: 22rem;
+}
+
+.control-card img {
+  width: 18rem;
+  position: absolute;
+  top: 3rem;
+  bottom: 0rem;
+  right: 0rem;
+  transform: translateX(50%);
+}
+
+.control-card-desc {
+  margin-top: 3rem;
+  padding: 2rem;
+}
+
+.control-card-desc h1 {
+  margin: 0.4rem 0;
+  font-size: 20px;
+  color: #fff;
+}
+
+.control-card-desc h2 {
+  font-size: 40px;
+  color: #fff;
+}
+
+.control-card-desc h3 {
+  font-size: 55px;
+  color: rgba(255, 254, 254, 0.3);
+}
+
+.control-card-desc button {
+  font-size: 18px;
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+  background-color: #fff;
+  border: 0;
+  margin: 1rem;
+  font-weight: bold;
+  color: #c9e337;
 }

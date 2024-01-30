@@ -42,22 +42,22 @@ export default function Card() {
         </div>
       </div>
 
-      <div className="mouse-card">
-        <img src="/mouse.png" alt="mouse-img" />
-        <div className="mouse-card-desc">
-          <h1>Faça Seus</h1>
-          <h2>Clicks</h2>
-          <h3>MOUSE</h3>
+      <div className="earphone-card">
+        <img src="/earphone.png" alt="earphone-img" />
+        <div className="earphone-card-desc">
+          <h1>Escute</h1>
+          <h2>Músicas</h2>
+          <h3>FONES</h3>
           <button>Navegar</button>
         </div>
       </div>
 
-      <div className="mouse-card">
-        <img src="/mouse.png" alt="mouse-img" />
-        <div className="mouse-card-desc">
-          <h1>Faça Seus</h1>
-          <h2>Clicks</h2>
-          <h3>MOUSE</h3>
+      <div className="control-card">
+        <img src="/control.png" alt="control-img" />
+        <div className="control-card-desc">
+          <h1>Divirta-se</h1>
+          <h2>Jogue</h2>
+          <h3>CONTROLES</h3>
           <button>Navegar</button>
         </div>
       </div>

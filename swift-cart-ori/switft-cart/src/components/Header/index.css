@@ -1,0 +1,60 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 5rem;
+}
+
+.logo h1 {
+  font-family: "Caveat", sans-serif;
+  font-size: 80px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  width: 40rem;
+}
+
+.search-input-wrapper input {
+  border: 0;
+  outline: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding: 1rem;
+  width: 100%;
+  border-radius: 1rem;
+  font-size: 18px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  border: 0;
+  background-color: transparent;
+  font-size: 22px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 18px;
+}
+
+.nav-icon {
+  font-size: 32px;
+}
+
+.is-grey {
+  color: rgb(158, 158, 158);
+}

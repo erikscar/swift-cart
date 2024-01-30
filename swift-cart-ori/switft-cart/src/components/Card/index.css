@@ -1,0 +1,205 @@
+.mouse-card {
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  background: linear-gradient(to right, #222222, #333333);
+  border-radius: 1rem;
+  position: relative;
+  width: 22%;
+  height: 22rem;
+  overflow: hidden;
+}
+
+.mouse-card img {
+  width: 14rem;
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  transform: translateX(50%);
+}
+
+.mouse-card-desc {
+  margin-top: 3rem;
+  padding: 2rem;
+}
+
+.mouse-card-desc h1 {
+  margin: 0.4rem 0;
+  font-size: 20px;
+  color: #fff;
+}
+
+.mouse-card-desc h2 {
+  font-size: 40px;
+  color: #fff;
+}
+
+.mouse-card-desc h3 {
+  font-size: 60px;
+  letter-spacing: 0.5rem;
+  color: rgba(255, 254, 254, 0.1);
+}
+
+.mouse-card-desc button {
+  font-size: 18px;
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+  background-color: #fff;
+  border: 0;
+  margin: 1rem;
+  font-weight: bold;
+}
+
+.is-big {
+  width: 35%;
+}
+
+.phone-card {
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  background: linear-gradient(to right, #013256, #1e4a72);
+  border-radius: 1rem;
+  position: relative;
+  width: 22%;
+  overflow: hidden;
+  height: 22rem;
+}
+
+.phone-card img {
+  width: 25rem;
+  position: absolute;
+  top: 0rem;
+  bottom: 0rem;
+  right: 0rem;
+  transform: translateX(58%);
+}
+
+.phone-card-desc {
+  margin-top: 3rem;
+  padding: 2rem;
+}
+
+.phone-card-desc h1 {
+  margin: 0.4rem 0;
+  font-size: 20px;
+  color: #fff;
+}
+
+.phone-card-desc h2 {
+  font-size: 40px;
+  color: #fff;
+}
+
+.phone-card-desc h3 {
+  font-size: 55px;
+  color: rgba(255, 254, 254, 0.1);
+  margin-top: 3rem;
+  left: 0;
+}
+
+.phone-card-desc button {
+  font-size: 18px;
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+  background-color: #fff;
+  border: 0;
+  margin: 1rem;
+  font-weight: bold;
+}
+
+.monitor-card {
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  background: linear-gradient(to right, #170d43, rgba(23, 13, 67, 0.8));
+  border-radius: 1rem;
+  position: relative;
+  width: 40%;
+  overflow: hidden;
+  height: 22rem;
+}
+
+.monitor-card img {
+  width: 25rem;
+  position: absolute;
+  top: 0rem;
+  bottom: 0rem;
+  right: 0rem;
+  transform: translateX(10%);
+}
+
+.monitor-card-desc {
+  margin-top: 3rem;
+  padding: 2rem;
+}
+
+.monitor-card-desc h1 {
+  margin: 0.4rem 0;
+  font-size: 20px;
+  color: #fff;
+}
+
+.monitor-card-desc h2 {
+  font-size: 40px;
+  color: #fff;
+}
+
+.monitor-card-desc h3 {
+  font-size: 60px;
+  color: rgba(255, 254, 254, 0.1);
+}
+
+.monitor-card-desc button {
+  font-size: 18px;
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+  background-color: #fff;
+  border: 0;
+  margin: 1rem;
+  font-weight: bold;
+}
+
+.notebook-card {
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  background: linear-gradient(to right, #f52d37, #f93f4d);
+  border-radius: 1rem;
+  position: relative;
+  width: 40%;
+  overflow: hidden;
+  height: 22rem;
+}
+
+.notebook-card img {
+  width: 30rem;
+  position: absolute;
+  top: 0rem;
+  bottom: 0rem;
+  right: 0rem;
+  transform: translateX(10%);
+}
+
+.notebook-card-desc {
+  margin-top: 3rem;
+  padding: 2rem;
+}
+
+.notebook-card-desc h1 {
+  margin: 0.4rem 0;
+  font-size: 20px;
+  color: #fff;
+}
+
+.notebook-card-desc h2 {
+  font-size: 40px;
+  color: #fff;
+}
+
+.notebook-card-desc h3 {
+  font-size: 60px;
+  color: rgba(255, 254, 254, 0.2);
+}
+
+.notebook-card-desc button {
+  font-size: 18px;
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+  background-color: #fff;
+  border: 0;
+  margin: 1rem;
+  font-weight: bold;
+}

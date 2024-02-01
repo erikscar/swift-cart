@@ -1,6 +1,6 @@
 import "./index.css"
 import { FaStar } from "react-icons/fa";
-import { RiShoppingCartLine } from "react-icons/ri";
+import { BsCart4 } from "react-icons/bs";
 import { GiMoneyStack } from "react-icons/gi";
 
 
@@ -18,7 +18,7 @@ export default function SellCard() {
           <p>< FaStar />4,6</p>
         </div>
         <div className="sell-btn-wrapper">
-          <button className="cart-btn"><RiShoppingCartLine />Carrinho</button>
+          <button className="cart-btn"><BsCart4 />Carrinho</button>
           <button className="buy-btn"><GiMoneyStack />Comprar</button>
         </div>
       </div>

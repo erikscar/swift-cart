@@ -6,6 +6,7 @@ import { FiTruck } from "react-icons/fi";
 import { FaBarcode } from "react-icons/fa6";
 import Card from "./components/Card";
 import SellCard from "./components/SellCard";
+import Footer from "./components/Footer";
 
 
 
@@ -58,6 +59,8 @@ export default function App() {
         <SellCard />
         <SellCard />
       </div>
+
+      <Footer />
     </>
   )
 }

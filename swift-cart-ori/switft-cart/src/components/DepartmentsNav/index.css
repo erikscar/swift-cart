@@ -2,6 +2,10 @@ a {
   text-decoration: none;
   color: #000;
   transition: 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 a:hover {

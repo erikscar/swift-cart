@@ -10,6 +10,8 @@
 .sell-card img {
   margin: 0 auto;
   width: 23rem;
+  height: 13rem;
+  max-width: 23rem;
   border-radius: 1rem;
 }
 

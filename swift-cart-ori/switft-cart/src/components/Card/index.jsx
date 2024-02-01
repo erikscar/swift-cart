@@ -16,7 +16,8 @@ export default function Card() {
       <div className="phone-card">
         <img src="/phone.png" alt="phone-img" className="phone-img" />
         <div className="phone-card-desc">
-          <h2>Procure</h2>
+          <h1>Procure</h1>
+          <h2>Pelos</h2>
           <h3>CELULARES</h3>
           <button>Navegar</button>
         </div>

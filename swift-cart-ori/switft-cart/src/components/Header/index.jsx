@@ -3,6 +3,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import { IoPersonSharp } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { GiShoppingCart } from "react-icons/gi";
+import ModalForm from "../ModalForm";
 
 
 export default function Header() {
@@ -13,7 +14,7 @@ export default function Header() {
         <img src="/logo.png" alt="logo-img" className="logo-img" />
         <h1>SwiftCart</h1>
       </div>
-
+      <ModalForm />
       <div className="search-input-wrapper">
         <input type="text" name="" id="" placeholder="Encontre Produtos..." />
         <button className="search-icon"><IoSearchOutline /></button>

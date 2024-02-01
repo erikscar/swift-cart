@@ -7,11 +7,28 @@ import { FaBarcode } from "react-icons/fa6";
 import Card from "./components/Card";
 import SellCard from "./components/SellCard";
 import Footer from "./components/Footer";
+import axios from "axios"
+import { useEffect, useState } from "react";
 
 
 
 
 export default function App() {
+  const [products, setProducts] = useState([])
+
+  const getProducts = async () => {
+    try {
+      const res = await axios.get("http://localhost:8800/")
+      setProducts(res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    getProducts()
+  }, [setProducts])
+
   return (
     <>
       <Header />
@@ -50,14 +67,11 @@ export default function App() {
         <Card />
       </div>
 
-      <h1 className="best-seller-title">OS MAIS VENDIDOS DO SITE</h1>
+      <h1 className="best-seller-title">OS MAIS POPULARES DO SITE</h1>
       <p className="best-seller-desc">Descubra os Favoritos de Nossos Clientes, explorando os Mais Vendidos do Site!</p>
 
       <div className="sell-card-container">
-        <SellCard />
-        <SellCard />
-        <SellCard />
-        <SellCard />
+        <SellCard products={products} />
       </div>
 
       <Footer />

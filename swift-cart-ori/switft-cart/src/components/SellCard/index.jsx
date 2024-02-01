@@ -5,23 +5,24 @@ import { GiMoneyStack } from "react-icons/gi";
 
 
 
-export default function SellCard() {
+export default function SellCard({ products }) {
   return (
-
     <>
-      <div className="sell-card">
-        <img src="/macbookpro.jpg" className="sell-card-img" />
-        <h1>MacBook Pro M1 (2021)</h1>
-        <p className="product-desc">Super Fast M1 chip & beuatiful retina display.</p>
-        <div className="price-wrapper">
-          <p class="price">R$2.245,60</p>
-          <p>< FaStar />4,6</p>
+      {products.map((product, id) => (
+        <div className="sell-card" key={id}>
+          <img src={product.image} className="sell-card-img" alt="Product" />
+          <h1>{product.name}</h1>
+          <p className="product-desc">{product.description}</p>
+          <div className="price-wrapper">
+            <p className="price">R$ {product.price}</p>
+            <p><FaStar />4.6</p>
+          </div>
+          <div className="sell-btn-wrapper">
+            <button className="cart-btn"><BsCart4 />Carrinho</button>
+            <button className="buy-btn"><GiMoneyStack />Comprar</button>
+          </div>
         </div>
-        <div className="sell-btn-wrapper">
-          <button className="cart-btn"><BsCart4 />Carrinho</button>
-          <button className="buy-btn"><GiMoneyStack />Comprar</button>
-        </div>
-      </div>
+      ))}
     </>
 
   )

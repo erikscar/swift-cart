@@ -48,7 +48,12 @@ export default function App() {
         <Card />
       </div>
 
+      <h1 className="best-seller-title">OS MAIS VENDIDOS DO SITE</h1>
+      <p className="best-seller-desc">Descubra os Favoritos de Nossos Clientes, explorando os Mais Vendidos do Site!</p>
 
+      <div className="sell-card-container">
+
+      </div>
     </>
   )
 }

@@ -1,0 +1,54 @@
+.sell-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: linear-gradient(to right, #f0efeb, #eeee);
+  padding: 1.25rem;
+  border-radius: 1rem;
+}
+
+.sell-card img {
+  margin: 0 auto;
+  width: 23rem;
+  border-radius: 1rem;
+}
+
+.sell-card h1 {
+  font-size: 24px;
+}
+
+.product-desc {
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.price-wrapper {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.sell-btn-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.sell-btn-wrapper button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  width: 45%;
+  font-size: 18px;
+  border-radius: 1rem;
+  border: 1px solid;
+}
+
+.buy-btn {
+  background-color: #111111;
+  color: #fff;
+  border: 2px solid #fff;
+}

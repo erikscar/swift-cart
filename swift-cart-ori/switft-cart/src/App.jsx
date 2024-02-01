@@ -5,6 +5,7 @@ import { FaPercent } from "react-icons/fa6";
 import { FiTruck } from "react-icons/fi";
 import { FaBarcode } from "react-icons/fa6";
 import Card from "./components/Card";
+import SellCard from "./components/SellCard";
 
 
 
@@ -52,7 +53,10 @@ export default function App() {
       <p className="best-seller-desc">Descubra os Favoritos de Nossos Clientes, explorando os Mais Vendidos do Site!</p>
 
       <div className="sell-card-container">
-
+        <SellCard />
+        <SellCard />
+        <SellCard />
+        <SellCard />
       </div>
     </>
   )

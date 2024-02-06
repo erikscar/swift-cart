@@ -4,6 +4,7 @@ import { IoPersonSharp } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { GiShoppingCart } from "react-icons/gi";
 import ModalForm from "../ModalForm";
+import { Link } from "react-router-dom";
 
 
 export default function Header() {
@@ -17,7 +18,7 @@ export default function Header() {
       <ModalForm />
       <div className="search-input-wrapper">
         <input type="text" name="" id="" placeholder="Encontre Produtos..." />
-        <button className="search-icon"><IoSearchOutline /></button>
+        <Link to="/category" className="search-icon"><IoSearchOutline /></Link>
       </div>
 
       <div className="nav-item">

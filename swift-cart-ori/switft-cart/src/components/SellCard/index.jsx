@@ -3,8 +3,6 @@ import { FaStar } from "react-icons/fa";
 import { BsCart4 } from "react-icons/bs";
 import { GiMoneyStack } from "react-icons/gi";
 
-
-
 export default function SellCard({ products }) {
   return (
     <>

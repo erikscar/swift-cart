@@ -12,8 +12,11 @@ export default function Header() {
     <header>
 
       <div className="logo">
-        <img src="/logo.png" alt="logo-img" className="logo-img" />
-        <h1>SwiftCart</h1>
+        <Link to="/">
+          <img src="/logo.png" alt="logo-img" className="logo-img" />
+          <h1>SwiftCart</h1>
+        </Link>
+
       </div>
       <ModalForm />
       <div className="search-input-wrapper">

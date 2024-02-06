@@ -163,7 +163,10 @@ export default function Search() {
             </select>
 
           </div>
-          <SellCard products={products} />
+          <div className="sell-card-container">
+            <SellCard products={products} />
+          </div>
+
         </div>
 
       </div>

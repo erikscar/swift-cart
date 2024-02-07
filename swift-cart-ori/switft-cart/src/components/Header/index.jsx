@@ -43,12 +43,12 @@ export default function Header() {
 
       <div className="nav-item">
         < GiShoppingCart className="nav-icon" />
-        <div>
+        <Link to="/cart" className="teste">
           <p className="is-grey">Carrinho</p>
           <p >Meus Pedidos</p>
-        </div>
+        </Link>
       </div>
 
-    </header>
+    </header >
   )
 }

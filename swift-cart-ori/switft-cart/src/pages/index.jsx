@@ -10,9 +10,6 @@ import Footer from "../components/Footer";
 import axios from "axios"
 import { useEffect, useState } from "react";
 
-
-
-
 export default function Index() {
   const [products, setProducts] = useState([])
 

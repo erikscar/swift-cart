@@ -58,3 +58,9 @@ header {
 .is-grey {
   color: rgb(158, 158, 158);
 }
+
+.teste {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}

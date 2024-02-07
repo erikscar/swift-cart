@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom"
 import Index from "./pages"
-import Search from "./pages/search"
-
+import Search from "./pages/Search"
+import Cart from "./pages/Cart"
 const router = createBrowserRouter([
   {
     path: "/",
@@ -10,6 +10,10 @@ const router = createBrowserRouter([
   {
     path: "/category",
     element: <Search />
+  },
+  {
+    path: "/cart",
+    element: <Cart />
   }
 ])
 

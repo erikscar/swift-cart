@@ -1,0 +1,160 @@
+.star-icon {
+  color: #fdc62e;
+  font-size: 20px;
+}
+
+.path {
+  margin-bottom: 2rem;
+}
+
+.product-img-wrapper {
+  font-size: 20px;
+  padding: 3rem;
+}
+
+.show-item-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.product-img {
+  background: linear-gradient(to right, #f0efeb, #eeee);
+  padding: 4rem 15rem;
+  border-radius: 1rem;
+  width: 55rem;
+  height: 30rem;
+}
+
+.comments-section {
+  margin-top: 3rem;
+  padding: 1rem;
+}
+
+.comments-section select {
+  color: #fff;
+  background-color: #111111;
+  font-weight: bold;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+}
+
+.main-comment {
+  background: linear-gradient(to right, #f0efeb, #eeee);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.commentary {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.rate-time {
+  margin: 1rem 0;
+}
+.profile-icon {
+  font-size: 80px;
+}
+
+.profile-name {
+  margin: 0.75rem 0;
+  font-weight: bold;
+}
+
+.rate-btn-wrapper {
+  display: flex;
+  margin: 1rem 0;
+}
+.rate-btn {
+  display: flex;
+  margin-right: 1rem;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 1s;
+}
+.rate-btn:hover {
+  transform: scale(1.1);
+}
+
+.logo {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 30px;
+  font-weight: bold;
+}
+.logo img {
+  width: 4rem;
+}
+
+.item-information {
+  margin-top: 7rem;
+}
+
+.product-name {
+  margin: 1.5rem 0;
+}
+
+.price {
+  margin-top: 3rem;
+}
+
+.function-btns {
+  margin-top: 5rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.add-cart-btn,
+.add-rate {
+  width: 80%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #111111;
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  transition: 1s;
+}
+
+.fav-btn {
+  padding: 0.75rem 1rem;
+  font-size: 20px;
+  display: flex;
+  border-radius: 1rem;
+  background-color: #f93f4d;
+  color: #fff;
+  transition: 1s;
+}
+
+.ship {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2rem 0;
+}
+
+.add-rate {
+  margin-top: 2rem;
+  background-color: #54be96;
+}

@@ -4,22 +4,24 @@ import { FaTrash } from "react-icons/fa";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./index.css"
+import "./index.css";
 export default function Cart() {
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
 
   const getProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:8800/")
-      setProducts(res.data)
+      const res = await axios.get("http://localhost:8800/");
+      setProducts(res.data);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
-    getProducts()
-  }, [setProducts])
+    getProducts();
+  }, [setProducts]);
+
+  const subtotal = products.reduce((acum, product) => acum + product.price, 0);
 
   return (
     <>
@@ -65,7 +67,7 @@ export default function Cart() {
           <h1>Resumo do Pedido</h1>
           <div className="order-info-wrapper subtotal">
             <p>SubTotal: </p>
-            <p>R$ 4.000</p>
+            <p>{subtotal.toFixed(2)}</p>
           </div>
 
           <div className="order-info-wrapper">
@@ -75,7 +77,7 @@ export default function Cart() {
 
           <div className="order-info-wrapper">
             <p>Total: </p>
-            <p>R$ 4.000</p>
+            <p>{subtotal.toFixed(2)}</p>
           </div>
 
           <button className="finish-order-btn">Finalizar Compra</button>
@@ -83,5 +85,5 @@ export default function Cart() {
       </div>
       <Footer />
     </>
-  )
+  );
 }

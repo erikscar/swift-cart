@@ -21,7 +21,6 @@ export default function ShowItem() {
   const getProduct = async () => {
     try {
       const res = await axios.get(`http://localhost:8800/${id}`);
-      console.log(res.data);
       setProduct(res.data);
       setOneProducts(res.data[0]);
     } catch (err) {
@@ -38,7 +37,7 @@ export default function ShowItem() {
   );
 
   let sortComment = [...product];
-  const teste = () => {
+  const switchOrder = () => {
     if (order) {
       sortComment = product.sort(
         (a, b) => new Date(a.created_at) - new Date(b.created_at)
@@ -68,7 +67,7 @@ export default function ShowItem() {
           <img src={oneProduct.image} className="product-img" />
           <div className="comments-section">
             <h2 className="comments-title">Comentários e Avaliações</h2>
-            <select name="" id="" onChange={teste}>
+            <select name="" id="" onChange={switchOrder}>
               <option value="select" disabled selected>
                 Ordenar Por:
               </option>

@@ -15,6 +15,7 @@ import Footer from "../../components/Footer";
 export default function ShowItem() {
   const [product, setProduct] = useState([]);
   const [oneProduct, setOneProducts] = useState({});
+  const [order, setOrder] = useState(false);
   const { id } = useParams();
 
   const getProduct = async () => {
@@ -36,6 +37,25 @@ export default function ShowItem() {
     [setOneProducts]
   );
 
+  let sortComment = [...product];
+  const teste = () => {
+    if (order) {
+      sortComment = product.sort(
+        (a, b) => new Date(a.created_at) - new Date(b.created_at)
+      );
+      setOrder(false);
+    } else {
+      sortComment = product.sort(
+        (a, b) => new Date(b.created_at) - new Date(a.created_at)
+      );
+      setOrder(true);
+    }
+  };
+
+  const formatDate = (date) => {
+    return new Date(date).toLocaleString();
+  };
+
   return (
     <>
       <Header />
@@ -48,19 +68,24 @@ export default function ShowItem() {
           <img src={oneProduct.image} className="product-img" />
           <div className="comments-section">
             <h2 className="comments-title">Comentários e Avaliações</h2>
-            <select name="" id="">
-              <option value="">Mais Recentes</option>
-              <option value="">Menos Recentes</option>
+            <select name="" id="" onChange={teste}>
+              <option value="select" disabled selected>
+                Ordenar Por:
+              </option>
+              <option value="new">Mais Recentes</option>
+              <option value="older">Menos Recentes</option>
             </select>
             <div className="comments">
               <div className="main-comment">
-                {product.map((item, id) => (
+                {sortComment.map((item, id) => (
                   <>
-                    <div className="commentary">
+                    <div className="commentary" key={id}>
                       <IoPersonCircleOutline className="profile-icon" />
                       <div>
                         <p className="profile-name">{item.user}</p>
-                        <p className="rate-time">{item.created_at}</p>
+                        <p className="rate-time">
+                          {formatDate(item.created_at)}
+                        </p>
                         <div>
                           <FaStar className="star-icon" />{" "}
                           <FaStar className="star-icon" />{" "}

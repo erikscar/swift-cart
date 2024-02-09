@@ -13,8 +13,8 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 export default function ShowItem() {
-  const [product, setProduct] = useState({});
-
+  const [product, setProduct] = useState([]);
+  const [oneProduct, setOneProducts] = useState({});
   const { id } = useParams();
 
   const getProduct = async () => {
@@ -22,14 +22,19 @@ export default function ShowItem() {
       const res = await axios.get(`http://localhost:8800/${id}`);
       console.log(res.data);
       setProduct(res.data);
+      setOneProducts(res.data[0]);
     } catch (err) {
       console.log(err);
     }
   };
 
-  useEffect(() => {
-    getProduct();
-  }, [setProduct]);
+  useEffect(
+    () => {
+      getProduct();
+    },
+    [setProduct],
+    [setOneProducts]
+  );
 
   return (
     <>
@@ -40,7 +45,7 @@ export default function ShowItem() {
             Monitores &gt; TUF Gaming &gt; Monitor Gamer Asus TUF 24 Full HD,
             165Hz
           </p>
-          <img src={product.image} className="product-img" />
+          <img src={oneProduct.image} className="product-img" />
           <div className="comments-section">
             <h2 className="comments-title">Comentários e Avaliações</h2>
             <select name="" id="">
@@ -49,32 +54,36 @@ export default function ShowItem() {
             </select>
             <div className="comments">
               <div className="main-comment">
-                <div className="commentary">
-                  <IoPersonCircleOutline className="profile-icon" />
-                  <div>
-                    <p className="profile-name">{product.user}</p>
-                    <p className="rate-time">{product.created_at}</p>
-                    <div>
-                      <FaStar className="star-icon" />{" "}
-                      <FaStar className="star-icon" />{" "}
-                      <FaStar className="star-icon" />{" "}
-                      <FaStar className="star-icon" />{" "}
-                      <FaStar className="star-icon" />
-                      {product.stars}
+                {product.map((item, id) => (
+                  <>
+                    <div className="commentary">
+                      <IoPersonCircleOutline className="profile-icon" />
+                      <div>
+                        <p className="profile-name">{item.user}</p>
+                        <p className="rate-time">{item.created_at}</p>
+                        <div>
+                          <FaStar className="star-icon" />{" "}
+                          <FaStar className="star-icon" />{" "}
+                          <FaStar className="star-icon" />{" "}
+                          <FaStar className="star-icon" />{" "}
+                          <FaStar className="star-icon" />
+                          {product.stars}
+                        </div>
+                      </div>
+                      <div>
+                        <p>{item.content}</p>
+                        <div className="rate-btn-wrapper">
+                          <button className="rate-btn">
+                            <AiOutlineLike /> 42
+                          </button>
+                          <button className="rate-btn">
+                            <AiFillLike /> 2
+                          </button>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div>
-                  <p>{product.content}</p>
-                  <div className="rate-btn-wrapper">
-                    <button className="rate-btn">
-                      <AiOutlineLike /> 42
-                    </button>
-                    <button className="rate-btn">
-                      <AiFillLike /> 2
-                    </button>
-                  </div>
-                </div>
+                  </>
+                ))}
               </div>
             </div>
           </div>
@@ -85,11 +94,11 @@ export default function ShowItem() {
               <img src="/logotuf.png" alt="" />
               <p>TUF Gaming</p>
             </div>
-            <h1 className="product-name">{product.name}</h1>
+            <h1 className="product-name">{oneProduct.name}</h1>
             <FaStar className="star-icon" /> <FaStar className="star-icon" />{" "}
             <FaStar className="star-icon" /> <FaStar className="star-icon" />{" "}
             <FaStar className="star-icon" /> 42 Avaliações
-            <h1 className="price">R$ {product.price}</h1>
+            <h1 className="price">R$ {oneProduct.price}</h1>
             <p className="ship">
               <BsTruck />
               Frete Grátis{" "}

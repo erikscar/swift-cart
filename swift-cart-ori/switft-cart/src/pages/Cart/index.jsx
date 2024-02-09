@@ -5,6 +5,7 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./index.css";
+
 export default function Cart() {
   const [products, setProducts] = useState([]);
 
@@ -67,7 +68,7 @@ export default function Cart() {
           <h1>Resumo do Pedido</h1>
           <div className="order-info-wrapper subtotal">
             <p>SubTotal: </p>
-            <p>{subtotal.toFixed(2)}</p>
+            <p>R$ {subtotal.toFixed(2)}</p>
           </div>
 
           <div className="order-info-wrapper">
@@ -77,7 +78,7 @@ export default function Cart() {
 
           <div className="order-info-wrapper">
             <p>Total: </p>
-            <p>{subtotal.toFixed(2)}</p>
+            <p>R$ {subtotal.toFixed(2)}</p>
           </div>
 
           <button className="finish-order-btn">Finalizar Compra</button>

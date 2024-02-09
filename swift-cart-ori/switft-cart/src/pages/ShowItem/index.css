@@ -42,9 +42,11 @@
 }
 
 .main-comment {
-  background: linear-gradient(to right, #f0efeb, #eeee);
   padding: 2rem;
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .comments {
@@ -54,6 +56,8 @@
 }
 
 .commentary {
+  background: linear-gradient(to right, #f0efeb, #eeee);
+  padding: 2rem;
   display: flex;
   align-items: center;
   gap: 1rem;

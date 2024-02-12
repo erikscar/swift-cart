@@ -99,7 +99,7 @@ export default function ShowItem() {
                           </div>
                         </div>
                         <div>
-                          <p>{item.content}</p>
+                          <p>"{item.content}"</p>
                           <div className="rate-btn-wrapper">
                             <button className="rate-btn">
                               <AiOutlineLike /> 42

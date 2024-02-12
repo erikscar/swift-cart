@@ -18,8 +18,8 @@ export default function ShowItem() {
   const [oneProduct, setOneProducts] = useState({});
   const [order, setOrder] = useState(false);
   const { id } = useParams();
-  let counter = 0
-
+  let counter = 0;
+  let teste = 0;
   const getProduct = async () => {
     try {
       const res = await axios.get(`http://localhost:8800/${id}`);
@@ -63,8 +63,8 @@ export default function ShowItem() {
       <div className="show-item-container">
         <div className="product-img-wrapper">
           <p className="path">
-            {oneProduct.category} &gt; {oneProduct.brand} &gt; {oneProduct.name},
-            165Hz
+            {oneProduct.category} &gt; {oneProduct.brand} &gt; {oneProduct.name}
+            , 165Hz
           </p>
           <img src={oneProduct.image} className="product-img" />
           <div className="comments-section">
@@ -79,7 +79,8 @@ export default function ShowItem() {
             <div className="comments">
               <div className="main-comment">
                 {sortComment.map((item, id) => {
-                  counter++
+                  teste += item.stars;
+                  counter++;
                   return (
                     <>
                       <div className="commentary" key={id}>
@@ -90,12 +91,15 @@ export default function ShowItem() {
                             {formatDate(item.created_at)}
                           </p>
                           <div>
-                            <FaStar className="star-icon" />{" "}
-                            <FaStar className="star-icon" />{" "}
-                            <FaStar className="star-icon" />{" "}
-                            <FaStar className="star-icon" />{" "}
-                            <FaStar className="star-icon" />
-                            {product.stars}
+                            {(() => {
+                              const stars = [];
+                              for (let i = 0; i < item.stars; i++) {
+                                stars.push(
+                                  <FaStar key={i} className="star-icon" />
+                                );
+                              }
+                              return stars;
+                            })()}
                           </div>
                         </div>
                         <div>
@@ -111,7 +115,7 @@ export default function ShowItem() {
                         </div>
                       </div>
                     </>
-                  )
+                  );
                 })}
               </div>
             </div>
@@ -124,9 +128,19 @@ export default function ShowItem() {
               <p>{oneProduct.brand}</p>
             </div>
             <h1 className="product-name">{oneProduct.name}</h1>
-            <FaStar className="star-icon" /> <FaStar className="star-icon" />{" "}
-            <FaStar className="star-icon" /> <FaStar className="star-icon" />{" "}
-            <FaStar className="star-icon" /> {counter} Avaliações
+            <div>
+              {(() => {
+                const stars = [];
+                for (let i = 0; i < Math.round(teste / counter); i++) {
+                  stars.push(<FaStar key={i} className="star-icon" />);
+                }
+                return (
+                  <p>
+                    {stars} {counter} Avaliações
+                  </p>
+                );
+              })()}
+            </div>
             <h1 className="price">R$ {oneProduct.price}</h1>
             <p className="ship">
               <BsTruck />
@@ -141,7 +155,11 @@ export default function ShowItem() {
                 <IoMdHeartEmpty />
               </button>
             </div>
-            <ModalForm oneProduct={oneProduct} getProduct={getProduct} className="add-rate" />
+            <ModalForm
+              oneProduct={oneProduct}
+              getProduct={getProduct}
+              className="add-rate"
+            />
           </div>
         </div>
       </div>

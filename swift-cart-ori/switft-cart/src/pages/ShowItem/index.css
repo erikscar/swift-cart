@@ -4,25 +4,25 @@
 }
 
 .path {
-  margin-bottom: 2rem;
+  margin: 4rem 0;
 }
 
 .product-img-wrapper {
   font-size: 20px;
-  padding: 3rem;
 }
 
 .show-item-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  align-items: flex-start;
 }
 
 .product-img {
   background: linear-gradient(to right, #f0efeb, #eeee);
   padding: 4rem 15rem;
   border-radius: 1rem;
-  width: 55rem;
-  height: 30rem;
+  width: 60rem;
+  height: 41rem;
 }
 
 .comments-section {
@@ -108,7 +108,10 @@
 }
 
 .item-information {
-  margin-top: 7rem;
+  border-radius: 1rem;
+  padding: 3rem 5rem;
+  margin-top: 10rem;
+  background: linear-gradient(to right, #f0efeb, #eeee);
 }
 
 .product-name {
@@ -127,7 +130,7 @@
 
 .add-cart-btn,
 .add-rate {
-  width: 80%;
+  width: 75%;
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
   background-color: #111111;

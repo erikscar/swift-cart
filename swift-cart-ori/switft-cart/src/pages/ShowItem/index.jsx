@@ -61,7 +61,7 @@ export default function ShowItem() {
       <div className="show-item-container">
         <div className="product-img-wrapper">
           <p className="path">
-            Monitores &gt; TUF Gaming &gt; Monitor Gamer Asus TUF 24 Full HD,
+            {oneProduct.category} &gt; {oneProduct.brand} &gt; {oneProduct.name},
             165Hz
           </p>
           <img src={oneProduct.image} className="product-img" />
@@ -115,8 +115,8 @@ export default function ShowItem() {
         <div className="item-information">
           <div>
             <div className="logo">
-              <img src="/logotuf.png" alt="" />
-              <p>TUF Gaming</p>
+              <img src="/apple.png" alt="" />
+              <p>{oneProduct.brand}</p>
             </div>
             <h1 className="product-name">{oneProduct.name}</h1>
             <FaStar className="star-icon" /> <FaStar className="star-icon" />{" "}

@@ -26,3 +26,27 @@ export const getComments = (req, res) => {
     return res.status(200).json(data)
   })
 }
+
+export const postRate = (req, res) => {
+  const { user, content } = req.body
+  const productId = req.params.id
+  const q = "INSERT INTO rate (`user`, `content`) VALUES (?, ?) "
+  const q1 = "INSERT INTO products_rates (`rate_id`, `product_id`) VALUES (?, ?)"
+
+
+  db.query(q, [user, content], (err, result) => {
+    if (err) {
+      console.error("Erro", err)
+    }
+
+    const rateId = result.insertId
+
+    db.query(q1, [rateId, productId], (err) => {
+      if (err) console.error("Erro", err)
+    })
+
+
+    return res.status(200).json("Avaliação feita")
+  })
+
+}

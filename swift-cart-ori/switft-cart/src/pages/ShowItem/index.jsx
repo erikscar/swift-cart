@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import ModalForm from "../../components/ModalForm";
 
 export default function ShowItem() {
   const [product, setProduct] = useState([]);
@@ -140,10 +141,7 @@ export default function ShowItem() {
                 <IoMdHeartEmpty />
               </button>
             </div>
-            <button className="add-rate">
-              <FaStar className="star-icon" />
-              Adicione uma Avaliação{" "}
-            </button>
+            <ModalForm oneProduct={oneProduct} getProduct={getProduct} className="add-rate" />
           </div>
         </div>
       </div>

@@ -17,6 +17,7 @@ export default function ShowItem() {
   const [oneProduct, setOneProducts] = useState({});
   const [order, setOrder] = useState(false);
   const { id } = useParams();
+  let counter = 0
 
   const getProduct = async () => {
     try {
@@ -76,38 +77,41 @@ export default function ShowItem() {
             </select>
             <div className="comments">
               <div className="main-comment">
-                {sortComment.map((item, id) => (
-                  <>
-                    <div className="commentary" key={id}>
-                      <IoPersonCircleOutline className="profile-icon" />
-                      <div>
-                        <p className="profile-name">{item.user}</p>
-                        <p className="rate-time">
-                          {formatDate(item.created_at)}
-                        </p>
+                {sortComment.map((item, id) => {
+                  counter++
+                  return (
+                    <>
+                      <div className="commentary" key={id}>
+                        <IoPersonCircleOutline className="profile-icon" />
                         <div>
-                          <FaStar className="star-icon" />{" "}
-                          <FaStar className="star-icon" />{" "}
-                          <FaStar className="star-icon" />{" "}
-                          <FaStar className="star-icon" />{" "}
-                          <FaStar className="star-icon" />
-                          {product.stars}
+                          <p className="profile-name">{item.user}</p>
+                          <p className="rate-time">
+                            {formatDate(item.created_at)}
+                          </p>
+                          <div>
+                            <FaStar className="star-icon" />{" "}
+                            <FaStar className="star-icon" />{" "}
+                            <FaStar className="star-icon" />{" "}
+                            <FaStar className="star-icon" />{" "}
+                            <FaStar className="star-icon" />
+                            {product.stars}
+                          </div>
+                        </div>
+                        <div>
+                          <p>{item.content}</p>
+                          <div className="rate-btn-wrapper">
+                            <button className="rate-btn">
+                              <AiOutlineLike /> 42
+                            </button>
+                            <button className="rate-btn">
+                              <AiFillLike /> 2
+                            </button>
+                          </div>
                         </div>
                       </div>
-                      <div>
-                        <p>{item.content}</p>
-                        <div className="rate-btn-wrapper">
-                          <button className="rate-btn">
-                            <AiOutlineLike /> 42
-                          </button>
-                          <button className="rate-btn">
-                            <AiFillLike /> 2
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </>
-                ))}
+                    </>
+                  )
+                })}
               </div>
             </div>
           </div>
@@ -121,7 +125,7 @@ export default function ShowItem() {
             <h1 className="product-name">{oneProduct.name}</h1>
             <FaStar className="star-icon" /> <FaStar className="star-icon" />{" "}
             <FaStar className="star-icon" /> <FaStar className="star-icon" />{" "}
-            <FaStar className="star-icon" /> 42 Avaliações
+            <FaStar className="star-icon" /> {counter} Avaliações
             <h1 className="price">R$ {oneProduct.price}</h1>
             <p className="ship">
               <BsTruck />

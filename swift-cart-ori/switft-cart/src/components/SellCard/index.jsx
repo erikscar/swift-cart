@@ -11,7 +11,7 @@ export default function SellCard({ products }) {
         .sort((a, b) => b.stars - a.stars)
         .map((product, id) => (
           <div className="sell-card" key={id}>
-            <Link to={`/${product.id}`}>
+            <Link to={`/${product.product_id}`}>
               <img
                 src={product.image}
                 className="sell-card-img"
@@ -22,10 +22,7 @@ export default function SellCard({ products }) {
             <p className="product-desc">{product.description}</p>
             <div className="price-wrapper">
               <p className="price">R$ {product.price}</p>
-              <p>
-                <FaStar />
-                {product.stars}
-              </p>
+              <FaStar />
             </div>
             <div className="sell-btn-wrapper">
               <button className="cart-btn">

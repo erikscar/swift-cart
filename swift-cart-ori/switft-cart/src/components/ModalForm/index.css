@@ -50,7 +50,7 @@ textarea {
 }
 .save-btn {
   color: #f0efeb;
-  margin: 1rem auto;
+  margin: 3rem 0;
   padding: 0.6rem 3rem;
   background-color: #54be96;
   border-radius: 0.5rem;
@@ -63,4 +63,50 @@ textarea {
 
 .save-btn:hover {
   transform: scale(1.1);
+}
+
+.rating{
+  position: absolute;
+  top: 77%;
+  left: 50%;
+  transform: translate(-50%,-50%) rotateY(180deg);
+  display: flex;
+}
+
+.rating input{
+  display: none;
+}
+
+.rating label{
+    display: block;
+    cursor: pointer;
+    width: 35px;
+    margin: 0 .5rem;
+}
+
+.rating label:before{
+  content: '\f005';
+  font-family: fontAwesome;
+  position: relative;
+  display: block;
+  font-size: 35px;
+  color: #0e1316;
+}
+
+.rating label:after{
+  content: '\f005';
+  font-family: fontAwesome;
+  position: absolute;
+  display: block;
+  font-size: 35px;
+  color: #ffff00;
+  top: 0;
+  opacity: 0;
+  transition: .5;
+  text-shadow: 0 4px 5px rgba(0, 0, 0, .5);
+}
+.rating label:hover:after,
+.rating label:hover ~ label:after,
+.rating input:checked ~ label:after{
+  opacity: 1;
 }

@@ -10,38 +10,36 @@ export const getProducts = (_, res) => {
   })
 }
 
+export const getOneProduct = (req, res) => {
+  const q = "SELECT * FROM products WHERE product_id = ?"
+  const productId = req.params.id
+
+  db.query(q, [productId], (err, data) => {
+    if (err) return res.json(err)
+
+    return res.status(200).json(data[0])
+  } )
+}
+
+export const postComment = (req, res) => {
+  const q = "INSERT INTO comments(`username`, `content`, `stars`, `product_id`) VALUES (?, ?, ?, ?)"
+  const { username, content, stars} = req.body
+  const productId = req.params.id
+
+  db.query(q, [username, content, stars, productId], (err) => {
+    if (err) return res.json(err)
+
+    return res.status(200).json("Avaliação Criada com Sucesso")
+  } )
+}
+
 export const getComments = (req, res) => {
-  const id = req.params.id
+  const q = "SELECT * FROM comments WHERE product_id = ?"
+  const productId = req.params.id
 
-  const q = a;
-
-  db.query(q, [id], (err, data) => {
+  db.query(q, [productId], (err, data) => {
     if (err) return res.json(err)
 
     return res.status(200).json(data)
   })
-}
-
-export const postRate = (req, res) => {
-  const { user, content, stars } = req.body
-  const productId = req.params.id
-  const q = "INSERT INTO rate (`user`, `content`, `stars`) VALUES (?, ?, ?) "
-  const q1 = "INSERT INTO products_rates (`rate_id`, `product_id`) VALUES (?, ?)"
-
-
-  db.query(q, [user, content, stars], (err, result) => {
-    if (err) {
-      console.error("Erro", err)
-    }
-
-    const rateId = result.insertId
-
-    db.query(q1, [rateId, productId], (err) => {
-      if (err) console.error("Erro", err)
-    })
-
-
-    return res.status(200).json("Avaliação feita")
-  })
-
 }

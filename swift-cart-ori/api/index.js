@@ -8,5 +8,5 @@ app.use(express.json())
 app.use(cors())
 
 app.use('/', productsRoutes)
-app.use(':id', productsRoutes)
+app.use('/:id', productsRoutes)
 app.listen(8800)

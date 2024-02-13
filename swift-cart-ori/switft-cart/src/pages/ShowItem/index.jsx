@@ -15,38 +15,46 @@ import ModalForm from "../../components/ModalForm";
 
 export default function ShowItem() {
   const [product, setProduct] = useState([]);
-  const [oneProduct, setOneProducts] = useState({});
+  const [comments, setComments] = useState([]);
   const [order, setOrder] = useState(false);
   const { id } = useParams();
   let counter = 0;
   let teste = 0;
+
   const getProduct = async () => {
     try {
       const res = await axios.get(`http://localhost:8800/${id}`);
       setProduct(res.data);
-      setOneProducts(res.data[0]);
     } catch (err) {
       console.log(err);
     }
   };
-
+  const getComments = async () => {
+    try {
+      const res = await axios.get(`http://localhost:8800/${id}/comments`);
+      setComments(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   useEffect(
     () => {
       getProduct();
+      getComments();
     },
     [setProduct],
-    [setOneProducts]
+    [getComments]
   );
 
-  let sortComment = [...product];
+  let sortComment = [...comments];
   const switchOrder = () => {
     if (order) {
-      sortComment = product.sort(
+      sortComment = comments.sort(
         (a, b) => new Date(a.created_at) - new Date(b.created_at)
       );
       setOrder(false);
     } else {
-      sortComment = product.sort(
+      sortComment = comments.sort(
         (a, b) => new Date(b.created_at) - new Date(a.created_at)
       );
       setOrder(true);
@@ -63,10 +71,9 @@ export default function ShowItem() {
       <div className="show-item-container">
         <div className="product-img-wrapper">
           <p className="path">
-            {oneProduct.category} &gt; {oneProduct.brand} &gt; {oneProduct.name}
-            , 165Hz
+            {product.category} &gt; {product.brand} &gt; {product.name} , 165Hz
           </p>
-          <img src={oneProduct.image} className="product-img" />
+          <img src={product.image} className="product-img" />
           <div className="comments-section">
             <h2 className="comments-title">Comentários e Avaliações</h2>
             <select name="" id="" onChange={switchOrder}>
@@ -86,7 +93,7 @@ export default function ShowItem() {
                       <div className="commentary" key={id}>
                         <IoPersonCircleOutline className="profile-icon" />
                         <div>
-                          <p className="profile-name">{item.user}</p>
+                          <p className="profile-name">{item.username}</p>
                           <p className="rate-time">
                             {formatDate(item.created_at)}
                           </p>
@@ -125,9 +132,9 @@ export default function ShowItem() {
           <div>
             <div className="logo">
               <img src="/apple.png" alt="" />
-              <p>{oneProduct.brand}</p>
+              <p>{product.brand}</p>
             </div>
-            <h1 className="product-name">{oneProduct.name}</h1>
+            <h1 className="product-name">{product.name}</h1>
             <div>
               {(() => {
                 const stars = [];
@@ -141,7 +148,7 @@ export default function ShowItem() {
                 );
               })()}
             </div>
-            <h1 className="price">R$ {oneProduct.price}</h1>
+            <h1 className="price">R$ {product.price}</h1>
             <p className="ship">
               <BsTruck />
               Frete Grátis{" "}
@@ -156,8 +163,9 @@ export default function ShowItem() {
               </button>
             </div>
             <ModalForm
-              oneProduct={oneProduct}
               getProduct={getProduct}
+              getComments={getComments}
+              product={product}
               className="add-rate"
             />
           </div>

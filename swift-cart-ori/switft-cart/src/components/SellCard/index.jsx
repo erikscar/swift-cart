@@ -5,10 +5,6 @@ import { GiMoneyStack } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
 export default function SellCard({ products }) {
-  // const popularProducts = [...products];
-
-  // popularProducts.sort((a, b) => b.stars - a.stars);
-
   return (
     <>
       {products

@@ -11,7 +11,7 @@ export default function Cart() {
 
   const getProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:8800/");
+      const res = await axios.get("http://localhost:8800/cart");
       setProducts(res.data);
     } catch (error) {
       console.log(error);
@@ -22,6 +22,17 @@ export default function Cart() {
     getProducts();
   }, [setProducts]);
 
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:8800/${id}/cart`).then(() => {
+        const updateItems = products.filter(
+          (product) => product.product_id !== id
+        );
+
+        setProducts(updateItems);
+      });
+    } catch (error) {}
+  };
   const subtotal = products.reduce((acum, product) => acum + product.price, 0);
 
   return (
@@ -47,7 +58,9 @@ export default function Cart() {
                   <div>
                     <p>{product.name}</p>
                     <div className="icon-wrapper">
-                      <FaTrash />
+                      <FaTrash
+                        onClick={() => handleDelete(product.product_id)}
+                      />
                       <p className="is-grey">Remover Item</p>
                     </div>
                     <div className="icon-wrapper">

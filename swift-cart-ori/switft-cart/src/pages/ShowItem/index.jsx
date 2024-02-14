@@ -17,6 +17,8 @@ export default function ShowItem() {
   const [product, setProduct] = useState([]);
   const [comments, setComments] = useState([]);
   const [order, setOrder] = useState(false);
+  const [click, setClick] = useState(false);
+
   const { id } = useParams();
   let counter = 0;
   let teste = 0;
@@ -65,6 +67,16 @@ export default function ShowItem() {
     return new Date(date).toLocaleString();
   };
 
+  const addToCart = async () => {
+    try {
+      await axios.post(`http://localhost:8800/${id}/cart`, {
+        product_id: id,
+      });
+      setClick(true);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <>
       <Header />
@@ -154,10 +166,14 @@ export default function ShowItem() {
               Frete Grátis{" "}
             </p>
             <div className="function-btns">
-              <button className="add-cart-btn">
-                <BsCart4 />
-                Adicionar ao Carrinho
-              </button>
+              {click ? (
+                <p>Produto Adicionado Ao Carrinho!</p>
+              ) : (
+                <button onClick={addToCart} className="add-cart-btn">
+                  <BsCart4 />
+                  Adicionar ao Carrinho
+                </button>
+              )}
               <button className="fav-btn">
                 <IoMdHeartEmpty />
               </button>

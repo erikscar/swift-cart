@@ -15,6 +15,36 @@
     color: #f93f4d;
 }
 
-.fav-table {
-    margin: 2rem auto;
-}
+  table {
+    width: 100%;
+    margin: 3rem auto;
+    font-size: 20px;
+    border-radius: 1rem;
+  }
+  
+  th {
+    font-size: 24px;
+  }
+  
+  tr {
+    text-align: center;
+    height: 5rem;
+  }
+  
+  tbody img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 1rem;
+  }
+  
+  .product-image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .add-btn {
+    
+  }
+  

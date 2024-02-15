@@ -9,14 +9,14 @@
 
 .sell-card img {
   margin: 0 auto;
-  width: 23rem;
+  width: 20rem;
   height: 13rem;
-  max-width: 23rem;
+  max-width: 20rem;
   border-radius: 1rem;
 }
 
 .sell-card h1 {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .product-desc {

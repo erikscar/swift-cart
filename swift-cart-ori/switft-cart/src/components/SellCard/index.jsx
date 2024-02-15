@@ -3,8 +3,19 @@ import { FaStar } from "react-icons/fa";
 import { BsCart4 } from "react-icons/bs";
 import { GiMoneyStack } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
 
 export default function SellCard({ products }) {
+  const addToCart = async (productId) => {
+    try {
+      await axios.post(`http://localhost:8800/${productId}/cart`, {
+        product_id: productId,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <>
       {products
@@ -25,7 +36,10 @@ export default function SellCard({ products }) {
               <FaStar />
             </div>
             <div className="sell-btn-wrapper">
-              <button className="cart-btn">
+              <button
+                onClick={() => addToCart(product.product_id)}
+                className="cart-btn"
+              >
                 <BsCart4 />
                 Carrinho
               </button>

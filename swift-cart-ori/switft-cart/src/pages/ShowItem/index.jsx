@@ -12,7 +12,6 @@ import { useParams } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import ModalForm from "../../components/ModalForm";
-import { Toast } from "react-toastify/dist/components";
 
 export default function ShowItem() {
   const [product, setProduct] = useState([]);
@@ -74,7 +73,6 @@ export default function ShowItem() {
         product_id: id,
       });
       setClick(true);
-      Toast.sucess()
     } catch (error) {
       console.error(error);
     }

@@ -8,6 +8,7 @@
 .main-title  {
     font-size:  60px;
     font-weight: 100;
+    margin: 2rem 0;
 }
 
 .heart-icon {
@@ -16,19 +17,29 @@
 }
 
   table {
-    width: 100%;
-    margin: 3rem auto;
-    font-size: 20px;
+    width: 90%;
+    margin: 2rem auto;
+    font-size: 22px;
     border-radius: 1rem;
+    border-collapse: collapse;
+    padding: 3rem;
   }
   
   th {
-    font-size: 24px;
+    font-size: 28px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 3rem 0;
   }
   
   tr {
     text-align: center;
-    height: 5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4) ;
+    padding: 1rem;
+  }
+
+  td {
+    margin: 3rem 0;
+    padding: 1rem;
   }
   
   tbody img {
@@ -44,7 +55,20 @@
     gap: 1rem;
   }
 
-  .add-btn {
-    
+  .add-btn,
+  .rmv-fav-btn {
+    border: 0;
+    margin: 0 1rem;
+    padding: .75rem 1.5rem;
+    font-size: 20px;
+    border-radius: 1rem;
   }
   
+  .add-btn {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .rmv-fav-btn {
+    background-color: #eeee;
+  }

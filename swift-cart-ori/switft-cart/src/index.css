@@ -8,6 +8,13 @@
 body {
   padding: 2rem;
 }
+button {
+  transition: 1s;
+  cursor: pointer;
+}
+button:hover {
+  transform: scale(1.1);
+}
 
 .best-offer-card {
   background: linear-gradient(to right, #f0efeb, #eeee);

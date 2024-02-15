@@ -12,7 +12,7 @@ export default function WishList() {
         LISTA DE FAVORITOS <FaHeart className="heart-icon" />
       </h1>
 
-      <table cellSpacing="50">
+      <table cellSpacing="80">
         <thead>
           <tr>
             <th>Produto</th>
@@ -22,16 +22,36 @@ export default function WishList() {
           </tr>
         </thead>
         <tbody>
+          <tr className="list-items">
+            <td className="product-image-wrapper">
+              <img src="/apple.png" />
+              <p>Iphone</p>
+            </td>
+            <td>Disponível</td>
+            <td>R$440.04</td>
+            <td>
+              <button className="add-btn">
+                <BsCart4 /> Adicionar ao Carrinho{" "}
+              </button>
+              <button className="rmv-fav-btn">
+                <FaTrash /> Remover dos Favoritos
+              </button>
+            </td>
+          </tr>
           <tr>
             <td className="product-image-wrapper">
               <img src="/apple.png" />
               <p>Iphone</p>
             </td>
-            <td>TUF Gaming</td>
-            <td>1</td>
+            <td>Disponível</td>
+            <td>R$440.04</td>
             <td>
-              <button className="add-btn">Adicionar ao Carrinho </button>
-              <button className="rmv-fav-btn">Remover dos Favoritos</button>
+              <button className="add-btn">
+                <BsCart4 /> Adicionar ao Carrinho{" "}
+              </button>
+              <button className="rmv-fav-btn">
+                <FaTrash /> Remover dos Favoritos
+              </button>
             </td>
           </tr>
         </tbody>

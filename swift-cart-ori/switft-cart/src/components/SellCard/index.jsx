@@ -3,8 +3,9 @@ import { FaStar } from "react-icons/fa";
 import { BsCart4 } from "react-icons/bs";
 import { GiMoneyStack } from "react-icons/gi";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import axios from "axios";
+import { Slide, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function SellCard({ products }) {
   const addToCart = async (productId) => {
@@ -12,12 +13,22 @@ export default function SellCard({ products }) {
       await axios.post(`http://localhost:8800/${productId}/cart`, {
         product_id: productId,
       });
+      toast.success("Produto Adicionado ao Carrinho!!!", {
+        className: "toast",
+      });
     } catch (error) {
-      console.error(error);
+      toast.error(error.message);
     }
   };
   return (
     <>
+      <ToastContainer
+        transition={Slide}
+        theme="colored"
+        position="bottom-left"
+        autoClose={2500}
+        closeOnClick={true}
+      />
       {products
         .sort((a, b) => b.stars - a.stars)
         .map((product, id) => (

@@ -61,7 +61,7 @@ export default function SellCard({ products }) {
                   }
                   return (
                     <div className="stars-wrapper">
-                      {isNaN(rate) ? "0.0" : rate}  {stars}
+                      {isNaN(rate) ? "0.0" : rate.toFixed(2)}  {stars}
                     </div>
                   );
                 })()}

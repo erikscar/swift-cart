@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { Slide, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FaRegStar } from "react-icons/fa6";
 
 export default function SellCard({ products }) {
   const addToCart = async (productId) => {
@@ -47,10 +48,24 @@ export default function SellCard({ products }) {
               <p className="product-desc">{product.description}</p>
               <div className="price-wrapper">
                 <p>R$ {product.price}</p>
-                <div className="stars-wrapper">
-                  {isNaN(rate) ? "" : rate}
-                  <FaStar />
-                </div>
+                {(() => {
+                  const stars = [];
+                  const filledStars = Math.round(rate);
+                  const totalStars = 5;
+                  for (let i = 0; i < totalStars; i++) {
+                    if (i < filledStars) {
+                      stars.push(<FaStar className="star-icon" key={i} />);
+                    } else {
+                      stars.push(<FaRegStar className="star-icon" key={i} />);
+                    }
+                  }
+                  return (
+                    <div className="stars-wrapper">
+                      {isNaN(rate) ? "0.0" : rate}  {stars}
+                    </div>
+                  );
+                })()}
+
               </div>
               <div className="sell-btn-wrapper">
                 <button

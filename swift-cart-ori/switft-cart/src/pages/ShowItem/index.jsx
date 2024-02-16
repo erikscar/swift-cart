@@ -1,4 +1,4 @@
-import { FaStar } from "react-icons/fa6";
+import { FaRegStar, FaStar } from "react-icons/fa6";
 import { BsCart4, BsTruck } from "react-icons/bs";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { AiOutlineLike, AiFillLike } from "react-icons/ai";
@@ -20,8 +20,6 @@ export default function ShowItem() {
   const { id } = useParams();
   let counter = 0;
   let allStars = 0;
-
-  const total = allStars / counter
 
   const getProduct = async () => {
     try {
@@ -112,10 +110,14 @@ export default function ShowItem() {
                           <div>
                             {(() => {
                               const stars = [];
-                              for (let i = 0; i < item.stars; i++) {
-                                stars.push(
-                                  <FaStar key={i} className="star-icon" />
-                                );
+                              const filledStars = Math.round(item.stars);
+                              const totalStars = 5;
+                              for (let i = 0; i < totalStars; i++) {
+                                if (i < filledStars) {
+                                  stars.push(<FaStar className="star-icon" key={i} />);
+                                } else {
+                                  stars.push(<FaRegStar className="star-icon" key={i} />);
+                                }
                               }
                               return stars;
                             })()}
@@ -135,7 +137,6 @@ export default function ShowItem() {
                       </div>
                     </>
                   );
-
                 })}
               </div>
             </div>
@@ -151,8 +152,14 @@ export default function ShowItem() {
             <div>
               {(() => {
                 const stars = [];
-                for (let i = 0; i < Math.round(allStars / counter); i++) {
-                  stars.push(<FaStar key={i} className="star-icon" />);
+                const filledStars = Math.round(allStars / counter);
+                const totalStars = 5;
+                for (let i = 0; i < totalStars; i++) {
+                  if (i < filledStars) {
+                    stars.push(<FaStar className="star-icon" key={i} />);
+                  } else {
+                    stars.push(<FaRegStar className="star-icon" key={i} />);
+                  }
                 }
                 return (
                   <p>

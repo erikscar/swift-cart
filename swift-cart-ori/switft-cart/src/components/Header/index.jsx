@@ -15,7 +15,6 @@ export default function Header() {
           <h1>SwiftCart</h1>
         </Link>
       </div>
-      <ModalForm />
       <div className="search-input-wrapper">
         <input type="text" name="" id="" placeholder="Encontre Produtos..." />
         <Link to="/category" className="search-icon">

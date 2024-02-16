@@ -9,16 +9,17 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function SellCard({ products }) {
   const addToCart = async (productId) => {
-    try {
-      await axios.post(`http://localhost:8800/${productId}/cart`, {
-        product_id: productId,
-      });
-      toast.success("Produto Adicionado ao Carrinho!!!", {
+
+    await axios.post(`http://localhost:8800/${productId}/cart`, {
+      product_id: productId,
+
+    })
+      .then(({ data }) => toast.success(data, {
         className: "toast",
-      });
-    } catch (error) {
-      toast.error(error.message);
-    }
+      }))
+      .catch(({ data }) => toast.error(data, {
+        className: "toast",
+      }))
   };
   return (
     <>

@@ -18,19 +18,19 @@ export const getOneProduct = (req, res) => {
     if (err) return res.json(err)
 
     return res.status(200).json(data[0])
-  } )
+  })
 }
 
 export const postComment = (req, res) => {
   const q = "INSERT INTO comments(`username`, `content`, `stars`, `product_id`) VALUES (?, ?, ?, ?)"
-  const { username, content, stars} = req.body
+  const { username, content, stars } = req.body
   const productId = req.params.id
 
   db.query(q, [username, content, stars, productId], (err) => {
     if (err) return res.json(err)
 
     return res.status(200).json("Avaliação Criada com Sucesso")
-  } )
+  })
 }
 
 export const getComments = (req, res) => {
@@ -48,8 +48,8 @@ export const postCart = (req, res) => {
   const q = "INSERT INTO cart (`product_id`) VALUES (?)"
   const productId = req.params.id
 
-  db.query(q, [productId] , (err) => {
-    if (err) return res.json(err)
+  db.query(q, [productId], (err) => {
+    if (err) return res.json({ error: "Erro ao Adicionar o Produto ao Carrinho", details: err })
 
     return res.status(200).json("Produto Adicionado ao Carrinho com Sucesso")
   })

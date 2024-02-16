@@ -32,36 +32,42 @@ export default function SellCard({ products }) {
       />
       {products
         .sort((a, b) => b.stars - a.stars)
-        .map((product, id) => (
-          <div className="sell-card" key={id}>
-            <Link to={`/${product.product_id}`}>
-              <img
-                src={product.image}
-                className="sell-card-img"
-                alt="Product"
-              />
-            </Link>
-            <h1>{product.name}</h1>
-            <p className="product-desc">{product.description}</p>
-            <div className="price-wrapper">
-              <p className="price">R$ {product.price}</p>
-              <FaStar />
+        .map((product, id) => {
+          const rate = product.total_stars / product.total_comments
+          return (
+            <div className="sell-card" key={id}>
+              <Link to={`/${product.product_id}`}>
+                <img
+                  src={product.image}
+                  className="sell-card-img"
+                  alt="Product"
+                />
+              </Link>
+              <h1>{product.name}</h1>
+              <p className="product-desc">{product.description}</p>
+              <div className="price-wrapper">
+                <p>R$ {product.price}</p>
+                <div className="stars-wrapper">
+                  {isNaN(rate) ? "" : rate}
+                  <FaStar />
+                </div>
+              </div>
+              <div className="sell-btn-wrapper">
+                <button
+                  onClick={() => addToCart(product.product_id)}
+                  className="cart-btn"
+                >
+                  <BsCart4 />
+                  Carrinho
+                </button>
+                <button className="buy-btn">
+                  <GiMoneyStack />
+                  Comprar
+                </button>
+              </div>
             </div>
-            <div className="sell-btn-wrapper">
-              <button
-                onClick={() => addToCart(product.product_id)}
-                className="cart-btn"
-              >
-                <BsCart4 />
-                Carrinho
-              </button>
-              <button className="buy-btn">
-                <GiMoneyStack />
-                Comprar
-              </button>
-            </div>
-          </div>
-        ))}
+          )
+        })}
     </>
   );
 }

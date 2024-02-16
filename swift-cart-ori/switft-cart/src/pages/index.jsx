@@ -25,10 +25,14 @@ export default function Index() {
     getProducts();
   }, [setProducts]);
 
+  const teste = () => {
+    console.log(products.length)
+  }
   return (
     <>
       <Header />
       <DepartmentsNav />
+      <button onClick={teste}>TESTANDO</button>
       <div className="best-offer-card">
         <div className="best-offer-desc">
           <span>Melhor Oferta</span>

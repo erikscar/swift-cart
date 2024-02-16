@@ -27,8 +27,15 @@
 .price-wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 18px;
   font-weight: bold;
+}
+
+.stars-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .sell-btn-wrapper {
@@ -54,4 +61,3 @@
   color: #fff;
   border: 2px solid #fff;
 }
-

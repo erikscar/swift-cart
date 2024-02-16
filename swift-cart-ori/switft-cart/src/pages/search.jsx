@@ -1,10 +1,9 @@
 import DepartmentsNav from "../components/DepartmentsNav";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { FaRegStar } from "react-icons/fa6";
-import { FaStar } from "react-icons/fa6";
-import { MdAttachMoney } from "react-icons/md";
 import SellCard from "../components/SellCard";
+import { FaRegStar, FaStar } from "react-icons/fa6";
+import { MdAttachMoney } from "react-icons/md";
 import { useState, useEffect } from "react";
 import axios from "axios";
 

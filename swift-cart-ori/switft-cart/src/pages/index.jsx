@@ -1,12 +1,11 @@
 import DepartmentsNav from "../components/DepartmentsNav";
 import Header from "../components/Header";
-import { MdAttachMoney } from "react-icons/md";
-import { FaPercent } from "react-icons/fa6";
-import { FiTruck } from "react-icons/fi";
-import { FaBarcode } from "react-icons/fa6";
 import Card from "../components/Card";
 import SellCard from "../components/SellCard";
 import Footer from "../components/Footer";
+import { MdAttachMoney } from "react-icons/md";
+import { FaPercent, FaBarcode } from "react-icons/fa6";
+import { FiTruck } from "react-icons/fi";
 import axios from "axios";
 import { useEffect, useState } from "react";
 

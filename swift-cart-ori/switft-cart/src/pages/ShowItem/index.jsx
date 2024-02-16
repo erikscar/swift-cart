@@ -1,9 +1,7 @@
 import { FaStar } from "react-icons/fa6";
-import { BsCart4 } from "react-icons/bs";
-import { BsTruck } from "react-icons/bs";
+import { BsCart4, BsTruck } from "react-icons/bs";
 import { IoMdHeartEmpty } from "react-icons/io";
-import { AiOutlineLike } from "react-icons/ai";
-import { AiFillLike } from "react-icons/ai";
+import { AiOutlineLike, AiFillLike } from "react-icons/ai";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import axios from "axios";
 import "./index.css";
@@ -21,7 +19,9 @@ export default function ShowItem() {
 
   const { id } = useParams();
   let counter = 0;
-  let teste = 0;
+  let allStars = 0;
+
+  const total = allStars / counter
 
   const getProduct = async () => {
     try {
@@ -98,7 +98,7 @@ export default function ShowItem() {
             <div className="comments">
               <div className="main-comment">
                 {sortComment.map((item, id) => {
-                  teste += item.stars;
+                  allStars += item.stars;
                   counter++;
                   return (
                     <>
@@ -135,6 +135,7 @@ export default function ShowItem() {
                       </div>
                     </>
                   );
+
                 })}
               </div>
             </div>
@@ -150,7 +151,7 @@ export default function ShowItem() {
             <div>
               {(() => {
                 const stars = [];
-                for (let i = 0; i < Math.round(teste / counter); i++) {
+                for (let i = 0; i < Math.round(allStars / counter); i++) {
                   stars.push(<FaStar key={i} className="star-icon" />);
                 }
                 return (

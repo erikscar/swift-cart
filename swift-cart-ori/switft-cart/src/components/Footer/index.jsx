@@ -19,8 +19,8 @@ export default function Footer() {
       <div class="footer-infos">
         <h2>Links</h2>
         <a href="" class="footer-links">Minha Conta</a>
-        <a href="" class="footer-links">Lista de Desejos</a>
-        <a href="" class="footer-links">Meus Pedidos</a>
+        <a href="/wishlist" class="footer-links">Lista de Desejos</a>
+        <a href="/cart" class="footer-links">Meus Pedidos</a>
       </div>
       <div class="footer-infos">
         <h2>Contato</h2>

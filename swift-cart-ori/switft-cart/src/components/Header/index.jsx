@@ -1,9 +1,7 @@
 import "./index.css";
-import { IoSearchOutline } from "react-icons/io5";
-import { IoPersonSharp } from "react-icons/io5";
+import { IoSearchOutline, IoPersonSharp } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { GiShoppingCart } from "react-icons/gi";
-import ModalForm from "../ModalForm";
 import { Link } from "react-router-dom";
 
 export default function Header() {

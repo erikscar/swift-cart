@@ -41,7 +41,7 @@ export default function Cart() {
 
       {products.length === 0 ? (
         <div className="blank-cart">
-          <h1>Parece que o seu carrinho está um pouco solitário</h1>
+          <h1>Parece que o seu carrinho está um pouco solitário.</h1>
           <p>
             Vamos explorar juntos e encontrar algo especial para preencher esse
             espaço vazio?
@@ -54,41 +54,43 @@ export default function Cart() {
         <>
           <h1 className="cart-title">Produtos do Carrinho</h1>
           <div className="cart-container">
-            <table cellSpacing="50">
-              <thead>
-                <tr>
-                  <th>Produto</th>
-                  <th>Marca</th>
-                  <th className="quantity">Quantidade</th>
-                  <th>Preço</th>
-                </tr>
-              </thead>
-              <tbody>
-                {products.map((product, id) => (
-                  <tr key={id}>
-                    <td className="product-image-wrapper">
-                      <img src={product.image} />
-                      <div>
-                        <p>{product.name}</p>
-                        <div className="icon-wrapper">
-                          <FaTrash
-                            onClick={() => handleDelete(product.product_id)}
-                          />
-                          <p className="is-grey">Remover Item</p>
-                        </div>
-                        <div className="icon-wrapper">
-                          <IoMdHeartEmpty className="is-red" />
-                          <p className="is-grey">Adicionar aos Favoritos</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td>TUF Gaming</td>
-                    <td className="quantity">1</td>
-                    <td>R$ {product.price}</td>
+            <div className="cart-table-container">
+              <table cellSpacing="50">
+                <thead>
+                  <tr>
+                    <th>Produto</th>
+                    <th>Marca</th>
+                    <th className="quantity">Quantidade</th>
+                    <th>Preço</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {products.map((product, id) => (
+                    <tr key={id}>
+                      <td className="product-image-wrapper">
+                        <img src={product.image} />
+                        <div>
+                          <p>{product.name}</p>
+                          <div className="icon-wrapper">
+                            <FaTrash
+                              onClick={() => handleDelete(product.product_id)}
+                            />
+                            <p className="is-grey">Remover Item</p>
+                          </div>
+                          <div className="icon-wrapper">
+                            <IoMdHeartEmpty className="is-red" />
+                            <p className="is-grey">Adicionar aos Favoritos</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>TUF Gaming</td>
+                      <td className="quantity">1</td>
+                      <td>R$ {product.price}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
 
             <div className="order-container">
               <h1>Resumo do Pedido</h1>

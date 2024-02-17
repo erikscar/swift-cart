@@ -22,15 +22,15 @@ export default function Header() {
 
       <div className="nav-item">
         <IoPersonSharp className="nav-icon" />
-        <div>
+        <Link to="/" className="teste">
           <p className="is-grey">Login</p>
           <p>Minha Conta</p>
-        </div>
+        </Link>
       </div>
 
       <div className="nav-item">
         <IoMdHeartEmpty className="nav-icon" />
-        <Link to="/wishlist">
+        <Link to="/wishlist" className="teste">
           <p className="is-grey">Favoritos</p>
           <p>Lista de Desejos</p>
         </Link>

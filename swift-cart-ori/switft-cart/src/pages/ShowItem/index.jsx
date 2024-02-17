@@ -75,6 +75,16 @@ export default function ShowItem() {
       console.error(error);
     }
   };
+
+  const addToWishList = async () => {
+    try {
+      await axios.post(`http://localhost:8800/${id}/wishlist`, {
+        product_id: id,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <Header />
@@ -114,9 +124,13 @@ export default function ShowItem() {
                               const totalStars = 5;
                               for (let i = 0; i < totalStars; i++) {
                                 if (i < filledStars) {
-                                  stars.push(<FaStar className="star-icon" key={i} />);
+                                  stars.push(
+                                    <FaStar className="star-icon" key={i} />
+                                  );
                                 } else {
-                                  stars.push(<FaRegStar className="star-icon" key={i} />);
+                                  stars.push(
+                                    <FaRegStar className="star-icon" key={i} />
+                                  );
                                 }
                               }
                               return stars;
@@ -182,7 +196,7 @@ export default function ShowItem() {
                   Adicionar ao Carrinho
                 </button>
               )}
-              <button className="fav-btn">
+              <button onClick={addToWishList} className="fav-btn">
                 <IoMdHeartEmpty />
               </button>
             </div>

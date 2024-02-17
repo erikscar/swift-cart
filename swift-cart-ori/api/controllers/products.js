@@ -97,6 +97,17 @@ export const getWishList = (_, res) => {
   } )
 }
 
+export const postWishList = (req, res) => {
+  const q = "INSERT INTO wishlist(`product_id`) VALUES (?)"
+  const productId = req.params.id
+
+  db.query(q, [productId], (err) => {
+    if (err) return res.json(err)
+
+    return res.status(200).json("Produto Adicionado aos Favoritos")
+  } )
+}
+
 export const deleteWishList = (req, res) => {
   const q = "DELETE FROM wishlist WHERE product_id = ? LIMIT 1"
   const productId = req.params.id

@@ -98,13 +98,13 @@ export const getWishList = (_, res) => {
 }
 
 export const deleteWishList = (req, res) => {
-  const q = "DELETE * FROM wishlist WHERE product_id = ? LIMIT 1"
+  const q = "DELETE FROM wishlist WHERE product_id = ? LIMIT 1"
   const productId = req.params.id
 
-  db.query(q, [productId], (err, data) => {
+  db.query(q, [productId], (err) => {
     if (err) return res.json(err)
     
 
-    return res.status(200).json(data)
+    return res.status(200).json("Produto Excluido")
   })
 }

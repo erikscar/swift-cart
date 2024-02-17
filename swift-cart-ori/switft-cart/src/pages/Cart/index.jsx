@@ -27,13 +27,11 @@ export default function Cart() {
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:8800/${id}/cart`).then(() => {
-        const updateItems = products.filter(
-          (product) => product.product_id !== id
-        );
-
-        setProducts(updateItems);
+        getProducts()
       });
-    } catch (error) {}
+    } catch (error) {
+
+    }
   };
   const subtotal = products.reduce((acum, product) => acum + product.price, 0);
 

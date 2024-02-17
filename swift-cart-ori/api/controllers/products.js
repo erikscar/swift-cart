@@ -77,7 +77,7 @@ export const getCart = (_, res) => {
 };
 
 export const deleteItem = (req, res) => {
-  const q = "DELETE FROM cart WHERE product_id = ?"
+  const q = "DELETE FROM cart WHERE product_id = ? LIMIT 1"
   const productId = req.params.id
 
   db.query(q, [productId], (err) => {

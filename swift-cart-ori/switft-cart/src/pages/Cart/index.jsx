@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./index.css";
 import { Link } from "react-router-dom";
+import { toast, ToastContainer, Slide } from "react-toastify";
 
 export default function Cart() {
   const [products, setProducts] = useState([]);
@@ -25,20 +26,23 @@ export default function Cart() {
   }, [setProducts]);
 
   const handleDelete = async (id) => {
-    try {
-      await axios.delete(`http://localhost:8800/${id}/cart`).then(() => {
-        getProducts()
-      });
-    } catch (error) {
-
-    }
+    await axios.delete(`http://localhost:8800/${id}/cart`)
+      .then(({ data }) => { toast.warning(data, { className: "toast" }) })
+      .catch(({ err }) => { toast.error(err, { className: "toast" }) })
+      .finally(getProducts())
   };
   const subtotal = products.reduce((acum, product) => acum + product.price, 0);
 
   return (
     <>
+      <ToastContainer
+        transition={Slide}
+        theme="colored"
+        position="bottom-left"
+        autoClose={2500}
+        closeOnClick={true}
+      />
       <Header />
-
       {products.length === 0 ? (
         <div className="blank-cart">
           <h1>Parece que o seu carrinho está um pouco solitário.</h1>

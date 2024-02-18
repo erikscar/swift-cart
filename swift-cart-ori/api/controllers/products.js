@@ -40,7 +40,7 @@ export const postComment = (req, res) => {
   db.query(q, [username, content, stars, productId], (err) => {
     if (err) return res.json(err)
 
-    return res.status(200).json("Avaliação Criada com Sucesso")
+    return res.status(200).json("Avaliação Criada!")
   })
 }
 
@@ -62,7 +62,7 @@ export const postCart = (req, res) => {
   db.query(q, [productId], (err) => {
     if (err) return res.json({ error: "Erro ao Adicionar o Produto ao Carrinho", details: err })
 
-    return res.status(200).json("Produto Adicionado ao Carrinho com Sucesso")
+    return res.status(200).json("Produto Adicionado ao Carrinho!")
   })
 }
 
@@ -94,7 +94,7 @@ export const getWishList = (_, res) => {
     if (err) return res.json(err)
 
     return res.status(200).json(data)
-  } )
+  })
 }
 
 export const postWishList = (req, res) => {
@@ -104,8 +104,8 @@ export const postWishList = (req, res) => {
   db.query(q, [productId], (err) => {
     if (err) return res.json(err)
 
-    return res.status(200).json("Produto Adicionado aos Favoritos")
-  } )
+    return res.status(200).json("Produto Adicionado aos Favoritos!")
+  })
 }
 
 export const deleteWishList = (req, res) => {
@@ -114,7 +114,7 @@ export const deleteWishList = (req, res) => {
 
   db.query(q, [productId], (err) => {
     if (err) return res.json(err)
-    
+
 
     return res.status(200).json("Produto Excluido")
   })

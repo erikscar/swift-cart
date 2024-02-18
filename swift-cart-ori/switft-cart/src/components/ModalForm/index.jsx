@@ -3,6 +3,7 @@ import "./index.css";
 import { FaStar } from "react-icons/fa6";
 import { TiDeleteOutline } from "react-icons/ti";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function ModalForm({ className, getComments, product }) {
   const [modal, setModal] = useState(false);
@@ -22,17 +23,13 @@ export default function ModalForm({ className, getComments, product }) {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     const rate = ref.current;
-    try {
-      await axios.post(`http://localhost:8800/${product.product_id}`, {
-        username: rate.username.value,
-        content: rate.content.value,
-        stars: starsValue,
-      });
-      getComments();
-    } catch (error) {
-      console.error(error);
-    }
-    toggleModal();
+    await axios.post(`http://localhost:8800/${product.product_id}`, {
+      username: rate.username.value,
+      content: rate.content.value,
+      stars: starsValue,
+    }).then(({ data }) => toast.success(data, { className: "toast" }))
+      .catch(({ data }) => toast.error(data, { className: "toast" }))
+      .finally(getComments(), toggleModal())
   };
 
   return (

@@ -10,5 +10,5 @@ app.use(cors())
 
 app.use('/', productsRoutes)
 app.use('/wishlist', wishlistRoutes)
-app.use('/:id', productsRoutes)
+app.use('/:id', productsRoutes, wishlistRoutes)
 app.listen(8800)

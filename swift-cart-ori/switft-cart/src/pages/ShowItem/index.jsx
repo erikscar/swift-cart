@@ -82,7 +82,7 @@ export default function ShowItem() {
   };
 
   const addToWishList = async () => {
-    await axios.post(`http://localhost:8800/${id}/wishlist`, {
+    await axios.post(`http://localhost:8800/wishlist/${id}`, {
       product_id: id,
     })
       .then(({ data }) => toast.success(data, {

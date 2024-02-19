@@ -15,11 +15,12 @@ export default function WishList() {
 
   useEffect(() => {
     getProducts();
+    console.log(products)
   }, [setProducts]);
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8800/${id}/wishlist`).then(() => {
+      await axios.delete(`http://localhost:8800/wishlist/${id}`).then(() => {
         getProducts();
       });
     } catch (error) {

@@ -1,5 +1,5 @@
 import express from "express";
-import { deleteItem, deleteWishList, getCart, getComments, getOneProduct, getProducts, postCart, postComment, postWishList } from "../controllers/products.js";
+import { deleteItem, getCart, getComments, getOneProduct, getProducts, postCart, postComment } from "../controllers/products.js";
 const productRouter = express.Router()
 
 productRouter.get("/", getProducts)
@@ -12,8 +12,6 @@ productRouter.get("/", getProducts)
 // router.post("/:id", postComment)
 
 // router.post("/:id/cart", postCart)
-// router.post("/:id/wishlist", postWishList)
 // router.delete("/:id/cart", deleteItem)
-// router.delete("/:id/wishlist", deleteWishList)
 
 export default productRouter

@@ -87,38 +87,28 @@ export const deleteItem = (req, res) => {
   })
 }
 
-// export const getWishList = (_, res) => {
-//   const q = "SELECT * FROM wishlist LEFT JOIN products ON wishlist.product_id = products.product_id"
+// export const postWishList = (req, res) => {
+//   const q = "INSERT INTO wishlist(`product_id`) VALUES (?)"
+//   const productId = req.params.id
 
-//   db.query(q, (err, data) => {
+//   db.query(q, [productId], (err) => {
 //     if (err) return res.json(err)
 
-//     return res.status(200).json(data)
+//     return res.status(200).json("Produto Adicionado aos Favoritos!")
 //   })
 // }
 
-export const postWishList = (req, res) => {
-  const q = "INSERT INTO wishlist(`product_id`) VALUES (?)"
-  const productId = req.params.id
+// export const deleteWishList = (req, res) => {
+//   const q = "DELETE FROM wishlist WHERE product_id = ? LIMIT 1"
+//   const productId = req.params.id
 
-  db.query(q, [productId], (err) => {
-    if (err) return res.json(err)
-
-    return res.status(200).json("Produto Adicionado aos Favoritos!")
-  })
-}
-
-export const deleteWishList = (req, res) => {
-  const q = "DELETE FROM wishlist WHERE product_id = ? LIMIT 1"
-  const productId = req.params.id
-
-  db.query(q, [productId], (err) => {
-    if (err) return res.json(err)
+//   db.query(q, [productId], (err) => {
+//     if (err) return res.json(err)
 
 
-    return res.status(200).json("Produto Excluido")
-  })
-}
+//     return res.status(200).json("Produto Excluido")
+//   })
+// }
 
 export const searchProducts = (req, res) => {
   const { searchInput } = req.query;

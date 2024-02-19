@@ -5,9 +5,7 @@ export default function SearchInput() {
   const [inputValue, setInputValue] = useState("")
   const [products, setProducts] = useState([])
 
-  useEffect(() => {
-    console.log(products)
-  }, [products])
+  useEffect(() => { }, [products])
 
   const handleChange = (e) => {
     setInputValue(e.target.value)

@@ -1,8 +1,9 @@
 import "./index.css";
-import { IoSearchOutline, IoPersonSharp } from "react-icons/io5";
+import { IoPersonSharp } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { GiShoppingCart } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import SearchInput from "../SearchInput";
 
 export default function Header() {
   return (
@@ -13,13 +14,7 @@ export default function Header() {
           <h1>SwiftCart</h1>
         </Link>
       </div>
-      <div className="search-input-wrapper">
-        <input type="text" name="" id="" placeholder="Encontre Produtos..." />
-        <Link to="/category" className="search-icon">
-          <IoSearchOutline />
-        </Link>
-      </div>
-
+      <SearchInput />
       <div className="nav-item">
         <IoPersonSharp className="nav-icon" />
         <Link to="/" className="teste">

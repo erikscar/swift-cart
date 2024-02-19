@@ -119,3 +119,14 @@ export const deleteWishList = (req, res) => {
     return res.status(200).json("Produto Excluido")
   })
 }
+
+export const searchProducts = (req, res) => {
+  const { searchInput } = req.query;
+  const q = `SELECT * FROM products WHERE name LIKE ?`;
+
+  db.query(q, [`%${searchInput}%`], (err, data) => {
+    if (err) return res.json(err);
+
+    return res.status(200).json(data);
+  });
+};

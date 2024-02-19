@@ -75,10 +75,8 @@ export default function Cart() {
                         <img src={product.image} />
                         <div>
                           <p>{product.name}</p>
-                          <div className="icon-wrapper">
-                            <FaTrash
-                              onClick={() => handleDelete(product.product_id)}
-                            />
+                          <div className="icon-wrapper" onClick={() => handleDelete(product.product_id)}>
+                            <FaTrash />
                             <p className="is-grey">Remover Item</p>
                           </div>
                           <div className="icon-wrapper">

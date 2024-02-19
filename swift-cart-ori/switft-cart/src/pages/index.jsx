@@ -12,6 +12,11 @@ import { useEffect, useState } from "react";
 export default function Index() {
   const [products, setProducts] = useState([]);
 
+  const [searchProduct, setSearchProduct] = useState([])
+  const handleSearch = (products) => {
+    setSearchProduct(products)
+  }
+
   const getProducts = async () => {
     try {
       const res = await axios.get("http://localhost:8800/");
@@ -25,9 +30,13 @@ export default function Index() {
     getProducts();
   }, [setProducts]);
 
+  const teste = () => {
+    console.log(searchProduct)
+  }
   return (
     <>
-      <Header />
+      <Header onSearch={handleSearch} />
+      <button onClick={teste}>RTEWFASF</button>
       <DepartmentsNav />
       <div className="best-offer-card">
         <div className="best-offer-desc">

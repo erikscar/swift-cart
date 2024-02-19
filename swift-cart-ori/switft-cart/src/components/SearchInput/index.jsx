@@ -1,11 +1,12 @@
 import { IoSearchOutline } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import axios from "axios";
-export default function SearchInput() {
+
+export default function SearchInput({ onSearch }) {
   const [inputValue, setInputValue] = useState("")
   const [products, setProducts] = useState([])
 
-  useEffect(() => { }, [products])
+  useEffect(() => { console.log(products) }, [products])
 
   const handleChange = (e) => {
     setInputValue(e.target.value)
@@ -20,6 +21,7 @@ export default function SearchInput() {
       })
       setProducts(res.data)
       setInputValue("")
+      onSearch(res.data)
     } catch (error) {
       console.error(error)
     }

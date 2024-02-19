@@ -15,9 +15,7 @@ export default function ModalForm({ className, getComments, product }) {
   };
 
   const handleStars = (value) => {
-    console.log("Valor inicial de starsValue:", starsValue);
     setStarsValue(value);
-    console.log("Valor atual de starsValue:", starsValue);
   };
 
   const handleSubmit = async (ev) => {

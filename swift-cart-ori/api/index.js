@@ -1,6 +1,7 @@
 import express from "express";
 import productsRoutes from "./routes/products.js"
 import wishlistRoutes from "./routes/wishlist.js"
+import cartRoutes from "./routes/cart.js"
 import cors from "cors";
 
 const app = express()
@@ -10,5 +11,6 @@ app.use(cors())
 
 app.use('/', productsRoutes)
 app.use('/wishlist', wishlistRoutes)
+app.use('/cart', cartRoutes)
 app.use('/:id', productsRoutes, wishlistRoutes)
 app.listen(8800)

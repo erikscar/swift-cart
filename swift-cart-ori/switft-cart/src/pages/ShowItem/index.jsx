@@ -69,7 +69,7 @@ export default function ShowItem() {
   };
 
   const addToCart = async () => {
-    await axios.post(`http://localhost:8800/${id}/cart`, {
+    await axios.post(`http://localhost:8800/cart/${id}`, {
       product_id: id,
     })
       .then(({ data }) => toast.success(data, {

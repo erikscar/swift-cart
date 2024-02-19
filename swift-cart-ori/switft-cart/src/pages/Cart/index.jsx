@@ -26,7 +26,7 @@ export default function Cart() {
   }, [setProducts]);
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:8800/${id}/cart`)
+    await axios.delete(`http://localhost:8800/cart/${id}`)
       .then(({ data }) => { toast.warning(data, { className: "toast" }) })
       .catch(({ err }) => { toast.error(err, { className: "toast" }) })
       .finally(getProducts())

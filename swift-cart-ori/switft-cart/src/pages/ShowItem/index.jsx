@@ -34,7 +34,7 @@ export default function ShowItem() {
   };
   const getComments = async () => {
     try {
-      const res = await axios.get(`http://localhost:8800/${id}/comments`);
+      const res = await axios.get(`http://localhost:8800/comments/${id}`);
       setComments(res.data);
     } catch (error) {
       console.error(error);

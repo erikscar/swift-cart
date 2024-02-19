@@ -32,36 +32,13 @@ export const getOneProduct = (req, res) => {
   })
 }
 
-export const postComment = (req, res) => {
-  const q = "INSERT INTO comments(`username`, `content`, `stars`, `product_id`) VALUES (?, ?, ?, ?)"
-  const { username, content, stars } = req.body
-  const productId = req.params.id
+// export const searchProducts = (req, res) => {
+//   const { searchInput } = req.query;
+//   const q = `SELECT * FROM products WHERE name LIKE ?`;
 
-  db.query(q, [username, content, stars, productId], (err) => {
-    if (err) return res.json(err)
+//   db.query(q, [`%${searchInput}%`], (err, data) => {
+//     if (err) return res.json(err);
 
-    return res.status(200).json("Avaliação Criada!")
-  })
-}
-
-export const getComments = (req, res) => {
-  const q = "SELECT * FROM comments WHERE product_id = ?"
-  const productId = req.params.id
-
-  db.query(q, [productId], (err, data) => {
-    if (err) return res.json(err)
-
-    return res.status(200).json(data)
-  })
-}
-
-export const searchProducts = (req, res) => {
-  const { searchInput } = req.query;
-  const q = `SELECT * FROM products WHERE name LIKE ?`;
-
-  db.query(q, [`%${searchInput}%`], (err, data) => {
-    if (err) return res.json(err);
-
-    return res.status(200).json(data);
-  });
-};
+//     return res.status(200).json(data);
+//   });
+// };

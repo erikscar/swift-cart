@@ -23,13 +23,18 @@ export default function ModalForm({ className, getComments, product }) {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     const rate = ref.current;
-    await axios.post(`http://localhost:8800/${product.product_id}`, {
-      username: rate.username.value,
-      content: rate.content.value,
-      stars: starsValue,
-    }).then(({ data }) => toast.success(data, { className: "toast" }))
-      .catch(({ data }) => toast.error(data, { className: "toast" }))
-      .finally(getComments(), toggleModal())
+    try {
+      const res = await axios.post(`http://localhost:8800/comments/${product.product_id}`, {
+        username: rate.username.value,
+        content: rate.content.value,
+        stars: starsValue,
+      });
+      toast.success(res.data, { className: "toast" });
+      getComments();
+      toggleModal();
+    } catch (error) {
+      toast.error("Erro ao inserir avaliação", { className: "toast" });
+    }
   };
 
   return (

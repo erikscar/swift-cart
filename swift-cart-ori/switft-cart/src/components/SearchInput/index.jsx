@@ -11,7 +11,7 @@ export default function SearchInput({ onSearch, searchText }) {
 
   const searchProducts = async (searchInput) => {
     try {
-      const res = await axios.get(`http://localhost:8800/products`, {
+      const res = await axios.get(`http://localhost:8800/search`, {
         params: {
           searchInput: searchInput
         }

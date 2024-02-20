@@ -139,6 +139,7 @@ export default function Search({ searchProduct, searchText }) {
         </aside>
 
         <div className="items-container">
+          <button onClick={teste}>TESTE</button>
           <h1>Você Pesquisou por: "{searchText}"</h1>
 
           <div className="order-section">

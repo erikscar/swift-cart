@@ -3,7 +3,7 @@ import { getOneProduct, getProducts, searchProducts } from "../controllers/produ
 const productRouter = express.Router()
 
 
-productRouter.get("/:product", searchProducts)
+productRouter.get("/search", searchProducts)
 productRouter.get("/", getProducts)
 productRouter.get("/:id", getOneProduct)
 

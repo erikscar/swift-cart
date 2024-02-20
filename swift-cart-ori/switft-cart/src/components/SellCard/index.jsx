@@ -11,7 +11,7 @@ import { FaRegStar } from "react-icons/fa6";
 export default function SellCard({ products }) {
   const addToCart = async (productId) => {
 
-    await axios.post(`http://localhost:8800/${productId}/cart`, {
+    await axios.post(`http://localhost:8800/cart/${productId}`, {
       product_id: productId,
 
     })

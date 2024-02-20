@@ -34,7 +34,14 @@ export const getOneProduct = (req, res) => {
 
 export const searchProducts = (req, res) => {
   const { searchInput } = req.query;
-  const q = `SELECT * FROM products WHERE name LIKE ?`;
+  const q = `
+    SELECT products.*, 
+    SUM(comments.stars) AS total_stars, 
+    COUNT(comments.comment_id) AS total_comments
+    FROM products
+    LEFT JOIN comments ON comments.product_id = products.product_id 
+    WHERE products.name LIKE ?
+    GROUP BY products.product_id`;
 
   db.query(q, [`%${searchInput}%`], (err, data) => {
     if (err) return res.json(err);

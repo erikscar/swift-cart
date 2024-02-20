@@ -1,28 +1,13 @@
-import DepartmentsNav from "../components/DepartmentsNav";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import SellCard from "../components/SellCard";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import { MdAttachMoney } from "react-icons/md";
-import { useState, useEffect } from "react";
-import axios from "axios";
 
 export default function Search({ searchProduct, searchText }) {
-  const [products, setProducts] = useState([])
-
-  const getProducts = async () => {
-    try {
-      const res = await axios.get("http://localhost:8800/")
-      setProducts(res.data)
-    } catch (error) {
-      console.log(error)
-    }
+  const teste = () => {
+    console.log(searchProduct)
   }
 
-  useEffect(() => {
-    getProducts()
-  }, [setProducts])
-
+  // let testando = searchProduct.sort((a, b) => a.)
   return (
     <>
       <div className="main-container">

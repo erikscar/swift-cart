@@ -26,7 +26,7 @@ export default function ShowItem() {
 
   const getProduct = async () => {
     try {
-      const res = await axios.get(`http://localhost:8800/${id}`);
+      const res = await axios.get(`http://localhost:8800/products/${id}`);
       setProduct(res.data);
     } catch (err) {
       console.log(err);

@@ -26,7 +26,7 @@ export default function Index() {
 
   const getProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:8800/");
+      const res = await axios.get("http://localhost:8800/products");
       setProducts(res.data);
     } catch (error) {
       console.log(error);

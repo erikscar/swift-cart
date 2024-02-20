@@ -7,7 +7,7 @@ import { MdAttachMoney } from "react-icons/md";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function Search() {
+export default function Search({ searchProduct, searchText }) {
   const [products, setProducts] = useState([])
 
   const getProducts = async () => {
@@ -25,8 +25,6 @@ export default function Search() {
 
   return (
     <>
-      <Header />
-      <DepartmentsNav />
       <div className="main-container">
         <aside>
           <p>Categoria</p>
@@ -141,7 +139,7 @@ export default function Search() {
         </aside>
 
         <div className="items-container">
-          <h1>Você Pesquisou por: "Monitores"</h1>
+          <h1>Você Pesquisou por: "{searchText}"</h1>
 
           <div className="order-section">
             <p>Ordenar: </p>
@@ -160,16 +158,12 @@ export default function Search() {
               <option value="">Crescente</option>
               <option value="">Decrescente</option>
             </select>
-
           </div>
           <div className="sell-card-container">
-            <SellCard products={products} />
+            <SellCard products={searchProduct} />
           </div>
-
         </div>
-
       </div>
-      <Footer />
     </>
   )
 }

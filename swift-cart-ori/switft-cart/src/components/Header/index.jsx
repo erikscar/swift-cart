@@ -4,11 +4,8 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { GiShoppingCart } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import SearchInput from "../SearchInput";
-import { useState } from "react";
 
-export default function Header({ onSearch }) {
-  const [searchProduct, setSearchProduct] = useState([])
-
+export default function Header({ onSearch, searchText }) {
   return (
     <header>
       <div className="logo">
@@ -17,7 +14,7 @@ export default function Header({ onSearch }) {
           <h1>SwiftCart</h1>
         </Link>
       </div>
-      <SearchInput onSearch={onSearch} />
+      <SearchInput onSearch={onSearch} searchText={searchText} />
       <div className="nav-item">
         <IoPersonSharp className="nav-icon" />
         <Link to="/" className="teste">

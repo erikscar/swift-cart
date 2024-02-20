@@ -1,12 +1,9 @@
 import { IoSearchOutline } from "react-icons/io5";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
-export default function SearchInput({ onSearch }) {
+export default function SearchInput({ onSearch, searchText }) {
   const [inputValue, setInputValue] = useState("")
-  const [products, setProducts] = useState([])
-
-  useEffect(() => { console.log(products) }, [products])
 
   const handleChange = (e) => {
     setInputValue(e.target.value)
@@ -19,13 +16,14 @@ export default function SearchInput({ onSearch }) {
           searchInput: searchInput
         }
       })
-      setProducts(res.data)
-      setInputValue("")
       onSearch(res.data)
+      searchText(inputValue)
+      setInputValue("")
     } catch (error) {
       console.error(error)
     }
   }
+
   return (
     <div className="search-input-wrapper">
       <input type="text" name="" id="" placeholder="Encontre Produtos..."

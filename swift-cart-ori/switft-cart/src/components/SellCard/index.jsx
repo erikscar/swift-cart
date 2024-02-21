@@ -4,7 +4,7 @@ import { BsCart4 } from "react-icons/bs";
 import { GiMoneyStack } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Slide, ToastContainer, toast } from "react-toastify";
+import { Slide, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaRegStar } from "react-icons/fa6";
 
@@ -14,26 +14,11 @@ export default function SellCard({ products }) {
       .post(`http://localhost:8800/cart/${productId}`, {
         product_id: productId,
       })
-      .then(({ data }) =>
-        toast.success(data, {
-          className: "toast",
-        })
-      )
-      .catch(({ data }) =>
-        toast.error(data, {
-          className: "toast",
-        })
-      );
+      .then(({ data }) => toast.success(data))
+      .catch(({ data }) => toast.error(data));
   };
   return (
     <>
-      <ToastContainer
-        transition={Slide}
-        theme="colored"
-        position="bottom-left"
-        autoClose={2500}
-        closeOnClick={true}
-      />
       {products
         .sort((a, b) => b.stars - a.stars)
         .map((product, id) => {

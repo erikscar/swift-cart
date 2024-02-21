@@ -8,7 +8,7 @@ import "./index.css";
 import { useState, useEffect } from "react";
 import { useOutletContext, useParams } from "react-router-dom";
 import ModalForm from "../../components/ModalForm";
-import { ToastContainer, toast, Slide } from "react-toastify";
+import { toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Search from "../search";
 
@@ -72,16 +72,8 @@ export default function ShowItem() {
       .post(`http://localhost:8800/cart/${id}`, {
         product_id: id,
       })
-      .then(({ data }) =>
-        toast.success(data, {
-          className: "toast",
-        })
-      )
-      .catch(({ data }) =>
-        toast.error(data, {
-          className: "toast",
-        })
-      );
+      .then(({ data }) => toast.success(data))
+      .catch(({ data }) => toast.error(data));
   };
 
   const addToWishList = async () => {
@@ -89,27 +81,12 @@ export default function ShowItem() {
       .post(`http://localhost:8800/wishlist/${id}`, {
         product_id: id,
       })
-      .then(({ data }) =>
-        toast.success(data, {
-          className: "toast is-red",
-        })
-      )
-      .catch(({ data }) =>
-        toast.error(data, {
-          className: "toast",
-        })
-      );
+      .then(({ data }) => toast.success(data))
+      .catch(({ data }) => toast.error(data));
   };
 
   return (
     <>
-      <ToastContainer
-        transition={Slide}
-        theme="colored"
-        position="bottom-left"
-        autoClose={2500}
-        closeOnClick={true}
-      />
       {searchContext[0].length === 0 ? (
         <div className="show-item-container">
           <div className="product-img-wrapper">

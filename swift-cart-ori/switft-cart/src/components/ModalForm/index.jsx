@@ -3,7 +3,7 @@ import "./index.css";
 import { FaStar } from "react-icons/fa6";
 import { TiDeleteOutline } from "react-icons/ti";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { toast, Slide } from "react-toastify";
 
 export default function ModalForm({ className, getComments, product }) {
   const [modal, setModal] = useState(false);
@@ -22,16 +22,19 @@ export default function ModalForm({ className, getComments, product }) {
     ev.preventDefault();
     const rate = ref.current;
     try {
-      const res = await axios.post(`http://localhost:8800/comments/${product.product_id}`, {
-        username: rate.username.value,
-        content: rate.content.value,
-        stars: starsValue,
-      });
-      toast.success(res.data, { className: "toast" });
+      const res = await axios.post(
+        `http://localhost:8800/comments/${product.product_id}`,
+        {
+          username: rate.username.value,
+          content: rate.content.value,
+          stars: starsValue,
+        }
+      );
+      toast.success(res.data);
       getComments();
       toggleModal();
     } catch (error) {
-      toast.error("Erro ao inserir avaliação", { className: "toast" });
+      toast.error("Erro ao inserir avaliação");
     }
   };
 

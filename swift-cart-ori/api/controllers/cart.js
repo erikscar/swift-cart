@@ -1,25 +1,12 @@
 import { db } from "../db.js";
 
-// export const getCart = (_, res) => {
-//   const q = "SELECT * FROM cart LEFT JOIN products ON cart.product_id = products.product_id"
-//   db.query(q, (err, data) => {
-//     if (err) return res.json(err)
-
-//     return res.status(200).json(data)
-//   })
-// }
-
 export const getCart = (_, res) => {
-  const q = "SELECT * FROM cart LEFT JOIN products ON cart.product_id = products.product_id";
-  console.log("Antes de executar a consulta SQL");
+  const q = "SELECT * FROM cart LEFT JOIN products ON cart.product_id = products.product_id"
   db.query(q, (err, data) => {
-    if (err) {
-      console.error("Erro ao executar a consulta SQL:", err);
-      return res.status(500).json({ error: "Erro interno do servidor" });
-    }
-    console.log("Consulta SQL executada com sucesso. Resultados:", data);
-    return res.status(200).json(data);
-  });
+    if (err) return res.json(err)
+
+    return res.status(200).json(data)
+  })
 }
 
 export const postCart = (req, res) => {

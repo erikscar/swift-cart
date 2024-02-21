@@ -200,7 +200,7 @@ input[type="checkbox"] {
 }
 
 .toast {
-  padding: 1.25rem;
-  font-size: 18px;
-  width: 25rem;
+  padding: 1.5rem 1.25rem;
+  font-size: 20px;
+  width: 26rem;
 }

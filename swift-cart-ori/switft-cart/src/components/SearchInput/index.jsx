@@ -22,15 +22,7 @@ export default function SearchInput({ setFound, setSearchValue }) {
         setSearchValue(inputValue);
         setInputValue("");
       } else {
-        toast.error("Nenhum Produto Encontrado!", {
-          position: "top-center",
-          toastId: 13,
-          className: "toast",
-          theme: "colored",
-          autoClose: 2500,
-          transition: Slide,
-          closeOnClick: true,
-        });
+        toast.error("Nenhum Produto Encontrado!", { position: "top-center" });
         setInputValue("");
       }
     } catch (error) {
@@ -40,7 +32,6 @@ export default function SearchInput({ setFound, setSearchValue }) {
 
   return (
     <>
-      <ToastContainer />
       <div className="search-input-wrapper">
         <input
           type="text"

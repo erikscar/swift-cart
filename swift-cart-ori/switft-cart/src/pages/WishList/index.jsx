@@ -5,6 +5,7 @@ import "./index.css";
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import Search from "../search";
+import { toast, Slide } from "react-toastify";
 
 export default function WishList() {
   const [products, setProducts] = useState([]);
@@ -21,11 +22,14 @@ export default function WishList() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8800/wishlist/${id}`).then(() => {
-        getProducts();
-      });
+      await axios
+        .delete(`http://localhost:8800/wishlist/${id}`)
+        .then(({ data }) => {
+          toast.warning(data);
+          getProducts();
+        });
     } catch (error) {
-      console.log(error);
+      toast.error(error);
     }
   };
   return (

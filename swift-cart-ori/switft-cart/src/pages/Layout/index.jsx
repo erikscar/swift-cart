@@ -5,6 +5,7 @@ import { GiShoppingCart } from "react-icons/gi";
 import { Link, Outlet } from "react-router-dom";
 import SearchInput from "../../components/SearchInput";
 import { useState } from "react";
+import DepartmentsNav from "../../components/DepartmentsNav";
 
 export default function Header() {
   const [found, setFound] = useState([]);
@@ -43,7 +44,7 @@ export default function Header() {
           </Link>
         </div>
       </header>
-
+      <DepartmentsNav />
       <Outlet context={found} />
 
       <footer>

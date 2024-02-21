@@ -2,12 +2,7 @@ import SellCard from "../components/SellCard";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import { MdAttachMoney } from "react-icons/md";
 
-export default function Search({ searchProduct, searchText }) {
-  const teste = () => {
-    console.log(searchProduct)
-  }
-
-  // let testando = searchProduct.sort((a, b) => a.)
+export default function Search() {
   return (
     <>
       <div className="main-container">
@@ -130,17 +125,23 @@ export default function Search({ searchProduct, searchText }) {
           <div className="order-section">
             <p>Ordenar: </p>
             <select name="" id="">
-              <option selected disabled>Popularidade</option>
+              <option selected disabled>
+                Popularidade
+              </option>
               <option value="">Crescente</option>
               <option value="">Decrescente</option>
             </select>
             <select name="" id="">
-              <option selected disabled>Preço</option>
+              <option selected disabled>
+                Preço
+              </option>
               <option value="">Crescente</option>
               <option value="">Decrescente</option>
             </select>
             <select name="" id="">
-              <option selected disabled>Recém Adicionados</option>
+              <option selected disabled>
+                Recém Adicionados
+              </option>
               <option value="">Crescente</option>
               <option value="">Decrescente</option>
             </select>
@@ -151,5 +152,5 @@ export default function Search({ searchProduct, searchText }) {
         </div>
       </div>
     </>
-  )
+  );
 }

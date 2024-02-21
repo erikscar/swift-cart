@@ -1,4 +1,3 @@
-import DepartmentsNav from "../components/DepartmentsNav";
 import Card from "../components/Card";
 import SellCard from "../components/SellCard";
 import { MdAttachMoney } from "react-icons/md";
@@ -29,7 +28,7 @@ export default function Index() {
   };
   return (
     <>
-      <DepartmentsNav />
+      {/* {found.length === 0()} */}
       <button onClick={testo}>daOFJAIOFJASOF</button>
       <div className="best-offer-card">
         <div className="best-offer-desc">

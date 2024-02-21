@@ -1,8 +1,10 @@
 import SellCard from "../components/SellCard";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import { MdAttachMoney } from "react-icons/md";
+import { useOutletContext } from "react-router-dom";
 
 export default function Search() {
+  const found = useOutletContext();
   return (
     <>
       <div className="main-container">
@@ -119,8 +121,7 @@ export default function Search() {
         </aside>
 
         <div className="items-container">
-          <button onClick={teste}>TESTE</button>
-          <h1>Você Pesquisou por: "{searchText}"</h1>
+          <h1>Você Pesquisou por:"</h1>
 
           <div className="order-section">
             <p>Ordenar: </p>
@@ -147,7 +148,7 @@ export default function Search() {
             </select>
           </div>
           <div className="sell-card-container">
-            <SellCard products={searchProduct} />
+            <SellCard products={found} />
           </div>
         </div>
       </div>

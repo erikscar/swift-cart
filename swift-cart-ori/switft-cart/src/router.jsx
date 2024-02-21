@@ -11,10 +11,10 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <Index /> },
-      { path: "/category", element: <Search /> },
       { path: "/cart", element: <Cart /> },
       { path: "/:id", element: <ShowItem /> },
       { path: "/wishlist", element: <WishList /> },
+      { element: <Search /> },
     ],
   },
 ]);

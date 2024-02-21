@@ -7,12 +7,9 @@ import axios from "axios";
 import "./index.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import ModalForm from "../../components/ModalForm";
 import { ToastContainer, toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 
 export default function ShowItem() {
   const [product, setProduct] = useState([]);
@@ -69,28 +66,37 @@ export default function ShowItem() {
   };
 
   const addToCart = async () => {
-    await axios.post(`http://localhost:8800/cart/${id}`, {
-      product_id: id,
-    })
-      .then(({ data }) => toast.success(data, {
-        className: "toast",
-      }))
-      .catch(({ data }) => toast.error(data, {
-        className: "toast"
-      }))
-
+    await axios
+      .post(`http://localhost:8800/cart/${id}`, {
+        product_id: id,
+      })
+      .then(({ data }) =>
+        toast.success(data, {
+          className: "toast",
+        })
+      )
+      .catch(({ data }) =>
+        toast.error(data, {
+          className: "toast",
+        })
+      );
   };
 
   const addToWishList = async () => {
-    await axios.post(`http://localhost:8800/wishlist/${id}`, {
-      product_id: id,
-    })
-      .then(({ data }) => toast.success(data, {
-        className: "toast is-red"
-      }))
-      .catch(({ data }) => toast.error(data, {
-        className: "toast"
-      }))
+    await axios
+      .post(`http://localhost:8800/wishlist/${id}`, {
+        product_id: id,
+      })
+      .then(({ data }) =>
+        toast.success(data, {
+          className: "toast is-red",
+        })
+      )
+      .catch(({ data }) =>
+        toast.error(data, {
+          className: "toast",
+        })
+      );
   };
 
   return (
@@ -102,7 +108,6 @@ export default function ShowItem() {
         autoClose={2500}
         closeOnClick={true}
       />
-      <Header />
       <div className="show-item-container">
         <div className="product-img-wrapper">
           <p className="path">
@@ -224,7 +229,6 @@ export default function ShowItem() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

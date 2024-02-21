@@ -1,5 +1,3 @@
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
 import { FaTrash } from "react-icons/fa";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { IoSearchOutline } from "react-icons/io5";
@@ -26,10 +24,15 @@ export default function Cart() {
   }, [setProducts]);
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:8800/cart/${id}`)
-      .then(({ data }) => { toast.warning(data, { className: "toast" }) })
-      .catch(({ err }) => { toast.error(err, { className: "toast" }) })
-      .finally(getProducts())
+    await axios
+      .delete(`http://localhost:8800/cart/${id}`)
+      .then(({ data }) => {
+        toast.warning(data, { className: "toast" });
+      })
+      .catch(({ err }) => {
+        toast.error(err, { className: "toast" });
+      })
+      .finally(getProducts());
   };
   const subtotal = products.reduce((acum, product) => acum + product.price, 0);
 
@@ -42,7 +45,6 @@ export default function Cart() {
         autoClose={2500}
         closeOnClick={true}
       />
-      <Header />
       {products.length === 0 ? (
         <div className="blank-cart">
           <h1>Parece que o seu carrinho está um pouco solitário.</h1>
@@ -75,7 +77,10 @@ export default function Cart() {
                         <img src={product.image} />
                         <div>
                           <p>{product.name}</p>
-                          <div className="icon-wrapper" onClick={() => handleDelete(product.product_id)}>
+                          <div
+                            className="icon-wrapper"
+                            onClick={() => handleDelete(product.product_id)}
+                          >
                             <FaTrash />
                             <p className="is-grey">Remover Item</p>
                           </div>
@@ -116,8 +121,6 @@ export default function Cart() {
           </div>
         </>
       )}
-
-      <Footer />
     </>
   );
 }

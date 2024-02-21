@@ -1,10 +1,9 @@
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
 import { FaHeart, FaTrash } from "react-icons/fa6";
 import { BsCart4 } from "react-icons/bs";
 import axios from "axios";
 import "./index.css";
 import { useEffect, useState } from "react";
+
 export default function WishList() {
   const [products, setProducts] = useState([]);
 
@@ -15,7 +14,7 @@ export default function WishList() {
 
   useEffect(() => {
     getProducts();
-    console.log(products)
+    console.log(products);
   }, [setProducts]);
 
   const handleDelete = async (id) => {
@@ -29,7 +28,6 @@ export default function WishList() {
   };
   return (
     <>
-      <Header />
       <h1 className="main-title">
         LISTA DE FAVORITOS <FaHeart className="heart-icon" />
       </h1>
@@ -67,7 +65,6 @@ export default function WishList() {
           ))}
         </tbody>
       </table>
-      <Footer />
     </>
   );
 }

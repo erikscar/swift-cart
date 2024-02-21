@@ -6,16 +6,18 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 import axios from "axios";
 import "./index.css";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useOutletContext, useParams } from "react-router-dom";
 import ModalForm from "../../components/ModalForm";
 import { ToastContainer, toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Search from "../search";
 
 export default function ShowItem() {
   const [product, setProduct] = useState([]);
   const [comments, setComments] = useState([]);
   const [order, setOrder] = useState(false);
   const [click, setClick] = useState(false);
+  const searchContext = useOutletContext();
 
   const { id } = useParams();
   let counter = 0;
@@ -108,127 +110,134 @@ export default function ShowItem() {
         autoClose={2500}
         closeOnClick={true}
       />
-      <div className="show-item-container">
-        <div className="product-img-wrapper">
-          <p className="path">
-            {product.category} &gt; {product.brand} &gt; {product.name}
-          </p>
-          <img src={product.image} className="product-img" />
-          <div className="comments-section">
-            <h2 className="comments-title">Comentários e Avaliações</h2>
-            <select name="" id="" onChange={switchOrder}>
-              <option value="select" disabled selected>
-                Ordenar Por:
-              </option>
-              <option value="new">Mais Recentes</option>
-              <option value="older">Menos Recentes</option>
-            </select>
-            <div className="comments">
-              <div className="main-comment">
-                {sortComment.map((item, id) => {
-                  allStars += item.stars;
-                  counter++;
-                  return (
-                    <>
-                      <div className="commentary" key={id}>
-                        <IoPersonCircleOutline className="profile-icon" />
-                        <div>
-                          <p className="profile-name">{item.username}</p>
-                          <p className="rate-time">
-                            {formatDate(item.created_at)}
-                          </p>
+      {searchContext[0].length === 0 ? (
+        <div className="show-item-container">
+          <div className="product-img-wrapper">
+            <p className="path">
+              {product.category} &gt; {product.brand} &gt; {product.name}
+            </p>
+            <img src={product.image} className="product-img" />
+            <div className="comments-section">
+              <h2 className="comments-title">Comentários e Avaliações</h2>
+              <select name="" id="" onChange={switchOrder}>
+                <option value="select" disabled selected>
+                  Ordenar Por:
+                </option>
+                <option value="new">Mais Recentes</option>
+                <option value="older">Menos Recentes</option>
+              </select>
+              <div className="comments">
+                <div className="main-comment">
+                  {sortComment.map((item, id) => {
+                    allStars += item.stars;
+                    counter++;
+                    return (
+                      <>
+                        <div className="commentary" key={id}>
+                          <IoPersonCircleOutline className="profile-icon" />
                           <div>
-                            {(() => {
-                              const stars = [];
-                              const filledStars = Math.round(item.stars);
-                              const totalStars = 5;
-                              for (let i = 0; i < totalStars; i++) {
-                                if (i < filledStars) {
-                                  stars.push(
-                                    <FaStar className="star-icon" key={i} />
-                                  );
-                                } else {
-                                  stars.push(
-                                    <FaRegStar className="star-icon" key={i} />
-                                  );
+                            <p className="profile-name">{item.username}</p>
+                            <p className="rate-time">
+                              {formatDate(item.created_at)}
+                            </p>
+                            <div>
+                              {(() => {
+                                const stars = [];
+                                const filledStars = Math.round(item.stars);
+                                const totalStars = 5;
+                                for (let i = 0; i < totalStars; i++) {
+                                  if (i < filledStars) {
+                                    stars.push(
+                                      <FaStar className="star-icon" key={i} />
+                                    );
+                                  } else {
+                                    stars.push(
+                                      <FaRegStar
+                                        className="star-icon"
+                                        key={i}
+                                      />
+                                    );
+                                  }
                                 }
-                              }
-                              return stars;
-                            })()}
+                                return stars;
+                              })()}
+                            </div>
+                          </div>
+                          <div>
+                            <p>"{item.content}"</p>
+                            <div className="rate-btn-wrapper">
+                              <button className="rate-btn">
+                                <AiOutlineLike /> 42
+                              </button>
+                              <button className="rate-btn">
+                                <AiFillLike /> 2
+                              </button>
+                            </div>
                           </div>
                         </div>
-                        <div>
-                          <p>"{item.content}"</p>
-                          <div className="rate-btn-wrapper">
-                            <button className="rate-btn">
-                              <AiOutlineLike /> 42
-                            </button>
-                            <button className="rate-btn">
-                              <AiFillLike /> 2
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </>
-                  );
-                })}
+                      </>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="item-information">
-          <div>
-            <div className="logo">
-              <img src="/apple.png" alt="" />
-              <p>{product.brand}</p>
-            </div>
-            <h1 className="product-name">{product.name}</h1>
+          <div className="item-information">
             <div>
-              {(() => {
-                const stars = [];
-                const filledStars = Math.round(allStars / counter);
-                const totalStars = 5;
-                for (let i = 0; i < totalStars; i++) {
-                  if (i < filledStars) {
-                    stars.push(<FaStar className="star-icon" key={i} />);
-                  } else {
-                    stars.push(<FaRegStar className="star-icon" key={i} />);
+              <div className="logo">
+                <img src="/apple.png" alt="" />
+                <p>{product.brand}</p>
+              </div>
+              <h1 className="product-name">{product.name}</h1>
+              <div>
+                {(() => {
+                  const stars = [];
+                  const filledStars = Math.round(allStars / counter);
+                  const totalStars = 5;
+                  for (let i = 0; i < totalStars; i++) {
+                    if (i < filledStars) {
+                      stars.push(<FaStar className="star-icon" key={i} />);
+                    } else {
+                      stars.push(<FaRegStar className="star-icon" key={i} />);
+                    }
                   }
-                }
-                return (
-                  <p>
-                    {stars} {counter} Avaliações
-                  </p>
-                );
-              })()}
-            </div>
-            <h1 className="price">R$ {product.price}</h1>
-            <p className="ship">
-              <BsTruck />
-              Frete Grátis{" "}
-            </p>
-            <div className="function-btns">
-              {click ? (
-                <p>Produto Adicionado Ao Carrinho!</p>
-              ) : (
-                <button onClick={addToCart} className="add-cart-btn">
-                  <BsCart4 />
-                  Adicionar ao Carrinho
+                  return (
+                    <p>
+                      {stars} {counter} Avaliações
+                    </p>
+                  );
+                })()}
+              </div>
+              <h1 className="price">R$ {product.price}</h1>
+              <p className="ship">
+                <BsTruck />
+                Frete Grátis{" "}
+              </p>
+              <div className="function-btns">
+                {click ? (
+                  <p>Produto Adicionado Ao Carrinho!</p>
+                ) : (
+                  <button onClick={addToCart} className="add-cart-btn">
+                    <BsCart4 />
+                    Adicionar ao Carrinho
+                  </button>
+                )}
+                <button onClick={addToWishList} className="fav-btn">
+                  <IoMdHeartEmpty />
                 </button>
-              )}
-              <button onClick={addToWishList} className="fav-btn">
-                <IoMdHeartEmpty />
-              </button>
+              </div>
+              <ModalForm
+                getProduct={getProduct}
+                getComments={getComments}
+                product={product}
+                className="add-rate"
+              />
             </div>
-            <ModalForm
-              getProduct={getProduct}
-              getComments={getComments}
-              product={product}
-              className="add-rate"
-            />
           </div>
         </div>
-      </div>
+      ) : (
+        <Search />
+      )}
     </>
   );
 }

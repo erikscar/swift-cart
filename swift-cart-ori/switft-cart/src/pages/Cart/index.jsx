@@ -4,11 +4,13 @@ import { IoSearchOutline } from "react-icons/io5";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./index.css";
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import { toast, ToastContainer, Slide } from "react-toastify";
+import Search from "../search";
 
 export default function Cart() {
   const [products, setProducts] = useState([]);
+  const searchContext = useOutletContext();
 
   const getProducts = async () => {
     try {
@@ -38,13 +40,17 @@ export default function Cart() {
 
   return (
     <>
-      <ToastContainer
-        transition={Slide}
-        theme="colored"
-        position="bottom-left"
-        autoClose={2500}
-        closeOnClick={true}
-      />
+      {searchContext[0].length === 0 ? (
+        <ToastContainer
+          transition={Slide}
+          theme="colored"
+          position="bottom-left"
+          autoClose={2500}
+          closeOnClick={true}
+        />
+      ) : (
+        <Search />
+      )}
       {products.length === 0 ? (
         <div className="blank-cart">
           <h1>Parece que o seu carrinho está um pouco solitário.</h1>
@@ -74,7 +80,7 @@ export default function Cart() {
                   {products.map((product, id) => (
                     <tr key={id}>
                       <td className="product-image-wrapper">
-                        <img src={product.image} />
+                        <img src={product.image} alt={product.name} />
                         <div>
                           <p>{product.name}</p>
                           <div

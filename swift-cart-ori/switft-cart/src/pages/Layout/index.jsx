@@ -9,17 +9,23 @@ import DepartmentsNav from "../../components/DepartmentsNav";
 
 export default function Header() {
   const [found, setFound] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
+
+  const clearSearchValues = () => {
+    setFound([]);
+    setSearchValue("");
+  };
 
   return (
     <>
       <header>
         <div className="logo">
-          <Link to="/">
+          <Link to="/" onClick={clearSearchValues}>
             <img src="/logo.png" alt="logo-img" className="logo-img" />
             <h1>SwiftCart</h1>
           </Link>
         </div>
-        <SearchInput setFound={setFound} />
+        <SearchInput setFound={setFound} setSearchValue={setSearchValue} />
         <div className="nav-item">
           <IoPersonSharp className="nav-icon" />
           <Link to="/" className="teste">
@@ -30,7 +36,7 @@ export default function Header() {
 
         <div className="nav-item">
           <IoMdHeartEmpty className="nav-icon" />
-          <Link to="/wishlist" className="teste">
+          <Link to="/wishlist" className="teste" onClick={clearSearchValues}>
             <p className="is-grey">Favoritos</p>
             <p>Lista de Desejos</p>
           </Link>
@@ -38,14 +44,15 @@ export default function Header() {
 
         <div className="nav-item">
           <GiShoppingCart className="nav-icon" />
-          <Link to="/cart" className="teste">
+          <Link to="/cart" className="teste" onClick={clearSearchValues}>
             <p className="is-grey">Carrinho</p>
             <p>Meus Pedidos</p>
           </Link>
         </div>
       </header>
       <DepartmentsNav />
-      <Outlet context={found} />
+
+      <Outlet context={[found, searchValue]} />
 
       <footer>
         <div class="footer-infos">

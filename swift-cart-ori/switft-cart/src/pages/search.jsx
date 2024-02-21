@@ -4,7 +4,7 @@ import { MdAttachMoney } from "react-icons/md";
 import { useOutletContext } from "react-router-dom";
 
 export default function Search() {
-  const found = useOutletContext();
+  const searchContext = useOutletContext();
   return (
     <>
       <div className="main-container">
@@ -121,7 +121,7 @@ export default function Search() {
         </aside>
 
         <div className="items-container">
-          <h1>Você Pesquisou por:"</h1>
+          <h1>Você Pesquisou por: "{searchContext[1]}"</h1>
 
           <div className="order-section">
             <p>Ordenar: </p>
@@ -148,7 +148,7 @@ export default function Search() {
             </select>
           </div>
           <div className="sell-card-container">
-            <SellCard products={found} />
+            <SellCard products={searchContext[0]} />
           </div>
         </div>
       </div>

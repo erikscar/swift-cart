@@ -140,6 +140,7 @@ aside p {
 
 .input-wrapper {
   display: flex;
+  align-items: center;
   gap: 0.75rem;
   margin: 1rem 0;
 }
@@ -168,14 +169,14 @@ input[type="checkbox"] {
 
 .price-icon {
   position: absolute;
-  top: 0.5rem;
+  top: 1.4rem;
   left: 1rem;
   font-size: 22px;
 }
 
 .price-icon-2 {
   position: absolute;
-  top: 3.9rem;
+  top: 6.6rem;
   left: 1rem;
   font-size: 22px;
 }

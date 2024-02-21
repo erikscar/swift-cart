@@ -10,17 +10,20 @@ import { FaRegStar } from "react-icons/fa6";
 
 export default function SellCard({ products }) {
   const addToCart = async (productId) => {
-
-    await axios.post(`http://localhost:8800/cart/${productId}`, {
-      product_id: productId,
-
-    })
-      .then(({ data }) => toast.success(data, {
-        className: "toast",
-      }))
-      .catch(({ data }) => toast.error(data, {
-        className: "toast",
-      }))
+    await axios
+      .post(`http://localhost:8800/cart/${productId}`, {
+        product_id: productId,
+      })
+      .then(({ data }) =>
+        toast.success(data, {
+          className: "toast",
+        })
+      )
+      .catch(({ data }) =>
+        toast.error(data, {
+          className: "toast",
+        })
+      );
   };
   return (
     <>
@@ -34,7 +37,7 @@ export default function SellCard({ products }) {
       {products
         .sort((a, b) => b.stars - a.stars)
         .map((product, id) => {
-          const rate = product.total_stars / product.total_comments
+          const rate = product.total_stars / product.total_comments;
           return (
             <div className="sell-card" key={id}>
               <Link to={`/${product.product_id}`}>
@@ -61,11 +64,10 @@ export default function SellCard({ products }) {
                   }
                   return (
                     <div className="stars-wrapper">
-                      {isNaN(rate) ? "0.0" : rate.toFixed(2)}  {stars}
+                      {isNaN(rate) ? "0.0" : rate.toFixed(2)} {stars}
                     </div>
                   );
                 })()}
-
               </div>
               <div className="sell-btn-wrapper">
                 <button
@@ -81,7 +83,7 @@ export default function SellCard({ products }) {
                 </button>
               </div>
             </div>
-          )
+          );
         })}
     </>
   );

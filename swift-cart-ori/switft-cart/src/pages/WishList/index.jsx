@@ -3,10 +3,11 @@ import { BsCart4 } from "react-icons/bs";
 import axios from "axios";
 import "./index.css";
 import { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, Link } from "react-router-dom";
 import Search from "../search";
-import { toast, Slide } from "react-toastify";
-
+import { toast } from "react-toastify";
+import { GiDesert } from "react-icons/gi";
+import { IoSearchCircleOutline } from "react-icons/io5";
 export default function WishList() {
   const [products, setProducts] = useState([]);
   const searchContext = useOutletContext();
@@ -36,42 +37,56 @@ export default function WishList() {
     <>
       {searchContext[0].length === 0 ? (
         <>
-          <h1 className="main-title">
-            LISTA DE FAVORITOS <FaHeart className="heart-icon" />
-          </h1>
-          <table cellSpacing="80">
-            <thead>
-              <tr>
-                <th>Produto</th>
-                <th>Estoque</th>
-                <th>Preço</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {products.map((product, id) => (
-                <tr key={id} className="list-items">
-                  <td className="product-image-wrapper">
-                    <img src={product.image} />
-                    <p>{product.name}</p>
-                  </td>
-                  <td>Disponível</td>
-                  <td>R$ {product.price}</td>
-                  <td>
-                    <button className="add-btn">
-                      <BsCart4 /> Adicionar ao Carrinho{" "}
-                    </button>
-                    <button
-                      onClick={() => handleDelete(product.product_id)}
-                      className="rmv-fav-btn"
-                    >
-                      <FaTrash /> Remover dos Favoritos
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          {products.length === 0 ? (
+            <div className="blank-cart">
+              <h1>
+                Ops! Parece que sua lista de favoritos está tão vazia quanto um
+                deserto. <GiDesert fontSize={60} />
+              </h1>
+              <Link to="/" className="link">
+                Página Inicial
+              </Link>
+            </div>
+          ) : (
+            <>
+              <h1 className="main-title">
+                LISTA DE FAVORITOS <FaHeart className="heart-icon" />
+              </h1>
+              <table cellSpacing="80">
+                <thead>
+                  <tr>
+                    <th>Produto</th>
+                    <th>Estoque</th>
+                    <th>Preço</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {products.map((product, id) => (
+                    <tr key={id} className="list-items">
+                      <td className="product-image-wrapper">
+                        <img src={product.image} />
+                        <p>{product.name}</p>
+                      </td>
+                      <td>Disponível</td>
+                      <td>R$ {product.price}</td>
+                      <td>
+                        <button className="add-btn">
+                          <BsCart4 /> Adicionar ao Carrinho{" "}
+                        </button>
+                        <button
+                          onClick={() => handleDelete(product.product_id)}
+                          className="rmv-fav-btn"
+                        >
+                          <FaTrash /> Remover dos Favoritos
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </>
+          )}
         </>
       ) : (
         <Search />

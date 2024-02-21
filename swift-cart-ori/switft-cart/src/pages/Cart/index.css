@@ -106,6 +106,9 @@ tbody img {
 
 .blank-cart h1 {
   font-size: 40px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 .blank-cart p {
   margin: 2rem 0;

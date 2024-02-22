@@ -7,7 +7,7 @@ import { useOutletContext, Link } from "react-router-dom";
 import Search from "../search";
 import { toast } from "react-toastify";
 import { GiDesert } from "react-icons/gi";
-import { IoSearchCircleOutline } from "react-icons/io5";
+
 export default function WishList() {
   const [products, setProducts] = useState([]);
   const searchContext = useOutletContext();
@@ -20,6 +20,17 @@ export default function WishList() {
   useEffect(() => {
     getProducts();
   }, [setProducts]);
+
+  const postToCart = async (id) => {
+    try {
+      await axios.post(`http://localhost:8800/cart/${id}`, {
+        product_id: id,
+      });
+      toast.success("Produto Adicionado ao Carrinho");
+    } catch (error) {
+      toast.error("Ocorreu um Erro Inesperado");
+    }
+  };
 
   const handleDelete = async (id) => {
     try {
@@ -71,7 +82,10 @@ export default function WishList() {
                       <td>Disponível</td>
                       <td>R$ {product.price}</td>
                       <td>
-                        <button className="add-btn">
+                        <button
+                          onClick={() => postToCart(product.product_id)}
+                          className="add-btn"
+                        >
                           <BsCart4 /> Adicionar ao Carrinho{" "}
                         </button>
                         <button

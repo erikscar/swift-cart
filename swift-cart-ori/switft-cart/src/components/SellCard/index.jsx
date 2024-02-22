@@ -4,7 +4,7 @@ import { BsCart4 } from "react-icons/bs";
 import { GiMoneyStack } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Slide, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaRegStar } from "react-icons/fa6";
 
@@ -20,7 +20,11 @@ export default function SellCard({ products }) {
   return (
     <>
       {products
-        .sort((a, b) => b.stars - a.stars)
+        .sort((a, b) => {
+          const rateA = (a.total_stars || 0) / (a.total_comments || 1);
+          const rateB = (b.total_stars || 0) / (b.total_comments || 1);
+          return rateB - rateA;
+        })
         .map((product, id) => {
           const rate = product.total_stars / product.total_comments;
           return (

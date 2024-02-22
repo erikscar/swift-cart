@@ -85,3 +85,14 @@ export const mostPopular = (_, res) => {
     return res.status(200).json(data);
   });
 };
+
+export const searchByCategory = (req, res) => {
+  const q = "SELECT * FROM products WHERE category = ?";
+  const { category } = req.query;
+
+  db.query(q,[category], (err, data) => {
+    if (err) return res.json(err);
+
+    return res.status(200).json(data);
+  });
+};

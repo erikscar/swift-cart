@@ -1,6 +1,10 @@
-import "./index.css"
+import { useOutletContext } from "react-router-dom";
+import "./index.css";
 
 export default function Card() {
+  const searchContext = useOutletContext();
+
+  const handleClick = () => {};
   return (
     <>
       <div className="mouse-card">
@@ -9,7 +13,9 @@ export default function Card() {
           <h1>Faça Seus</h1>
           <h2>Clicks</h2>
           <h3>MOUSE</h3>
-          <button>Navegar</button>
+          <button value="Mouses" onClick={() => handleClick()}>
+            Navegar
+          </button>
         </div>
       </div>
 
@@ -63,5 +69,5 @@ export default function Card() {
         </div>
       </div>
     </>
-  )
+  );
 }

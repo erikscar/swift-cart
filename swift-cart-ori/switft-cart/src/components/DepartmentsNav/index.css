@@ -22,3 +22,16 @@ a:hover {
   font-size: 24px;
   border-bottom: 1px solid rgb(158, 158, 158);
 }
+
+.department-select {
+  padding: 0.5rem 2rem 0.5rem 1rem;
+  border: 0;
+  font-size: 24px;
+  outline: 0;
+  appearance: none;
+  text-align: center;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="30px" height="30px"><path d="M7 10l5 5 5-5z" /></svg>'); /* Adicione um ícone personalizado */
+  background-repeat: no-repeat;
+  background-position: right center;
+  cursor: pointer;
+}

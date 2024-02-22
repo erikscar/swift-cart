@@ -1,7 +1,7 @@
 import { IoSearchOutline } from "react-icons/io5";
 import { useState } from "react";
 import axios from "axios";
-import { toast, ToastContainer, Slide } from "react-toastify";
+import { toast } from "react-toastify";
 
 export default function SearchInput({ setFound, setSearchValue }) {
   const [inputValue, setInputValue] = useState("");

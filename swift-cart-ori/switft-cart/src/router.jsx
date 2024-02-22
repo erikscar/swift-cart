@@ -7,6 +7,7 @@ import WishList from "./pages/WishList";
 import Layout from "./pages/Layout";
 import Plans from "./pages/Plans";
 import Release from "./pages/Release";
+import Popular from "./pages/Popular";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       { path: "/wishlist", element: <WishList /> },
       { path: "/plans", element: <Plans /> },
       { path: "/releases", element: <Release /> },
+      { path: "/popular", element: <Popular /> },
       { element: <Search /> },
     ],
   },

@@ -8,7 +8,7 @@ export default function DepartmentsNav() {
       <a href="">
         <BsList /> Departamentos
       </a>
-      <a href="/releases">Lançamentos</a>
+      <Link to="/releases">Lançamentos</Link>
       <a href="">Mais Populares</a>
       <a href="">Ofertas do Dia</a>
       <Link to="/plans">Seja Swift!</Link>

@@ -22,15 +22,15 @@ export const getProducts = (_, res) => {
 };
 
 export const getOneProduct = (req, res) => {
-  const q = "SELECT * FROM products WHERE product_id = ?"
-  const productId = req.params.id
+  const q = "SELECT * FROM products WHERE product_id = ?";
+  const productId = req.params.id;
 
   db.query(q, [productId], (err, data) => {
-    if (err) return res.json(err)
+    if (err) return res.json(err);
 
-    return res.status(200).json(data[0])
-  })
-}
+    return res.status(200).json(data[0]);
+  });
+};
 
 export const searchProducts = (req, res) => {
   const { searchInput } = req.query;
@@ -44,6 +44,42 @@ export const searchProducts = (req, res) => {
     GROUP BY products.product_id`;
 
   db.query(q, [`%${searchInput}%`], (err, data) => {
+    if (err) return res.json(err);
+
+    return res.status(200).json(data);
+  });
+};
+
+export const lastReleases = (_, res) => {
+  const q = `SELECT products.*, 
+    SUM(comments.stars) AS total_stars, 
+    COUNT(comments.comment_id) AS total_comments
+    FROM products
+    LEFT JOIN comments ON comments.product_id = products.product_id 
+    GROUP BY products.product_id
+    ORDER BY products.created_at DESC 
+    LIMIT 5;
+`;
+
+  db.query(q, (err, data) => {
+    if (err) return res.json(err);
+
+    return res.status(200).json(data);
+  });
+};
+
+export const mostPopular = (_, res) => {
+  const q = `SELECT products.*, 
+    SUM(comments.stars) AS total_stars, 
+    COUNT(comments.comment_id) AS total_comments
+    FROM products
+    LEFT JOIN comments ON comments.product_id = products.product_id 
+    GROUP BY products.product_id
+    ORDER BY (SUM(comments.stars) / COUNT(comments.comment_id)) DESC 
+    LIMIT 5;
+`;
+
+  db.query(q, (err, data) => {
     if (err) return res.json(err);
 
     return res.status(200).json(data);

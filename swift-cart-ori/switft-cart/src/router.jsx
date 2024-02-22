@@ -5,6 +5,9 @@ import Cart from "./pages/Cart";
 import ShowItem from "./pages/ShowItem";
 import WishList from "./pages/WishList";
 import Layout from "./pages/Layout";
+import Plans from "./pages/Plans";
+import Release from "./pages/Release";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -14,6 +17,8 @@ const router = createBrowserRouter([
       { path: "/cart", element: <Cart /> },
       { path: "/:id", element: <ShowItem /> },
       { path: "/wishlist", element: <WishList /> },
+      { path: "/plans", element: <Plans /> },
+      { path: "/releases", element: <Release /> },
       { element: <Search /> },
     ],
   },

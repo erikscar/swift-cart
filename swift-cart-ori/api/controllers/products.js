@@ -87,10 +87,18 @@ export const mostPopular = (_, res) => {
 };
 
 export const searchByCategory = (req, res) => {
-  const q = "SELECT * FROM products WHERE category = ?";
+  const q = `
+  SELECT p.*, 
+  SUM(c.stars) AS total_stars, 
+  COUNT(c.comment_id) AS total_comments
+  FROM products p
+  LEFT JOIN comments c ON c.product_id = p.product_id 
+  WHERE p.category = ?
+  GROUP BY p.product_id;`
+
   const { category } = req.query;
 
-  db.query(q,[category], (err, data) => {
+  db.query(q, [category], (err, data) => {
     if (err) return res.json(err);
 
     return res.status(200).json(data);

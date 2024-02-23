@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./index.css";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function DepartmentsNav({ setFound, setSearchValue }) {
   const handleChange = (e) => {
@@ -17,9 +18,15 @@ export default function DepartmentsNav({ setFound, setSearchValue }) {
           },
         }
       );
-      setFound(res.data);
-      setSearchValue(category);
-    } catch (error) {}
+      if (res.data.length !== 0) {
+        setFound(res.data);
+        setSearchValue(category);
+      } else {
+        toast.error(`Não foi Encontrado Produtos com a Categoria "${category}"`)
+      }
+    } catch (error) {
+      toast.error("Ocorreu um Erro Inesperado")
+    }
   };
 
   return (

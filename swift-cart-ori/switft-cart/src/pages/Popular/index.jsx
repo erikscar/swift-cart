@@ -1,9 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import SellCard from "../../components/SellCard";
+import Search from "../search.jsx";
+import { useOutletContext } from "react-router-dom";
 
 function Popular() {
   const [popularProduct, setPopularProduct] = useState([]);
+  const searchContext = useOutletContext()
 
   const getPopularProducts = async () => {
     try {
@@ -19,12 +22,20 @@ function Popular() {
   }, [setPopularProduct]);
 
   return (
-    <div>
-      <h1 className="best-seller-title last-release">OS 5 MAIS POPULARES</h1>
-      <div className="sell-card-container">
-        <SellCard products={popularProduct} />
-      </div>
-    </div>
+    <>
+      {searchContext[0].length === 0 ? (
+        <>
+          <div>
+            <h1 className="best-seller-title last-release">OS 5 MAIS POPULARES</h1>
+            <div className="sell-card-container">
+              <SellCard products={popularProduct} />
+            </div>
+          </div>
+        </>
+      ) : (
+        <Search />
+      )}
+    </>
   );
 }
 

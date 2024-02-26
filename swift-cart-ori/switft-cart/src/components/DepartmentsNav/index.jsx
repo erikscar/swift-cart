@@ -8,6 +8,11 @@ export default function DepartmentsNav({ setFound, setSearchValue }) {
     getProductByCategory(e.target.value);
   };
 
+  const clearSearchValues = () => {
+    setFound([]);
+    setSearchValue("");
+  };
+
   const getProductByCategory = async (category) => {
     try {
       const res = await axios.get(
@@ -49,9 +54,9 @@ export default function DepartmentsNav({ setFound, setSearchValue }) {
         <option value="Fones de Ouvido">Fones de Ouvido</option>
         <option value="Controles">Controles</option>
       </select>
-      <Link to="/releases">Lançamentos</Link>
-      <Link to="/popular">Mais Populares</Link>
-      <Link to="/plans">Seja Swift!</Link>
+      <Link to="/releases" onClick={clearSearchValues}>Lançamentos</Link>
+      <Link to="/popular" onClick={clearSearchValues}>Mais Populares</Link>
+      <Link to="/plans" onClick={clearSearchValues}>Seja Swift!</Link>
     </div>
   );
 }

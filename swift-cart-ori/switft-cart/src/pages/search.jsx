@@ -5,6 +5,13 @@ import { useOutletContext } from "react-router-dom";
 
 export default function Search() {
   const searchContext = useOutletContext();
+
+  const handleFilter = (products, filter, filterName) => {
+    const filterProducts = products.filter(p => p[filter] !== filterName)
+    const setFound = searchContext[2]
+    setFound(filterProducts)
+  }
+
   return (
     <>
       <div className="main-container">

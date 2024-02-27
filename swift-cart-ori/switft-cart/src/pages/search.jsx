@@ -1,87 +1,31 @@
-import { useState } from "react";
 import SellCard from "../components/SellCard";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import { MdAttachMoney } from "react-icons/md";
 import { useOutletContext } from "react-router-dom";
-import { toast } from "react-toastify";
+import CheckboxFilter from "../components/CheckboxFilter";
 
 export default function Search() {
   const searchContext = useOutletContext();
-  const [initialProducts, setInitialProducts] = useState([...searchContext[0]]);
-  const setFound = searchContext[2]
-
-  const handleFilter = (ev, filter, filterName) => {
-    if (ev.target.checked) {
-      console.log(initialProducts)
-      const filterProducts = initialProducts.filter(p => p[filter] === filterName)
-      if (filterProducts.length > 0) setFound(filterProducts)
-      else toast.error("Não Há Produtos Pesquisados nessa Categoria!")
-
-    } else {
-      setFound(initialProducts)
-    }
-  }
 
   return (
     <>
       <div className="main-container">
         <aside>
           <p>Categoria</p>
-
-          <div className="input-wrapper">
-            <input type="checkbox" name="" id="" onClick={(ev) => handleFilter(ev, "category", "Mouses")} />
-            <label htmlFor="">Mouses</label>
-          </div>
-
-          <div className="input-wrapper">
-            <input type="checkbox" name="" id="teste" onClick={(ev) => handleFilter(ev, "category", "Celulares")} />
-            <label htmlFor="">Celulares</label>
-          </div>
-
-          <div className="input-wrapper">
-            <input type="checkbox" name="" id="" onClick={(ev) => handleFilter(ev, "category", "Monitores")} />
-            <label htmlFor="">Monitores</label>
-          </div>
-
-          <div className="input-wrapper">
-            <input type="checkbox" name="" id="" onClick={(ev) => handleFilter(ev, "category", "Notebooks")} />
-            <label htmlFor="">Notebooks</label>
-          </div>
-
-          <div className="input-wrapper">
-            <input type="checkbox" name="" id="" onClick={(ev) => handleFilter(ev, "category", "Fones de Ouvido")} />
-            <label htmlFor="">Fones de Ouvido</label>
-          </div>
-
-          <div className="input-wrapper">
-            <input type="checkbox" name="" id="" onClick={(ev) => handleFilter(ev, "category", "Controles")} />
-            <label htmlFor="">Controles</label>
-          </div>
+          <CheckboxFilter name="Mouses" filter="category" />
+          <CheckboxFilter name="Celulares" filter="category" />
+          <CheckboxFilter name="Monitores" filter="category" />
+          <CheckboxFilter name="Notebooks" filter="category" />
+          <CheckboxFilter name="Fones de Ouvido" filter="category" />
+          <CheckboxFilter name="Controles" filter="category" />
 
           <p>Marca</p>
-
-          <div className="input-wrapper">
-            <input type="checkbox" name="" id="" />
-            <label htmlFor="">HyperX</label>
-          </div>
-
-          <div className="input-wrapper">
-            <input type="checkbox" name="" id="" />
-            <label htmlFor="">TUF Gaming</label>
-          </div>
-
-          <div className="input-wrapper">
-            <input type="checkbox" name="" id="" />
-            <label htmlFor="">Xiaomi</label>
-          </div>
-
-          <div className="input-wrapper">
-            <input type="checkbox" name="" id="" />
-            <label htmlFor="">Logitech</label>
-          </div>
+          <CheckboxFilter name="HyperX" filter="brand" />
+          <CheckboxFilter name="TUF Gaming" filter="brand" />
+          <CheckboxFilter name="Xiaomi" filter="brand" />
+          <CheckboxFilter name="Logitech" filter="brand" />
 
           <p>Avaliação</p>
-
           <div className="input-wrapper">
             <input type="checkbox" name="" id="" />
             <FaStar color="#f9c522" />

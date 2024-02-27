@@ -110,7 +110,7 @@ export default function Search() {
             <input type="text" placeholder="Minimo" className="price-input" value={minValue}
               onChange={(ev) => setMinValue(ev.target.value)} />
             <MdAttachMoney className="price-icon-2" />
-            <button className="buy-btn" onClick={handlePriceFilter}>Pesquisar</button>
+            <button className="search-btn" onClick={handlePriceFilter}>Pesquisar</button>
           </div>
 
         </aside>

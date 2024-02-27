@@ -1,15 +1,25 @@
+import { useState } from "react";
 import SellCard from "../components/SellCard";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import { MdAttachMoney } from "react-icons/md";
 import { useOutletContext } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function Search() {
   const searchContext = useOutletContext();
+  const [initialProducts, setInitialProducts] = useState([...searchContext[0]]);
+  const setFound = searchContext[2]
 
-  const handleFilter = (products, filter, filterName) => {
-    const filterProducts = products.filter(p => p[filter] !== filterName)
-    const setFound = searchContext[2]
-    setFound(filterProducts)
+  const handleFilter = (ev, filter, filterName) => {
+    if (ev.target.checked) {
+      console.log(initialProducts)
+      const filterProducts = initialProducts.filter(p => p[filter] === filterName)
+      if (filterProducts.length > 0) setFound(filterProducts)
+      else toast.error("Não Há Produtos Pesquisados nessa Categoria!")
+
+    } else {
+      setFound(initialProducts)
+    }
   }
 
   return (
@@ -19,32 +29,32 @@ export default function Search() {
           <p>Categoria</p>
 
           <div className="input-wrapper">
-            <input type="checkbox" name="" id="" />
+            <input type="checkbox" name="" id="" onClick={(ev) => handleFilter(ev, "category", "Mouses")} />
             <label htmlFor="">Mouses</label>
           </div>
 
           <div className="input-wrapper">
-            <input type="checkbox" name="" id="teste" />
+            <input type="checkbox" name="" id="teste" onClick={(ev) => handleFilter(ev, "category", "Celulares")} />
             <label htmlFor="">Celulares</label>
           </div>
 
           <div className="input-wrapper">
-            <input type="checkbox" name="" id="" />
+            <input type="checkbox" name="" id="" onClick={(ev) => handleFilter(ev, "category", "Monitores")} />
             <label htmlFor="">Monitores</label>
           </div>
 
           <div className="input-wrapper">
-            <input type="checkbox" name="" id="" />
+            <input type="checkbox" name="" id="" onClick={(ev) => handleFilter(ev, "category", "Notebooks")} />
             <label htmlFor="">Notebooks</label>
           </div>
 
           <div className="input-wrapper">
-            <input type="checkbox" name="" id="" />
+            <input type="checkbox" name="" id="" onClick={(ev) => handleFilter(ev, "category", "Fones de Ouvido")} />
             <label htmlFor="">Fones de Ouvido</label>
           </div>
 
           <div className="input-wrapper">
-            <input type="checkbox" name="" id="" />
+            <input type="checkbox" name="" id="" onClick={(ev) => handleFilter(ev, "category", "Controles")} />
             <label htmlFor="">Controles</label>
           </div>
 

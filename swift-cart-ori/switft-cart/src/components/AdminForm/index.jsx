@@ -20,8 +20,12 @@ const AdminForm = () => {
                             <div className="close-btn-wrapper">
                                 <TiDeleteOutline className="close-btn" onClick={toggleModal} />
                             </div>
-                            <label htmlFor="">Nome: </label>
-                            <input type="text" name="username" />
+                            <input type="text" name="name" placeholder="Nome.." />
+                            <input type="text" name="description" placeholder="Descrição..." />
+                            <input type="text" name="image" placeholder="URL da Imagem..." />
+                            <input type="text" name="price" placeholder="Preço..." />
+                            <input type="text" name="brand" placeholder="Marca..." />
+                            <input type="text" name="category" placeholder="Categoria..." />
                             <div className="save-btn-wrapper">
                                 <button onClick={(ev) => handleSubmit(ev)} className="save-btn">
                                     Salvar

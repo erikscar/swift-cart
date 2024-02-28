@@ -15,16 +15,6 @@ const Admin = () => {
         }
     }
 
-    const postProduct = async () => {
-        try {
-            await axios.post("http://localhost:8800/products", {
-
-            })
-        } catch (error) {
-
-        }
-    }
-
     useEffect(() => {
         getProducts()
     }, [setProducts])
@@ -36,7 +26,7 @@ const Admin = () => {
                 <h1>SwiftCart</h1>
             </div>
             <div className="admin-container">
-                <AdminForm />
+                <AdminForm products={products} />
                 <div className="sell-card-container">
                     <SellCard products={products} />
                 </div>

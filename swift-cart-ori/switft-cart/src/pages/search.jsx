@@ -9,10 +9,8 @@ import { toast } from "react-toastify";
 export default function Search() {
   const searchContext = useOutletContext();
   const [initialProducts, setInitialProducts] = useState([...searchContext[0]]);
-  const [order, setOrder] = useState(false)
   const [minValue, setMinValue] = useState("");
   const [maxValue, setMaxValue] = useState("");
-  const [orderProduct, setOrderProduct] = useState([])
   const setFound = searchContext[2];
 
   const handleFilter = (ev, stars) => {

@@ -4,6 +4,7 @@ import {
   getProducts,
   lastReleases,
   mostPopular,
+  postProduct,
   searchByCategory,
   searchProducts,
 } from "../controllers/products.js";
@@ -15,5 +16,6 @@ productRouter.get("/", getProducts);
 productRouter.get("/releases", lastReleases);
 productRouter.get("/popular", mostPopular);
 productRouter.get("/:id", getOneProduct);
+productRouter.post("/", postProduct)
 
 export default productRouter;

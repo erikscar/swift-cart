@@ -21,6 +21,17 @@ export const getProducts = (_, res) => {
   });
 };
 
+export const postProduct = (req, res) => {
+  const q = "INSERT INTO products(`name`, `description`, `image`, `price`, `brand`, `category`) VALUES (?, ?, ?, ?, ?, ?)"
+  const { name, description, image, price, brand, category } = req.body
+
+  db.query(q, [name, description, image, price, brand, category], (err) => {
+    if (err) return res.json(err)
+
+    return res.status(200).json("Produto Adicionado com Sucesso")
+  })
+}
+
 export const getOneProduct = (req, res) => {
   const q = "SELECT * FROM products WHERE product_id = ?";
   const productId = req.params.id;

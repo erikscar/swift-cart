@@ -27,7 +27,7 @@ function Release() {
         <>
           <div className="sell-card-container">
             <h1 className="best-seller-title last-release">
-              OS 5 LANÇAMENTOS MAIS RECENTES
+              OS LANÇAMENTOS MAIS RECENTES
             </h1>
             <SellCard products={lastRelease} />
           </div>

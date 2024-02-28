@@ -26,7 +26,7 @@ function Popular() {
       {searchContext[0].length === 0 ? (
         <>
           <div>
-            <h1 className="best-seller-title last-release">OS 5 MAIS POPULARES</h1>
+            <h1 className="best-seller-title last-release">OS MAIS POPULARES</h1>
             <div className="sell-card-container">
               <SellCard products={popularProduct} />
             </div>

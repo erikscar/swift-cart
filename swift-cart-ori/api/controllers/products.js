@@ -58,7 +58,7 @@ export const lastReleases = (_, res) => {
     LEFT JOIN comments ON comments.product_id = products.product_id 
     GROUP BY products.product_id
     ORDER BY products.created_at DESC 
-    LIMIT 5;
+    LIMIT 4;
 `;
 
   db.query(q, (err, data) => {
@@ -76,7 +76,7 @@ export const mostPopular = (_, res) => {
     LEFT JOIN comments ON comments.product_id = products.product_id 
     GROUP BY products.product_id
     ORDER BY (SUM(comments.stars) / COUNT(comments.comment_id)) DESC 
-    LIMIT 5;
+    LIMIT 4;
 `;
 
   db.query(q, (err, data) => {

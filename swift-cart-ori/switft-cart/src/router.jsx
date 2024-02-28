@@ -8,6 +8,7 @@ import Layout from "./pages/Layout";
 import Plans from "./pages/Plans";
 import Release from "./pages/Release";
 import Popular from "./pages/Popular";
+import Admin from "./pages/Admin"
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
       { element: <Search /> },
     ],
   },
+  { path: "/admin", element: <Admin /> }
 ]);
 
 export default router;

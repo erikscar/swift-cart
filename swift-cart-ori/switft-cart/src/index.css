@@ -134,8 +134,11 @@ aside p {
 }
 
 .items-container {
-  margin-top: 2rem;
   padding: 2rem;
+}
+
+.search-value {
+  margin: 4rem;
 }
 
 .input-wrapper {

@@ -1,0 +1,36 @@
+.form-modal,
+.modal-overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+input,
+textarea {
+  width: 100%;
+  margin: 1rem 0;
+  border-radius: 1rem;
+  font-size: 18px;
+  padding: 1rem;
+}
+
+.modal-overlay {
+  background: rgba(49, 49, 49, 0.8);
+}
+
+.form-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  padding: 14px 28px;
+  border-radius: 2rem;
+  padding: 3rem;
+  font-size: 20px;
+  background: linear-gradient(to right, #f0efeb, #eeee);
+}

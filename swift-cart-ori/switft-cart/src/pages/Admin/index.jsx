@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import "./index.css"
 import axios from "axios"
 import SellCard from "../../components/SellCard"
+import AdminForm from "../../components/AdminForm"
 const Admin = () => {
     const [products, setProducts] = useState([])
 
@@ -35,7 +36,7 @@ const Admin = () => {
                 <h1>SwiftCart</h1>
             </div>
             <div className="admin-container">
-                <button className="add-product-btn">Adicionar Produto</button>
+                <AdminForm />
                 <div className="sell-card-container">
                     <SellCard products={products} />
                 </div>

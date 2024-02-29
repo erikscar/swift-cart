@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import "./index.css"
 import axios from "axios"
-import SellCard from "../../components/SellCard"
 import AdminForm from "../../components/AdminForm"
+import AdminCard from "../../components/AdminCard"
 const Admin = () => {
     const [products, setProducts] = useState([])
 
@@ -26,9 +26,9 @@ const Admin = () => {
                 <h1>SwiftCart</h1>
             </div>
             <div className="admin-container">
-                <AdminForm products={products} />
+                <AdminForm products={products} getProducts={getProducts} />
                 <div className="sell-card-container">
-                    <SellCard products={products} />
+                    <AdminCard products={products} getProducts={getProducts} />
                 </div>
             </div>
         </>

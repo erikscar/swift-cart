@@ -2,7 +2,8 @@ import { useRef, useState } from "react";
 import { TiDeleteOutline } from "react-icons/ti";
 import "./index.css"
 import axios from "axios";
-const AdminForm = () => {
+
+const AdminForm = ({ getProducts }) => {
     const [modal, setModal] = useState(false);
     const ref = useRef();
 
@@ -18,6 +19,7 @@ const AdminForm = () => {
                 brand: form.brand.value,
                 category: form.category.value
             })
+            getProducts()
             toggleModal()
         } catch (error) {
             console.error(error)

@@ -32,6 +32,16 @@ export const postProduct = (req, res) => {
   })
 }
 
+export const deleteProduct = (req, res) => {
+  const q = "DELETE FROM products WHERE product_id = ? LIMIT 1"
+  
+  db.query(q, [req.params.id], (err) => {
+    if (err) return res.json(err)
+
+    return res.status(200).json("Produto Excluído com Sucesso")
+  })
+}
+
 export const getOneProduct = (req, res) => {
   const q = "SELECT * FROM products WHERE product_id = ?";
   const productId = req.params.id;

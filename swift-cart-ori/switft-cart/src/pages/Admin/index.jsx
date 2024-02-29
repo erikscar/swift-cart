@@ -3,8 +3,10 @@ import "./index.css"
 import axios from "axios"
 import AdminForm from "../../components/AdminForm"
 import AdminCard from "../../components/AdminCard"
+
 const Admin = () => {
     const [products, setProducts] = useState([])
+    const [productId, setProductId] = useState(0)
 
     const getProducts = async () => {
         try {
@@ -14,6 +16,7 @@ const Admin = () => {
             console.error(error)
         }
     }
+
 
     useEffect(() => {
         getProducts()
@@ -28,7 +31,7 @@ const Admin = () => {
             <div className="admin-container">
                 <AdminForm products={products} getProducts={getProducts} />
                 <div className="sell-card-container">
-                    <AdminCard products={products} getProducts={getProducts} />
+                    <AdminCard products={products} getProducts={getProducts} setProductId={setProductId} />
                 </div>
             </div>
         </>

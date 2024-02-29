@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { FaRegStar, FaTrashCan } from "react-icons/fa6";
-import { BiSolidEdit } from "react-icons/bi";
+import AdminForm from "../AdminForm";
 
 
 export default function AdminCard({ products, getProducts }) {
+
     const deleteProduct = async (productId) => {
         try {
             axios.delete(`http://localhost:8800/products/${productId}`)
@@ -59,7 +60,7 @@ export default function AdminCard({ products, getProducts }) {
                                 })()}
                             </div>
                             <div className="sell-btn-wrapper">
-                                <button><BiSolidEdit /> Atualizar</button>
+                                <AdminForm onEdit={true} productId={product.product_id} getProducts={getProducts} />
                                 <button onClick={() => deleteProduct(product.product_id)}><FaTrashCan /> Excluir</button>
                             </div>
                         </div>

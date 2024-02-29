@@ -32,6 +32,20 @@ export const postProduct = (req, res) => {
   })
 }
 
+export const updateProduct = (req, res) => {
+  const q = `
+      UPDATE products
+      SET name = ?, description = ?, image = ?, price = ?, brand = ?, category = ?
+      WHERE product_id = ?`
+  const { name, description, image, price, brand, category } = req.body
+
+  db.query(q, [name, description, image, price, brand, category, req.params.id], (err) => {
+    if (err) return res.json(err)
+
+    return res.status(200).json("Produto Atualizado com Sucesso")
+  })
+}
+
 export const deleteProduct = (req, res) => {
   const q = "DELETE FROM products WHERE product_id = ? LIMIT 1"
   

@@ -6,11 +6,20 @@ import { FaEdit } from "react-icons/fa";
 
 const AdminForm = ({ getProducts, onEdit, productId, productToUpdate }) => {
     const [modal, setModal] = useState(false);
+    const [shouldCloseModal, setShouldCloseModal] = useState(false); // Novo estado
+
     const ref = useRef();
 
+    useEffect(() => {
+        if (shouldCloseModal) {
+            setModal(false);
+            setShouldCloseModal(false);
+        }
+    }, [shouldCloseModal]);
+
     const postProduct = async (ev) => {
-        const form = ref.current
-        ev.preventDefault()
+        const form = ref.current;
+        ev.preventDefault();
         try {
             await axios.post("http://localhost:8800/products", {
                 name: form.name.value,
@@ -19,35 +28,35 @@ const AdminForm = ({ getProducts, onEdit, productId, productToUpdate }) => {
                 price: form.price.value,
                 brand: form.brand.value,
                 category: form.category.value
-            })
-            getProducts()
-            toggleModal()
+            });
+            getProducts();
+            setShouldCloseModal(true)
         } catch (error) {
-            console.error(error)
+            console.error(error);
         }
-    }
+    };
 
     const updateProduct = async (ev) => {
-        const form = ref.current
-        ev.preventDefault()
+        const form = ref.current;
+        ev.preventDefault();
         try {
-            axios.put(`http://localhost:8800/products/${productId}`, {
+            await axios.put(`http://localhost:8800/products/${productId}`, {
                 name: form.name.value,
                 description: form.description.value,
                 image: form.image.value,
                 price: form.price.value,
                 brand: form.brand.value,
                 category: form.category.value
-            })
-            getProducts()
-            toggleModal()
+            });
+            getProducts();
+            setShouldCloseModal(true);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
-    }
+    };
 
     const toggleModal = () => {
-        setModal(prevModal => !prevModal);
+        setModal((prevModal) => !prevModal);
     };
 
     return (
@@ -56,10 +65,11 @@ const AdminForm = ({ getProducts, onEdit, productId, productToUpdate }) => {
                 <button onClick={toggleModal}>
                     <FaEdit /> Atualizar
                 </button>
-            ) : <button className="add-product-btn" onClick={toggleModal}>
-                Adicionar Produto
-            </button>}
-
+            ) : (
+                <button className="add-product-btn" onClick={toggleModal}>
+                    Adicionar Produto
+                </button>
+            )}
 
             {modal && (
                 <form ref={ref} className="form-modal">
@@ -80,16 +90,18 @@ const AdminForm = ({ getProducts, onEdit, productId, productToUpdate }) => {
                                     <button onClick={(ev) => updateProduct(ev)} className="save-btn">
                                         Atualizar
                                     </button>
-                                ) : <button onClick={(ev) => postProduct(ev)} className="save-btn">
-                                    Salvar
-                                </button>}
-
+                                ) : (
+                                    <button onClick={(ev) => postProduct(ev)} className="save-btn">
+                                        Salvar
+                                    </button>
+                                )}
                             </div>
                         </div>
                     </div>
                 </form>
             )}
-        </>)
-}
+        </>
+    );
+};
 
-export default AdminForm
+export default AdminForm;

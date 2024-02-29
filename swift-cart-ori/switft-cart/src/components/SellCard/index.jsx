@@ -2,7 +2,7 @@ import "./index.css";
 import { FaStar } from "react-icons/fa";
 import { BsCart4 } from "react-icons/bs";
 import { GiMoneyStack } from "react-icons/gi";
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -17,6 +17,9 @@ export default function SellCard({ products }) {
       .then(({ data }) => toast.success(data))
       .catch(({ data }) => toast.error(data));
   };
+
+  const searchContext = useOutletContext()
+  const clearSearchValues = searchContext[4]
   return (
     <>
       {products
@@ -29,7 +32,7 @@ export default function SellCard({ products }) {
           const rate = product.total_stars / product.total_comments;
           return (
             <div className="sell-card" key={id}>
-              <Link to={`/${product.product_id}`}>
+              <Link to={`/${product.product_id}`} onClick={clearSearchValues}>
                 <img
                   src={product.image}
                   className="sell-card-img"

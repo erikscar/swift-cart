@@ -11,7 +11,7 @@ export default function ModalForm({ className, getComments, product }) {
   const ref = useRef();
 
   const toggleModal = () => {
-    setModal(!modal);
+    setModal(prevmodal => !prevmodal);
   };
 
   const handleStars = (value) => {

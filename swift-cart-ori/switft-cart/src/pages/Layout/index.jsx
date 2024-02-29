@@ -52,7 +52,7 @@ export default function Header() {
       </header>
       <DepartmentsNav setFound={setFound} setSearchValue={setSearchValue} />
 
-      <Outlet context={[found, searchValue, setFound, setSearchValue]} />
+      <Outlet context={[found, searchValue, setFound, setSearchValue, clearSearchValues]} />
 
       <footer>
         <div class="footer-infos">

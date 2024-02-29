@@ -11,7 +11,7 @@ export default function AdminCard({ products, getProducts }) {
 
     const deleteProduct = async (productId) => {
         try {
-            axios.delete(`http://localhost:8800/products/${productId}`)
+            await axios.delete(`http://localhost:8800/products/${productId}`)
             getProducts()
         } catch (error) {
             console.error(error)

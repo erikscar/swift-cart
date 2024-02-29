@@ -60,7 +60,7 @@ export default function AdminCard({ products, getProducts }) {
                                 })()}
                             </div>
                             <div className="sell-btn-wrapper">
-                                <AdminForm onEdit={true} productId={product.product_id} getProducts={getProducts} />
+                                <AdminForm onEdit={true} productToUpdate={product} productId={product.product_id} getProducts={getProducts} />
                                 <button onClick={() => deleteProduct(product.product_id)}><FaTrashCan /> Excluir</button>
                             </div>
                         </div>

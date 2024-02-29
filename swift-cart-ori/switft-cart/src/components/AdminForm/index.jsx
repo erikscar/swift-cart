@@ -1,10 +1,10 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TiDeleteOutline } from "react-icons/ti";
 import "./index.css"
 import axios from "axios";
 import { FaEdit } from "react-icons/fa";
 
-const AdminForm = ({ getProducts, onEdit, productId }) => {
+const AdminForm = ({ getProducts, onEdit, productId, productToUpdate }) => {
     const [modal, setModal] = useState(false);
     const ref = useRef();
 
@@ -47,8 +47,9 @@ const AdminForm = ({ getProducts, onEdit, productId }) => {
     }
 
     const toggleModal = () => {
-        setModal(!modal);
+        setModal(prevModal => !prevModal);
     };
+
     return (
         <>
             {onEdit ? (
@@ -57,37 +58,37 @@ const AdminForm = ({ getProducts, onEdit, productId }) => {
                 </button>
             ) : <button className="add-product-btn" onClick={toggleModal}>
                 Adicionar Produto
-            </button >}
-            {
-                modal && (
-                    <form ref={ref} className="form-modal">
-                        <div className="modal-overlay">
-                            <div className="form-content">
-                                <div className="close-btn-wrapper">
-                                    <TiDeleteOutline className="close-btn" onClick={toggleModal} />
-                                </div>
-                                <h1>Adicionar Produto</h1>
-                                <input type="text" name="name" placeholder="Nome.." />
-                                <input type="text" name="description" placeholder="Descrição..." />
-                                <input type="text" name="image" placeholder="URL da Imagem..." />
-                                <input type="text" name="price" placeholder="Preço..." />
-                                <input type="text" name="brand" placeholder="Marca..." />
-                                <input type="text" name="category" placeholder="Categoria..." />
-                                <div className="save-btn-wrapper">
-                                    {onEdit ? (
-                                        <button onClick={(ev) => updateProduct(ev)} className="save-btn">
-                                            Atualizar
-                                        </button>
-                                    ) : <button onClick={(ev) => postProduct(ev)} className="save-btn">
-                                        Salvar
-                                    </button>}
+            </button>}
 
-                                </div>
+
+            {modal && (
+                <form ref={ref} className="form-modal">
+                    <div className="modal-overlay">
+                        <div className="form-content">
+                            <div className="close-btn-wrapper">
+                                <TiDeleteOutline className="close-btn" onClick={toggleModal} />
+                            </div>
+                            <h1>Adicionar Produto</h1>
+                            <input type="text" name="name" placeholder="Nome.." defaultValue={onEdit ? productToUpdate.name : ""} />
+                            <input type="text" name="description" placeholder="Descrição..." defaultValue={onEdit ? productToUpdate.description : ""} />
+                            <input type="text" name="image" placeholder="URL da Imagem..." defaultValue={onEdit ? productToUpdate.image : ""} />
+                            <input type="text" name="price" placeholder="Preço..." defaultValue={onEdit ? productToUpdate.price : ""} />
+                            <input type="text" name="brand" placeholder="Marca..." defaultValue={onEdit ? productToUpdate.brand : ""} />
+                            <input type="text" name="category" placeholder="Categoria..." defaultValue={onEdit ? productToUpdate.category : ""} />
+                            <div className="save-btn-wrapper">
+                                {onEdit ? (
+                                    <button onClick={(ev) => updateProduct(ev)} className="save-btn">
+                                        Atualizar
+                                    </button>
+                                ) : <button onClick={(ev) => postProduct(ev)} className="save-btn">
+                                    Salvar
+                                </button>}
+
                             </div>
                         </div>
-                    </form>
-                )
-            }
+                    </div>
+                </form>
+            )}
         </>)
 }
 

@@ -5,6 +5,7 @@ import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { FaRegStar, FaTrashCan } from "react-icons/fa6";
 import AdminForm from "../AdminForm";
+import { toast } from "react-toastify";
 
 
 export default function AdminCard({ products, getProducts }) {
@@ -12,6 +13,7 @@ export default function AdminCard({ products, getProducts }) {
     const deleteProduct = async (productId) => {
         try {
             await axios.delete(`http://localhost:8800/products/${productId}`)
+            toast.warning("Produto Excluído com Sucesso");
             getProducts()
         } catch (error) {
             console.error(error)

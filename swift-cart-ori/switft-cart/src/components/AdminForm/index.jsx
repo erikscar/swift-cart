@@ -3,6 +3,7 @@ import { TiDeleteOutline } from "react-icons/ti";
 import "./index.css"
 import axios from "axios";
 import { FaEdit } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const AdminForm = ({ getProducts, onEdit, productId, productToUpdate }) => {
     const [modal, setModal] = useState(false);
@@ -50,6 +51,7 @@ const AdminForm = ({ getProducts, onEdit, productId, productToUpdate }) => {
             });
             getProducts();
             setShouldCloseModal(true);
+            toast.success("Produto Atualizado com Sucesso");
         } catch (error) {
             console.log(error);
         }
@@ -78,7 +80,11 @@ const AdminForm = ({ getProducts, onEdit, productId, productToUpdate }) => {
                             <div className="close-btn-wrapper">
                                 <TiDeleteOutline className="close-btn" onClick={toggleModal} />
                             </div>
-                            <h1>Adicionar Produto</h1>
+                            {onEdit ? (
+                                <h1>Atualizar Produto</h1>
+                            ) : (
+                                <h1>Adicionar Produto</h1>
+                            )}
                             <input type="text" name="name" placeholder="Nome.." defaultValue={onEdit ? productToUpdate.name : ""} />
                             <input type="text" name="description" placeholder="Descrição..." defaultValue={onEdit ? productToUpdate.description : ""} />
                             <input type="text" name="image" placeholder="URL da Imagem..." defaultValue={onEdit ? productToUpdate.image : ""} />
@@ -113,7 +119,7 @@ const AdminForm = ({ getProducts, onEdit, productId, productToUpdate }) => {
                                         Atualizar
                                     </button>
                                 ) : (
-                                    <button onClick={(ev) => postProduct(ev)} className="save-btn">
+                                    <button onClick={(ev) => postProduct(ev)} id="teste">
                                         Salvar
                                     </button>
                                 )}

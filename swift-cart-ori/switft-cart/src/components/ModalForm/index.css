@@ -46,8 +46,8 @@ textarea {
 }
 
 .save-btn-wrapper {
-  text-align: center;
-}
+  margin: 0 auto;
+  }
 .save-btn {
   color: #f0efeb;
   margin: 3rem 0;
@@ -59,6 +59,7 @@ textarea {
   cursor: pointer;
   transition: 1s;
   text-align: center;
+  width: 60%;
 }
 
 .save-btn:hover {

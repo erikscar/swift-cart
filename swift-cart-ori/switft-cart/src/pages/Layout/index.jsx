@@ -57,7 +57,7 @@ export default function Header() {
       <footer>
         <div class="footer-infos">
           <div class="logo">
-            <img src="logo.png" alt="logo" class="logo-img" />
+            <img src="/logo.png" alt="logo" class="logo-img" />
             <h1 class="main-title">SwiftCart</h1>
           </div>
           <p>Velocidade e Conveniência, suas compras em um clique!</p>

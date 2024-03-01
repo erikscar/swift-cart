@@ -10,12 +10,17 @@
 }
 
 input,
-textarea {
+select {
   width: 20rem;
   margin: 2rem;
   border-radius: 1rem;
   font-size: 18px;
   padding: 1rem;
+}
+
+select{
+  text-align: center;
+  font-size: 20px;
 }
 
 .modal-overlay {

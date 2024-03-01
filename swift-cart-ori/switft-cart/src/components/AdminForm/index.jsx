@@ -83,8 +83,30 @@ const AdminForm = ({ getProducts, onEdit, productId, productToUpdate }) => {
                             <input type="text" name="description" placeholder="Descrição..." defaultValue={onEdit ? productToUpdate.description : ""} />
                             <input type="text" name="image" placeholder="URL da Imagem..." defaultValue={onEdit ? productToUpdate.image : ""} />
                             <input type="text" name="price" placeholder="Preço..." defaultValue={onEdit ? productToUpdate.price : ""} />
-                            <input type="text" name="brand" placeholder="Marca..." defaultValue={onEdit ? productToUpdate.brand : ""} />
-                            <input type="text" name="category" placeholder="Categoria..." defaultValue={onEdit ? productToUpdate.category : ""} />
+                            <select name="brand" id="brand">
+                                <option selected disabled>Marca</option>
+                                <option value="Logitech">Logitech</option>
+                                <option value="Razer">Razer</option>
+                                <option value="Apple">Apple</option>
+                                <option value="Samsung">Samsung</option>
+                                <option value="Acer">Acer</option>
+                                <option value="BenQ">BenQ</option>
+                                <option value="Dell">Dell</option>
+                                <option value="Lenovo">Lenovo</option>
+                                <option value="Redragon">Redragon</option>
+                                <option value="Xiaomi">Xiaomi</option>
+                                <option value="Sony">Sony</option>
+                                <option value="Xbox">Xbox</option>
+                            </select>
+                            <select name="category" id="category">
+                                <option value="" selected disabled>Categorias</option>
+                                <option value="Mouses">Mouses</option>
+                                <option value="Celulares">Celulares</option>
+                                <option value="Monitores">Monitores</option>
+                                <option value="Notebooks">Notebooks</option>
+                                <option value="Fones de Ouvido">Fones de Ouvido</option>
+                                <option value="Controles">Controles</option>
+                            </select>
                             <div className="save-btn-wrapper">
                                 {onEdit ? (
                                     <button onClick={(ev) => updateProduct(ev)} className="save-btn">

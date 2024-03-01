@@ -82,7 +82,7 @@ const AdminForm = ({ getProducts, onEdit, productId, productToUpdate }) => {
                             <input type="text" name="name" placeholder="Nome.." defaultValue={onEdit ? productToUpdate.name : ""} />
                             <input type="text" name="description" placeholder="Descrição..." defaultValue={onEdit ? productToUpdate.description : ""} />
                             <input type="text" name="image" placeholder="URL da Imagem..." defaultValue={onEdit ? productToUpdate.image : ""} />
-                            <input type="text" name="price" placeholder="Preço..." defaultValue={onEdit ? productToUpdate.price : ""} />
+                            <input type="number" name="price" placeholder="Preço..." defaultValue={onEdit ? productToUpdate.price : ""} />
                             <select name="brand" id="brand">
                                 <option selected disabled>Marca</option>
                                 <option value="Logitech">Logitech</option>
@@ -90,7 +90,7 @@ const AdminForm = ({ getProducts, onEdit, productId, productToUpdate }) => {
                                 <option value="Apple">Apple</option>
                                 <option value="Samsung">Samsung</option>
                                 <option value="Acer">Acer</option>
-                                <option value="BenQ">BenQ</option>
+                                <option value="LG">LG</option>
                                 <option value="Dell">Dell</option>
                                 <option value="Lenovo">Lenovo</option>
                                 <option value="Redragon">Redragon</option>

@@ -16,7 +16,6 @@ export default function ShowItem() {
   const [product, setProduct] = useState([]);
   const [comments, setComments] = useState([]);
   const [order, setOrder] = useState(false);
-  const [click, setClick] = useState(false);
   const searchContext = useOutletContext();
 
   const { id } = useParams();
@@ -162,8 +161,7 @@ export default function ShowItem() {
           <div className="item-information">
             <div>
               <div className="logo">
-                <img src="/apple.png" alt="" />
-                <p>{product.brand}</p>
+                <img src={`/${product.brand}.png`} alt={product.brand} className="product-brand" />
               </div>
               <h1 className="product-name">{product.name}</h1>
               <div>
@@ -185,30 +183,30 @@ export default function ShowItem() {
                   );
                 })()}
               </div>
-              <h1 className="price">R$ {product.price}</h1>
-              <p className="ship">
-                <BsTruck />
-                Frete Grátis{" "}
-              </p>
+              <div className="price-wrapper-show">
+                <h1 className="price">R$ {product.price}</h1>
+                <p className="ship">
+                  <BsTruck />
+                  Frete Grátis{" "}
+                </p>
+              </div>
               <div className="function-btns">
-                {click ? (
-                  <p>Produto Adicionado Ao Carrinho!</p>
-                ) : (
-                  <button onClick={addToCart} className="add-cart-btn">
-                    <BsCart4 />
-                    Adicionar ao Carrinho
-                  </button>
-                )}
+                <button onClick={addToCart} className="add-cart-btn">
+                  <BsCart4 />
+                  Adicionar ao Carrinho
+                </button>
                 <button onClick={addToWishList} className="fav-btn">
                   <IoMdHeartEmpty />
+                  Adicionar aos Favoritos
                 </button>
+
+                <ModalForm
+                  getProduct={getProduct}
+                  getComments={getComments}
+                  product={product}
+                  className="add-rate"
+                />
               </div>
-              <ModalForm
-                getProduct={getProduct}
-                getComments={getComments}
-                product={product}
-                className="add-rate"
-              />
             </div>
           </div>
         </div>

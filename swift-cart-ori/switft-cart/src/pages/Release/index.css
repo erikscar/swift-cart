@@ -1,3 +1,17 @@
 .last-release {
   margin-bottom: 5rem;
 }
+
+.blank-products {
+  text-align: center;
+  padding: 4rem;
+}
+
+.blank-products h1 {
+  margin-bottom: 2rem;
+}
+
+.blank-products p {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 18px;
+}

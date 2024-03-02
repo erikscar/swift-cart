@@ -28,7 +28,12 @@ function Popular() {
           <div>
             <h1 className="best-seller-title last-release">OS MAIS POPULARES</h1>
             <div className="sell-card-container">
-              <SellCard products={popularProduct} />
+              {popularProduct.length === 0 ? (
+                <div className="blank-products">
+                  <h1>Parece que não há Produtos Cadastrados!</h1>
+                  <p>Fique tranquilo, em breve teremos uma seleção incrível de produtos esperando por você.</p>
+                </div>
+              ) : <SellCard products={popularProduct} />}
             </div>
           </div>
         </>

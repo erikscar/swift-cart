@@ -3,6 +3,7 @@ import "./index.css"
 import axios from "axios"
 import AdminForm from "../../components/AdminForm"
 import AdminCard from "../../components/AdminCard"
+import { Link } from "react-router-dom"
 
 const Admin = () => {
     const [products, setProducts] = useState([])
@@ -25,8 +26,10 @@ const Admin = () => {
     return (
         <>
             <div className="logo">
-                <img src="/logo.png" alt="logo-img" className="logo-img" />
-                <h1>SwiftCart</h1>
+                <Link to="/">
+                    <img src="/logo.png" alt="logo-img" className="logo-img" />
+                    <h1>SwiftCart</h1>
+                </Link>
             </div>
             <div className="admin-container">
                 <AdminForm products={products} getProducts={getProducts} />

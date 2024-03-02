@@ -26,13 +26,7 @@ export default function Header() {
           </Link>
         </div>
         <SearchInput setFound={setFound} setSearchValue={setSearchValue} />
-        <div className="nav-item">
-          <IoPersonSharp className="nav-icon" />
-          <Link to="/" className="teste">
-            <p className="is-grey">Login</p>
-            <p>Minha Conta</p>
-          </Link>
-        </div>
+
 
         <div className="nav-item">
           <IoMdHeartEmpty className="nav-icon" />
@@ -69,9 +63,6 @@ export default function Header() {
 
         <div class="footer-infos">
           <h2>Links</h2>
-          <a href="" class="footer-links">
-            Minha Conta
-          </a>
           <a href="/wishlist" class="footer-links">
             Lista de Desejos
           </a>

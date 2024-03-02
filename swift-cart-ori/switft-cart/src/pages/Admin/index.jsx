@@ -32,6 +32,7 @@ const Admin = () => {
                 </Link>
             </div>
             <div className="admin-container">
+                <h1 className="best-seller-title last-release">Página do Administrador</h1>
                 <AdminForm products={products} getProducts={getProducts} />
                 <div className="sell-card-container">
                     <AdminCard products={products} getProducts={getProducts} setProductId={setProductId} />

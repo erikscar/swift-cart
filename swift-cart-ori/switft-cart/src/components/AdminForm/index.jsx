@@ -32,6 +32,7 @@ const AdminForm = ({ getProducts, onEdit, productId, productToUpdate }) => {
             });
             getProducts();
             setShouldCloseModal(true)
+            toast.success("Produto Cadastrado com Sucesso");
         } catch (error) {
             console.error(error);
         }

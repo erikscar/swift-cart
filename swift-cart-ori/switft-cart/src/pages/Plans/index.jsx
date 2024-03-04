@@ -1,14 +1,14 @@
-import "./index.css";
-import { FaCheck } from "react-icons/fa";
-import Search from "../SearchPage/search.jsx";
+import "./style.css";
 import { useOutletContext } from "react-router-dom";
+import { FaCheck } from "react-icons/fa";
+import SearchPage from "../SearchPage/search.jsx";
 
 function Plans() {
   const searchContext = useOutletContext()
   return (
     <>
       {searchContext[0].length === 0 ? (
-        <div className="cards-container">
+        <div className="plans-cards-container">
           <div className="plan-card">
             <h1 className="essencial">Essencial</h1>
             <div className="advantages-container">
@@ -34,7 +34,7 @@ function Plans() {
               </p>
               <p>
                 <FaCheck fontSize={25} color="#34e868" />
-                Template Responsivo para Dispositivos Móveis.
+                Resposividade para Dispositivos Móveis.
               </p>
               <button className="plan-btn">Compre Agora</button>
             </div>
@@ -101,7 +101,7 @@ function Plans() {
           </div>
         </div>
       ) : (
-        <Search />
+        <SearchPage />
       )}
     </>
   );

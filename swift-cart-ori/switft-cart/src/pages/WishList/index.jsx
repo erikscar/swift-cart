@@ -7,6 +7,7 @@ import { useOutletContext, Link } from "react-router-dom";
 import Search from "../SearchPage/search";
 import { toast } from "react-toastify";
 import { GiDesert } from "react-icons/gi";
+import { IoSearchOutline } from "react-icons/io5";
 
 export default function WishList() {
   const [products, setProducts] = useState([]);
@@ -49,56 +50,59 @@ export default function WishList() {
       {searchContext[0].length === 0 ? (
         <>
           {products.length === 0 ? (
-            <div className="blank-cart">
+            <div className="blank-products">
               <h1>
                 Ops! Parece que sua lista de favoritos está tão vazia quanto um
                 deserto. <GiDesert fontSize={60} />
               </h1>
-              <Link to="/" className="link">
-                Página Inicial
+              <p>Que tal adicionar produtos?</p>
+              <Link to="/" className="home-btn">
+                <IoSearchOutline /> Explorar
               </Link>
             </div>
           ) : (
             <>
-              <h1 className="main-title">
-                LISTA DE FAVORITOS <FaHeart className="heart-icon" />
+              <h1 className="section-title">
+                LISTA DE FAVORITOS <FaHeart size={60} color="red" />
               </h1>
-              <table cellSpacing="80">
-                <thead>
-                  <tr>
-                    <th>Produto</th>
-                    <th>Estoque</th>
-                    <th>Preço</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {products.map((product, id) => (
-                    <tr key={id} className="list-items">
-                      <td className="product-image-wrapper">
-                        <img src={product.image} />
-                        <p>{product.name}</p>
-                      </td>
-                      <td>Disponível</td>
-                      <td>R$ {product.price}</td>
-                      <td>
-                        <button
-                          onClick={() => postToCart(product.product_id)}
-                          className="add-btn"
-                        >
-                          <BsCart4 /> Adicionar ao Carrinho{" "}
-                        </button>
-                        <button
-                          onClick={() => handleDelete(product.product_id)}
-                          className="rmv-fav-btn"
-                        >
-                          <FaTrash /> Remover dos Favoritos
-                        </button>
-                      </td>
+              <div className="wishlist-table-container">
+                <table cellSpacing="80">
+                  <thead>
+                    <tr>
+                      <th>Produto</th>
+                      <th>Estoque</th>
+                      <th>Preço</th>
+                      <th></th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {products.map((product, id) => (
+                      <tr key={id} className="list-items">
+                        <td className="product-image-wrapper">
+                          <img src={product.image} />
+                          <p>{product.name}</p>
+                        </td>
+                        <td>Disponível</td>
+                        <td>R$ {product.price}</td>
+                        <td>
+                          <button
+                            onClick={() => postToCart(product.product_id)}
+                            className="add-btn"
+                          >
+                            <BsCart4 /> Adicionar ao Carrinho{" "}
+                          </button>
+                          <button
+                            onClick={() => handleDelete(product.product_id)}
+                            className="rmv-fav-btn"
+                          >
+                            <FaTrash /> Remover dos Favoritos
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </>
           )}
         </>

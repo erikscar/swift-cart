@@ -1,3 +1,4 @@
+import "./style.css"
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -20,8 +21,8 @@ function CheckboxFilter({ name, filter }) {
 
   return (
     <div className="input-wrapper">
-      <input type="checkbox" name={name} id="" onClick={(ev) => handleFilter(ev)} />
-      <label htmlFor="">{name}</label>
+      <input type="checkbox" name={name} onClick={(ev) => handleFilter(ev)} />
+      <label>{name}</label>
     </div>
   )
 }

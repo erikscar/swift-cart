@@ -3,6 +3,8 @@ import { useOutletContext } from "react-router-dom";
 import axios from "axios";
 import ProductCard from "../../components/productCard/index.jsx";
 import SearchPage from "../SearchPage/search.jsx";
+import { PiSmileySadDuotone } from "react-icons/pi";
+
 
 function Release() {
   const [lastRelease, setLastrelease] = useState([]);
@@ -26,8 +28,8 @@ function Release() {
         <>
           {lastRelease.length === 0 ? (
             <div className="blank-products">
-              <h1>Parece que não há Produtos Cadastrados!</h1>
-              <p className="is-grey">Fique tranquilo, em breve teremos uma seleção incrível de produtos esperando por você.</p>
+              <h1>Parece que não há Produtos Cadastrados! <PiSmileySadDuotone /></h1>
+              <p>Fique tranquilo, em breve teremos uma seleção incrível de produtos esperando por você.</p>
             </div>
           ) :
             <>

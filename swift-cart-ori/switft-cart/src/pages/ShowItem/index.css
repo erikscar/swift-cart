@@ -1,28 +1,23 @@
-.star-icon {
-  color: #fdc62e;
-  font-size: 20px;
-}
-
-.path {
-  margin: 4rem 0;
-  font-size: 26px;
-}
-
-.product-img-wrapper {
-  font-size: 20px;
-}
-
 .show-item-container {
   display: flex;
   justify-content: space-evenly;
   align-items: flex-start;
 }
 
+.product-img-wrapper {
+  font-size: 20px;
+}
+
+.product-path {
+  margin: 4rem 0;
+  font-size: 26px;
+}
+
 .product-img {
-  padding: 4rem 15rem;
+  padding: 2rem 10rem;
   border-radius: 1rem;
   width: 60rem;
-  height: 41rem;
+  height: 40rem;
 }
 
 .comments-section {
@@ -30,7 +25,7 @@
   padding: 1rem;
 }
 
-.comments-section select {
+.order-select {
   color: #fff;
   background-color: #111111;
   font-weight: bold;
@@ -41,7 +36,7 @@
   margin: 2rem 0;
 }
 
-.main-comment {
+.all-comments {
   padding: 2rem;
   border-radius: 1rem;
   display: flex;
@@ -51,13 +46,7 @@
   overflow-y: auto;
 }
 
-.comments {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.commentary {
+.comment {
   background: linear-gradient(to right, #f0efeb, #eeee);
   padding: 2rem;
   display: flex;
@@ -66,22 +55,20 @@
   margin: 1rem 0;
 }
 
-.rate-time {
-  margin: 1rem 0;
-}
-.profile-icon {
-  font-size: 80px;
-}
-
 .profile-name {
   margin: 0.75rem 0;
   font-weight: bold;
+}
+
+.rate-time {
+  margin: 1rem 0;
 }
 
 .rate-btn-wrapper {
   display: flex;
   margin: 1rem 0;
 }
+
 .rate-btn {
   display: flex;
   margin-right: 1rem;
@@ -93,23 +80,6 @@
   font-size: 20px;
   transition: 1s;
 }
-.rate-btn:hover {
-  transform: scale(1.1);
-}
-
-.logo {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  font-size: 30px;
-  font-weight: bold;
-}
-
-.product-brand {
-  width: 8rem !important;
-}
 
 .item-information {
   border-radius: 1rem;
@@ -119,13 +89,45 @@
   background: linear-gradient(to right, #f0efeb, #eeee);
 }
 
-.product-name {
-  margin: 1.5rem 0;
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-size: 30px;
+  font-weight: bold;
 }
 
+.product-brand {
+  width: 6rem;
+  margin: 1rem 0;
+}
+
+.product-name {
+  font-size: 26px;
+  margin: 2rem 0;
+}
+
+.rate-counter {
+  margin: 2rem 0;
+}
+
+.price-wrapper-show {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.truck {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
 .function-btns {
-  margin: 2rem 0;
+  margin: 4rem 0 2rem 0;
   gap: 2rem;
 }
 
@@ -153,25 +155,7 @@
   background-color: #f93f4d;
 }
 
-.ship {
-  font-size: 24px;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
 .add-rate {
   margin-top: 2rem;
   background-color: #54be96;
-}
-
-.is-red {
-  background-color: #f93f4d;
-}
-
-.price-wrapper-show {
-  margin-top: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }

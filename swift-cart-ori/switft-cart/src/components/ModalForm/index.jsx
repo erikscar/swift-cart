@@ -41,7 +41,7 @@ export default function ModalForm({ className, getComments, product }) {
   return (
     <>
       <button className={className} onClick={toggleModal}>
-        <FaStar className="star-icon" />
+        <FaStar color="#fdc62e" />
         Adicionar Avaliação
       </button>
       {modal && (

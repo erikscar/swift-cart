@@ -1,0 +1,59 @@
+.plans-cards-container {
+  margin-top: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+.plan-card {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 1rem;
+  font-size: 22px;
+  width: 35rem;
+  height: 35rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.essencial,
+.enchanced,
+.premium {
+  text-align: center;
+  padding: 1.5rem;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+  background: #274582;
+  background: linear-gradient(270deg, #274582, #3192f8);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color: #fff;
+}
+
+.enchanced {
+  background: #1ab83f;
+  background: linear-gradient(270deg, #1ab83f, #28915b);
+}
+
+.premium {
+  background: #d8d212;
+  background: linear-gradient(270deg, #d8d212, #010101);
+}
+
+.advantages-container {
+  margin: 1rem auto;
+  padding: 2rem;
+}
+.advantages-container p {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.plan-btn {
+  margin-top: 2rem;
+  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0.75rem 0;
+  border-radius: 1rem;
+}

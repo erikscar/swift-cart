@@ -88,79 +88,79 @@ export default function ShowItem() {
     <>
       {searchContext[0].length === 0 ? (
         <div className="show-item-container">
+
           <div className="product-img-wrapper">
-            <p className="path">
+
+            <p className="product-path">
               {product.category} &gt; {product.brand} &gt; {product.name}
             </p>
             <img src={product.image} className="product-img" />
+
             <div className="comments-section">
-              <h2 className="comments-title">Comentários e Avaliações</h2>
-              <select name="" id="" onChange={switchOrder}>
+              <h2>Comentários e Avaliações</h2>
+              <select className="order-select" onChange={switchOrder}>
                 <option value="select" disabled selected>
                   Ordenar Por:
                 </option>
                 <option value="new">Mais Recentes</option>
                 <option value="older">Menos Recentes</option>
               </select>
-              <div className="comments">
-                <div className="main-comment">
-                  {sortComment.map((item, id) => {
-                    allStars += item.stars;
-                    counter++;
-                    return (
-                      <>
-                        <div className="commentary" key={id}>
-                          <IoPersonCircleOutline className="profile-icon" />
+
+              <div className="all-comments">
+                {sortComment.map((item, id) => {
+                  allStars += item.stars;
+                  counter++;
+                  return (
+                    <>
+                      <div className="comment" key={id}>
+                        <IoPersonCircleOutline size={80} />
+                        <div>
+                          <p className="profile-name">{item.username}</p>
+                          <p className="rate-time">
+                            {formatDate(item.created_at)}
+                          </p>
                           <div>
-                            <p className="profile-name">{item.username}</p>
-                            <p className="rate-time">
-                              {formatDate(item.created_at)}
-                            </p>
-                            <div>
-                              {(() => {
-                                const stars = [];
-                                const filledStars = Math.round(item.stars);
-                                const totalStars = 5;
-                                for (let i = 0; i < totalStars; i++) {
-                                  if (i < filledStars) {
-                                    stars.push(
-                                      <FaStar className="star-icon" key={i} />
-                                    );
-                                  } else {
-                                    stars.push(
-                                      <FaRegStar
-                                        className="star-icon"
-                                        key={i}
-                                      />
-                                    );
-                                  }
+                            {/*Função para Apresentar Estrelas Completas ou Incompletas de Acordo com a Avaliação(rate)*/}
+                            {(() => {
+                              const stars = [];
+                              const filledStars = Math.round(item.stars);
+                              const totalStars = 5;
+                              for (let i = 0; i < totalStars; i++) {
+                                if (i < filledStars) {
+                                  stars.push(
+                                    <FaStar color="#fdc62e" key={i} />
+                                  );
+                                } else {
+                                  stars.push(
+                                    <FaRegStar key={i} />
+                                  );
                                 }
-                                return stars;
-                              })()}
-                            </div>
-                          </div>
-                          <div>
-                            <p>"{item.content}"</p>
-                            <div className="rate-btn-wrapper">
-                              <button className="rate-btn">
-                                <AiOutlineLike /> 42
-                              </button>
-                              <button className="rate-btn">
-                                <AiFillLike /> 2
-                              </button>
-                            </div>
+                              }
+                              return stars;
+                            })()}
                           </div>
                         </div>
-                      </>
-                    );
-                  })}
-                </div>
+                        <div>
+                          <p>"{item.content}"</p>
+                          <div className="rate-btn-wrapper">
+                            <button className="rate-btn">
+                              <AiOutlineLike /> 42
+                            </button>
+                            <button className="rate-btn">
+                              <AiFillLike /> 2
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  );
+                })}
               </div>
             </div>
           </div>
           <div className="item-information">
             <div>
-              <div className="logo">
+              <div className="brand">
                 <img src={`/${product.brand}.png`} alt={product.brand} className="product-brand" />
               </div>
               <h1 className="product-name">{product.name}</h1>
@@ -171,13 +171,13 @@ export default function ShowItem() {
                   const totalStars = 5;
                   for (let i = 0; i < totalStars; i++) {
                     if (i < filledStars) {
-                      stars.push(<FaStar className="star-icon" key={i} />);
+                      stars.push(<FaStar color="#fdc62e" size={22} key={i} />);
                     } else {
-                      stars.push(<FaRegStar className="star-icon" key={i} />);
+                      stars.push(<FaRegStar size={22} key={i} />);
                     }
                   }
                   return (
-                    <p>
+                    <p className="rate-counter">
                       {stars} {counter} Avaliações
                     </p>
                   );
@@ -185,7 +185,7 @@ export default function ShowItem() {
               </div>
               <div className="price-wrapper-show">
                 <h1 className="price">R$ {product.price}</h1>
-                <p className="ship">
+                <p className="truck">
                   <BsTruck />
                   Frete Grátis{" "}
                 </p>

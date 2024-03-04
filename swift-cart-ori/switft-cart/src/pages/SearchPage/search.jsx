@@ -1,3 +1,5 @@
+import "./style.css"
+
 import SellCard from "../../components/productCard";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import { MdAttachMoney } from "react-icons/md";
@@ -42,9 +44,9 @@ export default function Search() {
 
   return (
     <>
-      <div className="main-container">
-        <aside>
-          <p>Categoria</p>
+      <div className="search-page-container">
+        <aside className="text-align-center">
+          <p className="filter-title">Categoria</p>
           <CheckboxFilter name="Mouses" filter="category" />
           <CheckboxFilter name="Celulares" filter="category" />
           <CheckboxFilter name="Monitores" filter="category" />
@@ -52,18 +54,26 @@ export default function Search() {
           <CheckboxFilter name="Fones de Ouvido" filter="category" />
           <CheckboxFilter name="Controles" filter="category" />
 
-          <p>Marca</p>
-          <CheckboxFilter name="HyperX" filter="brand" />
-          <CheckboxFilter name="TUF Gaming" filter="brand" />
-          <CheckboxFilter name="Xiaomi" filter="brand" />
-          <CheckboxFilter name="Logitech" filter="brand" />
+          <div className="filter-wrapper">
+            <p className="filter-title">Marca</p>
+            <CheckboxFilter name="Logitech" filter="brand" />
+            <CheckboxFilter name="Razer" filter="brand" />
+            <CheckboxFilter name="Apple" filter="brand" />
+            <CheckboxFilter name="Samsung" filter="brand" />
+            <CheckboxFilter name="Acer" filter="brand" />
+            <CheckboxFilter name="LG" filter="brand" />
+            <CheckboxFilter name="Dell" filter="brand" />
+            <CheckboxFilter name="Lenovo" filter="brand" />
+            <CheckboxFilter name="Redragon" filter="brand" />
+            <CheckboxFilter name="Xiaomi" filter="brand" />
+            <CheckboxFilter name="Sony" filter="brand" />
+            <CheckboxFilter name="Xbox" filter="brand" />
+          </div>
 
-          <p>Avaliação</p>
+          <p className="filter-title">Avaliação</p>
           <div className="input-wrapper">
             <input
               type="checkbox"
-              name=""
-              id=""
               onClick={(ev) => handleFilter(ev, 5)}
             />
             <FaStar color="#f9c522" />
@@ -72,12 +82,9 @@ export default function Search() {
             <FaStar color="#f9c522" />
             <FaStar color="#f9c522" />
           </div>
-
           <div className="input-wrapper">
             <input
               type="checkbox"
-              name=""
-              id=""
               onClick={(ev) => handleFilter(ev, 4)}
             />
             <FaStar color="#f9c522" />
@@ -86,12 +93,9 @@ export default function Search() {
             <FaStar color="#f9c522" />
             <FaRegStar color="#f9c522" />
           </div>
-
           <div className="input-wrapper">
             <input
               type="checkbox"
-              name=""
-              id=""
               onClick={(ev) => handleFilter(ev, 3)}
             />
             <FaStar color="#f9c522" />
@@ -100,12 +104,9 @@ export default function Search() {
             <FaRegStar color="#f9c522" />
             <FaRegStar color="#f9c522" />
           </div>
-
           <div className="input-wrapper">
             <input
               type="checkbox"
-              name=""
-              id=""
               onClick={(ev) => handleFilter(ev, 2)}
             />
             <FaStar color="#f9c522" />
@@ -114,12 +115,9 @@ export default function Search() {
             <FaRegStar color="#f9c522" />
             <FaRegStar color="#f9c522" />
           </div>
-
           <div className="input-wrapper">
             <input
               type="checkbox"
-              name=""
-              id=""
               onClick={(ev) => handleFilter(ev, 1)}
             />
             <FaStar color="#f9c522" />
@@ -129,25 +127,22 @@ export default function Search() {
             <FaRegStar color="#f9c522" />
           </div>
 
-          <p>Preço</p>
-          <div className="input-price-wrapper">
+          <p className="filter-title">Preço <MdAttachMoney /></p>
+          <div className="price-input-wrapper">
             <input
-              type="text"
+              type="number"
               placeholder="Máximo"
               className="price-input"
               value={maxValue}
               onChange={(ev) => setMaxValue(ev.target.value)}
             />
-            <MdAttachMoney className="price-icon" />
-
             <input
-              type="text"
-              placeholder="Minimo"
+              type="number"
+              placeholder="Mínimo"
               className="price-input"
               value={minValue}
               onChange={(ev) => setMinValue(ev.target.value)}
             />
-            <MdAttachMoney className="price-icon-2" />
             <button className="search-btn" onClick={handlePriceFilter}>
               Pesquisar
             </button>
@@ -155,9 +150,9 @@ export default function Search() {
         </aside>
 
         <div className="items-container">
-          <h1 className="search-value">Você Pesquisou por: "{searchContext[1]}"</h1>
+          <h1 className="search-text">Você Pesquisou por: "{searchContext[1]}"</h1>
 
-          <div className="sell-card-container">
+          <div className="product-card-container">
             <SellCard products={searchContext[0]} />
           </div>
         </div>

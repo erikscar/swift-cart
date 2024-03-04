@@ -1,14 +1,13 @@
-import "./index.css";
-import { FaStar } from "react-icons/fa";
-import { BsCart4 } from "react-icons/bs";
-import { GiMoneyStack } from "react-icons/gi";
-import { Link, useOutletContext } from "react-router-dom";
+import "./style.css";
 import axios from "axios";
+import { Link, useOutletContext } from "react-router-dom";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { FaRegStar } from "react-icons/fa6";
+import { FaRegStar, FaStar, FaCartPlus, FaMoneyBill1Wave } from "react-icons/fa6";
 
-export default function SellCard({ products }) {
+export default function ProductCard({ products }) {
+  const productsFoundContext = useOutletContext()
+  const clearSearchValues = productsFoundContext[4]
+
   const addToCart = async (productId) => {
     await axios
       .post(`http://localhost:8800/cart/${productId}`, {
@@ -18,11 +17,10 @@ export default function SellCard({ products }) {
       .catch(({ data }) => toast.error(data));
   };
 
-  const searchContext = useOutletContext()
-  const clearSearchValues = searchContext[4]
   return (
     <>
       {products
+        // Ordenando por Popularidade = Estrelas / Comentários
         .sort((a, b) => {
           const rateA = (a.total_stars || 0) / (a.total_comments || 1);
           const rateB = (b.total_stars || 0) / (b.total_comments || 1);
@@ -30,19 +28,22 @@ export default function SellCard({ products }) {
         })
         .map((product, id) => {
           const rate = product.total_stars / product.total_comments;
+
           return (
-            <div className="sell-card" key={id}>
+            <div className="product-card" key={id}>
               <Link to={`/${product.product_id}`} onClick={clearSearchValues}>
                 <img
                   src={product.image}
-                  className="sell-card-img"
-                  alt="Product"
+                  className="product-card-img"
+                  alt="product-card"
                 />
               </Link>
-              <h1>{product.name}</h1>
+              <span className="product-name text-align-center">{product.name}</span>
               <p className="product-desc">{product.description}</p>
-              <div className="price-wrapper">
+              <div className="price-star-wrapper">
                 <p>R$ {product.price}</p>
+
+                {/*Função para Apresentar Estrelas Completas ou Incompletas de Acordo com a Avaliação(rate)*/}
                 {(() => {
                   const stars = [];
                   const filledStars = Math.round(rate);
@@ -55,23 +56,18 @@ export default function SellCard({ products }) {
                     }
                   }
                   return (
-                    <div className="stars-wrapper">
+                    <div className="rate-wrapper">
                       {isNaN(rate) ? "0.0" : rate.toFixed(2)} {stars}
                     </div>
                   );
                 })()}
               </div>
-              <div className="sell-btn-wrapper">
-                <button
-                  onClick={() => addToCart(product.product_id)}
-                  className="cart-btn"
-                >
-                  <BsCart4 />
-                  Carrinho
+              <div className="product-btn-wrapper">
+                <button onClick={() => addToCart(product.product_id)} className="cart-btn">
+                  <FaCartPlus /> Carrinho
                 </button>
                 <button className="buy-btn">
-                  <GiMoneyStack />
-                  Comprar
+                  <FaMoneyBill1Wave /> Comprar
                 </button>
               </div>
             </div>

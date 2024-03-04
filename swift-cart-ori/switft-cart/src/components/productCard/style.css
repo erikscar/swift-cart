@@ -1,4 +1,4 @@
-.sell-card {
+.product-card {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -7,7 +7,7 @@
   border-radius: 1rem;
 }
 
-.sell-card img {
+.product-card-img {
   margin: 0 auto;
   width: 20rem;
   height: 13rem;
@@ -15,36 +15,40 @@
   border-radius: 1rem;
 }
 
-.sell-card h1 {
+.product-name {
+  margin: 0;
   font-size: 20px;
+  font-weight: 700;
 }
 
 .product-desc {
   font-size: 18px;
-  color: rgba(0, 0, 0, 0.5);
+  color: #a7a7b8;
 }
 
-.price-wrapper {
+.price-star-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 18px;
   font-weight: bold;
+  margin: 0.5rem 0;
 }
 
-.stars-wrapper {
+.rate-wrapper {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.sell-btn-wrapper {
+.product-btn-wrapper {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.sell-btn-wrapper button {
+.cart-btn,
+.buy-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,5 +63,4 @@
 .buy-btn {
   background-color: #111111;
   color: #fff;
-  border: 2px solid #fff;
 }

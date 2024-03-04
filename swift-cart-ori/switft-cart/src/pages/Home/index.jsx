@@ -1,16 +1,16 @@
-import Card from "../../components/card";
-import SellCard from "../../components/sellCard";
-import { MdAttachMoney } from "react-icons/md";
-import { FaPercent, FaBarcode } from "react-icons/fa6";
-import { FiTruck } from "react-icons/fi";
+import "./style.css"
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
-import Search from "../SearchPage/search";
+import { FaPercent, FaBarcode, FaTruck, FaMoneyBill1Wave } from "react-icons/fa6";
+import Card from "../../components/card";
+import ProductCard from "../../components/productCard";
 
+
+import Search from "../SearchPage/search";
 export default function Index() {
   const [products, setProducts] = useState([]);
-  const searchContext = useOutletContext();
+  const productsFound = useOutletContext();
 
   const getProducts = async () => {
     try {
@@ -27,22 +27,22 @@ export default function Index() {
 
   return (
     <>
-      {searchContext[0].length === 0 ? (
+      {productsFound[0].length === 0 ? (
         <>
           <div className="best-offer-card">
-            <div className="best-offer-desc">
-              <span>Melhor Oferta</span>
-              <h1>EDIÇÃO ESPECIAL</h1>
-              <h2>A MELHOR ESCOLHA DO ANO</h2>
+            <div className="text-align-center">
+              <span className="best-offer-btn">Melhor Oferta</span>
+              <h1 className="section-title">EDIÇÃO ESPECIAL</h1>
+              <h2 className="best-offer-subtitle">A MELHOR ESCOLHA DO ANO</h2>
               <p>Desconto de até R$30 e Frete Grátis!</p>
-              <button>Compre Agora</button>
+              <button className="best-offer-buy-btn">Compre Agora</button>
             </div>
             <img src="/headphone.png" alt="headphone-img" />
           </div>
 
           <div className="advantages">
             <div>
-              <MdAttachMoney />
+              <FaMoneyBill1Wave />
               <p>CashBack em Compras</p>
             </div>
             <div>
@@ -50,7 +50,7 @@ export default function Index() {
               <p>Melhores Ofertas</p>
             </div>
             <div>
-              <FiTruck />
+              <FaTruck />
               <p>Frete Grátis no Site</p>
             </div>
             <div>
@@ -63,14 +63,14 @@ export default function Index() {
             <Card />
           </div>
 
-          <h1 className="best-seller-title">OS MAIS POPULARES DO SITE</h1>
+          <h1 className="section-title text-align-center">OS MAIS POPULARES DO SITE</h1>
           <p className="best-seller-desc">
             Descubra os Favoritos de Nossos Clientes, explorando os Mais
             Vendidos do Site!
           </p>
 
-          <div className="sell-card-container">
-            <SellCard products={products} />
+          <div className="product-card-container">
+            <ProductCard products={products} />
           </div>
         </>
       ) : (

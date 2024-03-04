@@ -1,4 +1,4 @@
-import SellCard from "../../components/sellCard";
+import SellCard from "../../components/productCard";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import { MdAttachMoney } from "react-icons/md";
 import { useOutletContext } from "react-router-dom";

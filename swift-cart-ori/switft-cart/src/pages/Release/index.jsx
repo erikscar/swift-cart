@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import SellCard from "../../components/sellCard/index.jsx";
+import ProductCard from "../../components/productCard/index.jsx";
 import Search from "../SearchPage/search.jsx";
 import "./index.css";
 import { useOutletContext } from "react-router-dom";
@@ -34,7 +34,8 @@ function Release() {
                 <h1>Parece que não há Produtos Cadastrados!</h1>
                 <p>Fique tranquilo, em breve teremos uma seleção incrível de produtos esperando por você.</p>
               </div>
-            ) : <SellCard products={lastRelease} />}
+            ) : <div className="product-card-container">
+              <ProductCard products={lastRelease} /></div>}
           </div>
         </>
       ) : (

@@ -8,111 +8,25 @@
 body {
   padding: 2rem;
 }
+
 button {
   transition: 1s;
   cursor: pointer;
 }
+
 button:hover {
   transform: scale(1.1);
 }
 
-.best-offer-card {
-  background: linear-gradient(to right, #f0efeb, #eeee);
-  border-radius: 2rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 2rem;
-  margin-top: 1rem;
-}
-
-.best-offer-desc {
-  text-align: center;
-}
-
-.best-offer-desc span {
-  background-color: #fdc62e;
-  padding: 1rem 1.5rem;
-  border-radius: 0.5rem;
-  font-size: 20px;
-}
-
-.best-offer-desc h1 {
-  margin-top: 2rem;
-  font-weight: 200;
-  font-size: 40px;
-  letter-spacing: 1rem;
-}
-
-.best-offer-desc h2 {
-  font-size: 55px;
-  margin: 2rem 0 1rem 0;
-}
-
-.best-offer-desc p {
-  font-size: 20px;
-}
-
-.best-offer-desc button {
-  margin-top: 3rem;
-  padding: 0.75rem 2rem;
-  border: 0;
-  border-radius: 2rem;
-  background-color: #111111;
-  color: #fff;
-  font-size: 20px;
-  cursor: pointer;
-  transition: 1s;
-}
-
-.advantages {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  font-size: 22px;
-}
-
-.advantages div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  border: 1px solid #000;
-  border-radius: 1rem;
-  padding: 0.75rem;
-  width: 20rem;
-}
-
-.card-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+.section-title {
   margin-top: 4rem;
-  gap: 2rem;
-}
-
-.best-seller-title {
-  margin-top: 5rem;
-  text-align: center;
   font-weight: 200;
+  font-size: 45px;
   letter-spacing: 1rem;
-  font-size: 55px;
 }
 
-.best-seller-desc {
-  color: rgba(0, 0, 0, 0.4);
+.text-align-center {
   text-align: center;
-  margin: 2rem 0;
-  font-size: 24px;
-}
-
-.sell-card-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
 }
 
 /*  */

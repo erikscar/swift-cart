@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import SellCard from "../../components/SellCard";
-import Search from "../search.jsx";
+import SellCard from "../../components/sellCard/index.jsx";
+import Search from "../SearchPage/search.jsx";
 import { useOutletContext } from "react-router-dom";
 
 function Popular() {

@@ -1,5 +1,5 @@
 import { RouterProvider } from "react-router-dom";
-import router from "./router";
+import router from "./_config/router";
 import { Slide, ToastContainer } from "react-toastify";
 
 export default function App() {

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { FaRegStar, FaTrashCan } from "react-icons/fa6";
-import AdminForm from "../AdminForm";
+import AdminForm from "../adminForm";
 import { toast } from "react-toastify";
 
 

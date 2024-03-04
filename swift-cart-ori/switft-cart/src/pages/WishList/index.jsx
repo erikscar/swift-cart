@@ -4,7 +4,7 @@ import axios from "axios";
 import "./index.css";
 import { useEffect, useState } from "react";
 import { useOutletContext, Link } from "react-router-dom";
-import Search from "../search";
+import Search from "../SearchPage/search";
 import { toast } from "react-toastify";
 import { GiDesert } from "react-icons/gi";
 

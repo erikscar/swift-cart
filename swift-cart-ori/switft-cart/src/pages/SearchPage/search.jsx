@@ -1,8 +1,8 @@
-import SellCard from "../components/SellCard";
+import SellCard from "../../components/sellCard";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import { MdAttachMoney } from "react-icons/md";
 import { useOutletContext } from "react-router-dom";
-import CheckboxFilter from "../components/CheckboxFilter";
+import CheckboxFilter from "../../components/checkboxFilter";
 import { useState } from "react";
 import { toast } from "react-toastify";
 

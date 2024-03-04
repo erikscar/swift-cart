@@ -1,12 +1,12 @@
-import Card from "../components/Card";
-import SellCard from "../components/SellCard";
+import Card from "../../components/card";
+import SellCard from "../../components/sellCard";
 import { MdAttachMoney } from "react-icons/md";
 import { FaPercent, FaBarcode } from "react-icons/fa6";
 import { FiTruck } from "react-icons/fi";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
-import Search from "./search";
+import Search from "../SearchPage/search";
 
 export default function Index() {
   const [products, setProducts] = useState([]);

@@ -3,9 +3,9 @@ import { IoPersonSharp } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { GiShoppingCart } from "react-icons/gi";
 import { Link, Outlet } from "react-router-dom";
-import SearchInput from "../../components/SearchInput";
+import SearchInput from "../../components/searchInput";
 import { useState } from "react";
-import DepartmentsNav from "../../components/DepartmentsNav";
+import DepartmentsNav from "../../components/departmentsNav";
 
 export default function Header() {
   const [found, setFound] = useState([]);

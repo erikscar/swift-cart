@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import "./index.css"
 import axios from "axios"
-import AdminForm from "../../components/AdminForm"
-import AdminCard from "../../components/AdminCard"
+import AdminForm from "../../components/adminForm"
+import AdminCard from "../../components/adminCard"
 import { Link } from "react-router-dom"
 
 const Admin = () => {

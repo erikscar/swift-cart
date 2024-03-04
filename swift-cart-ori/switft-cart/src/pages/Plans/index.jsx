@@ -1,6 +1,6 @@
 import "./index.css";
 import { FaCheck } from "react-icons/fa";
-import Search from "../search.jsx";
+import Search from "../SearchPage/search.jsx";
 import { useOutletContext } from "react-router-dom";
 
 function Plans() {

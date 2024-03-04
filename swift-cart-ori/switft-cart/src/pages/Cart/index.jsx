@@ -6,7 +6,7 @@ import axios from "axios";
 import "./index.css";
 import { Link, useOutletContext } from "react-router-dom";
 import { toast, Slide } from "react-toastify";
-import Search from "../search";
+import Search from "../SearchPage/search";
 
 export default function Cart() {
   const [products, setProducts] = useState([]);

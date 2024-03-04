@@ -7,10 +7,10 @@ import axios from "axios";
 import "./index.css";
 import { useState, useEffect } from "react";
 import { useOutletContext, useParams } from "react-router-dom";
-import ModalForm from "../../components/ModalForm";
+import ModalForm from "../../components/modalForm";
 import { toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Search from "../search";
+import Search from "../SearchPage/search";
 
 export default function ShowItem() {
   const [product, setProduct] = useState([]);

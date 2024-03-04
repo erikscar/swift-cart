@@ -29,6 +29,10 @@ button:hover {
   text-align: center;
 }
 
+.is-grey {
+  color: rgb(158, 158, 158);
+}
+
 /*  */
 
 aside {

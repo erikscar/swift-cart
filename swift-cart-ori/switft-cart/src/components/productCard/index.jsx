@@ -39,7 +39,7 @@ export default function ProductCard({ products }) {
                 />
               </Link>
               <span className="product-name text-align-center">{product.name}</span>
-              <p className="product-desc">{product.description}</p>
+              <p className="product-desc is-grey">{product.description}</p>
               <div className="price-star-wrapper">
                 <p>R$ {product.price}</p>
 

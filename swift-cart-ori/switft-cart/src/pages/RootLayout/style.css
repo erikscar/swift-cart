@@ -2,47 +2,20 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 1rem;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  flex-direction: row !important;
 }
 
-.logo img {
+.logo-img {
   width: 5rem;
 }
 
-.logo h1 {
+.logo-title {
   font-family: "Caveat", sans-serif;
   font-size: 80px;
-}
-
-.search-input-wrapper {
-  position: relative;
-  width: 40rem;
-}
-
-.search-input-wrapper input {
-  border: 0;
-  outline: 0;
-  background-color: rgba(0, 0, 0, 0.1);
-  position: relative;
-  padding: 1rem;
-  width: 100%;
-  border-radius: 1rem;
-  font-size: 18px;
-}
-
-.search-icon {
-  position: absolute;
-  top: 3rem;
-  right: 0;
-  border: 0;
-  background-color: transparent;
-  font-size: 22px;
 }
 
 .nav-item {
@@ -57,11 +30,7 @@ header {
   font-size: 32px;
 }
 
-.is-grey {
-  color: rgb(158, 158, 158);
-}
-
-.teste {
+.link-anchor {
   display: flex;
   flex-direction: column;
   text-align: start;
@@ -69,7 +38,7 @@ header {
 
 footer {
   background-color: #f0efeb;
-  padding: 3rem;
+  padding: 6rem;
   border-radius: 2rem;
   margin-top: 6rem;
   display: flex;
@@ -77,7 +46,7 @@ footer {
   justify-content: space-around;
 }
 
-.footer-infos {
+.footer-items {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -85,8 +54,8 @@ footer {
   font-size: 20px;
 }
 
-.icons-wrapper {
-  font-size: 40px;
+.social-icons-wrapper {
+  font-size: 55px;
   display: flex;
   gap: 3rem;
 }

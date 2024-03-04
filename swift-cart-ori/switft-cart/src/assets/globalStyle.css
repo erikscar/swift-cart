@@ -19,7 +19,7 @@ button:hover {
 }
 
 .section-title {
-  margin-top: 4rem;
+  margin: 4rem 0;
   font-weight: 200;
   font-size: 45px;
   letter-spacing: 1rem;
@@ -31,6 +31,17 @@ button:hover {
 
 .is-grey {
   color: rgb(158, 158, 158);
+}
+
+.blank-products {
+  display: grid;
+  place-content: center;
+  padding: 8rem;
+  text-align: center;
+}
+
+.blank-products h1 {
+  margin-bottom: 2rem;
 }
 
 /*  */

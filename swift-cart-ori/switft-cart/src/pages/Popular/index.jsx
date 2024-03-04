@@ -1,8 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import ProductCard from "../../components/productCard/index.jsx";
-import Search from "../SearchPage/search.jsx";
 import { useOutletContext } from "react-router-dom";
+import axios from "axios";
+import ProductCard from "../../components/productCard/index.jsx";
+import SearchPage from "../SearchPage/search.jsx";
 
 function Popular() {
   const [popularProduct, setPopularProduct] = useState([]);
@@ -25,20 +25,22 @@ function Popular() {
     <>
       {searchContext[0].length === 0 ? (
         <>
-          <div>
-            <h1 className="best-seller-title last-release">OS MAIS POPULARES</h1>
-            <div className="sell-card-container">
-              {popularProduct.length === 0 ? (
-                <div className="blank-products">
-                  <h1>Parece que não há Produtos Cadastrados!</h1>
-                  <p>Fique tranquilo, em breve teremos uma seleção incrível de produtos esperando por você.</p>
-                </div>
-              ) : <ProductCard products={popularProduct} />}
+          {popularProduct.length === 0 ? (
+            <div className="blank-products">
+              <h1>Parece que não há Produtos Cadastrados!</h1>
+              <p className="is-grey">Fique tranquilo, em breve teremos uma seleção incrível de produtos esperando por você.</p>
             </div>
-          </div>
+          ) :
+            <>
+              <h1 className="section-title text-align-center">OS PRODUTOS MAIS POPULARES</h1>
+              <div className="product-card-container">
+                <ProductCard products={popularProduct} />
+              </div>
+            </>
+          }
         </>
       ) : (
-        <Search />
+        <SearchPage />
       )}
     </>
   );

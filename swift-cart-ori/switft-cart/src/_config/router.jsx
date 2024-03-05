@@ -7,7 +7,7 @@ import WishList from "../pages/WishList/index.jsx";
 import Plans from "../pages/Plans/index.jsx";
 import Release from "../pages/Release/index.jsx";
 import Popular from "../pages/Popular/index.jsx";
-import Search from "../pages/SearchPage/search.jsx";
+import SearchPage from "../pages/SearchPage/search.jsx";
 import Admin from "../pages/Admin/index.jsx"
 
 const router = createBrowserRouter([
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       { path: "/plans", element: <Plans /> },
       { path: "/releases", element: <Release /> },
       { path: "/popular", element: <Popular /> },
-      { element: <Search /> },
+      { element: <SearchPage /> },
     ],
   },
   { path: "/admin", element: <Admin /> }

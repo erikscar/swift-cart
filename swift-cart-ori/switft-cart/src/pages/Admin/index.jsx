@@ -6,8 +6,8 @@ import AdminForm from "../../components/Forms/adminForm.jsx"
 import AdminCard from "../../components/IndividualCards/adminCard.jsx"
 
 const Admin = () => {
-    const [products, setProducts] = useState([])
     const [productId, setProductId] = useState(0)
+    const [products, setProducts] = useState([])
 
     const getProducts = async () => {
         try {
@@ -17,7 +17,6 @@ const Admin = () => {
             console.error(error)
         }
     }
-
 
     useEffect(() => {
         getProducts()

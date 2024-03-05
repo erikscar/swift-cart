@@ -4,22 +4,12 @@ import { useOutletContext } from "react-router-dom";
 import { PiSmileySadDuotone } from "react-icons/pi";
 import ProductCard from "../../components/IndividualCards/productCard.jsx"
 import SearchPage from "../SearchPage/search.jsx";
+import useFetchProducts from "../../hooks/useFetchProducts.js";
 
 function Release() {
-  const [lastRelease, setLastrelease] = useState([]);
+  const lastRelease = useFetchProducts("http://localhost:8800/products/releases")
   const searchContext = useOutletContext()
-  const getLastReleases = async () => {
-    try {
-      const res = await axios.get("http://localhost:8800/products/releases");
-      setLastrelease(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
-  useEffect(() => {
-    getLastReleases();
-  }, [lastRelease]);
 
   return (
     <>

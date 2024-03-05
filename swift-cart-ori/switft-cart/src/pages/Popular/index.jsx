@@ -4,23 +4,11 @@ import { useOutletContext } from "react-router-dom";
 import { PiSmileySadDuotone } from "react-icons/pi";
 import ProductCard from "../../components/IndividualCards/productCard.jsx"
 import SearchPage from "../SearchPage/search.jsx";
+import useFetchProducts from "../../hooks/useFetchProducts.js";
 
 function Popular() {
-  const [popularProduct, setPopularProduct] = useState([]);
+  const popularProduct = useFetchProducts("http://localhost:8800/products/popular")
   const searchContext = useOutletContext()
-
-  const getPopularProducts = async () => {
-    try {
-      const res = await axios.get("http://localhost:8800/products/popular");
-      setPopularProduct(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getPopularProducts();
-  }, [setPopularProduct]);
 
   return (
     <>

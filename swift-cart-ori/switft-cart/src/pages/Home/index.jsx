@@ -6,24 +6,12 @@ import { FaPercent, FaBarcode, FaTruck, FaMoneyBill1Wave } from "react-icons/fa6
 import Card from "../../components/card";
 import ProductCard from "../../components/IndividualCards/productCard"
 import SearchPage from "../SearchPage/search";
+import useFetchProducts from "../../hooks/useFetchProducts";
 
 export default function Home() {
-  const [products, setProducts] = useState([]);
+  const products = useFetchProducts("http://localhost:8800/products")
   const productsFoundContext = useOutletContext();
   const productsFound = productsFoundContext[0]
-
-  const getProducts = async () => {
-    try {
-      const res = await axios.get("http://localhost:8800/products");
-      setProducts(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getProducts();
-  }, [setProducts]);
 
   return (
     <>

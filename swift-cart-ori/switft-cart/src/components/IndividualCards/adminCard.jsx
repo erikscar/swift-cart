@@ -1,10 +1,8 @@
-import "./index.css"
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "react-toastify/dist/ReactToastify.css";
 import { FaRegStar, FaTrashCan } from "react-icons/fa6";
-import AdminForm from "../adminForm";
+import AdminForm from "../Forms/adminForm";
 import { toast } from "react-toastify";
 
 
@@ -23,6 +21,7 @@ export default function AdminCard({ products, getProducts }) {
     return (
         <>
             {products
+                // Ordenando por Popularidade = Estrelas / Comentários
                 .sort((a, b) => {
                     const rateA = (a.total_stars || 0) / (a.total_comments || 1);
                     const rateB = (b.total_stars || 0) / (b.total_comments || 1);
@@ -30,28 +29,30 @@ export default function AdminCard({ products, getProducts }) {
                 })
                 .map((product, id) => {
                     const rate = product.total_stars / product.total_comments;
+
                     return (
-                        <div className="sell-card" key={id}>
+                        <div className="product-card" key={id}>
                             <Link to={`/${product.product_id}`}>
                                 <img
                                     src={product.image}
-                                    className="sell-card-img"
-                                    alt="Product"
+                                    className="product-card-img"
+                                    alt="product-card"
                                 />
                             </Link>
-                            <h1>{product.name}</h1>
-                            <p className="product-desc">{product.description}</p>
-                            <div className="price-wrapper">
+                            <span className="product-name-card text-align-center">{product.name}</span>
+                            <p className="product-desc is-grey">{product.description}</p>
+                            <div className="price-star-wrapper">
                                 <p>R$ {product.price}</p>
+                                {/*Função para Apresentar Estrelas Completas ou Incompletas de Acordo com a Avaliação(rate)*/}
                                 {(() => {
                                     const stars = [];
                                     const filledStars = Math.round(rate);
                                     const totalStars = 5;
                                     for (let i = 0; i < totalStars; i++) {
                                         if (i < filledStars) {
-                                            stars.push(<FaStar className="star-icon" key={i} />);
+                                            stars.push(<FaStar color="#fdc62e" size={22} key={i} />);
                                         } else {
-                                            stars.push(<FaRegStar className="star-icon" key={i} />);
+                                            stars.push(<FaRegStar size={22} key={i} />);
                                         }
                                     }
                                     return (
@@ -61,9 +62,9 @@ export default function AdminCard({ products, getProducts }) {
                                     );
                                 })()}
                             </div>
-                            <div className="sell-btn-wrapper">
+                            <div className="product-btn-wrapper">
                                 <AdminForm onEdit={true} productToUpdate={product} productId={product.product_id} getProducts={getProducts} />
-                                <button onClick={() => deleteProduct(product.product_id)}><FaTrashCan /> Excluir</button>
+                                <button onClick={() => deleteProduct(product.product_id)} className="delete-btn"><FaTrashCan /> Excluir</button>
                             </div>
                         </div>
                     );

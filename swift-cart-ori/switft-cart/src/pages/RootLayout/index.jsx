@@ -63,18 +63,18 @@ export default function Header() {
 
         <div class="footer-items">
           <h2>Links</h2>
-          <a href="/wishlist" class="footer-links">
+          <Link to="/wishlist" class="footer-links">
             Lista de Desejos
-          </a>
-          <a href="/cart" class="footer-links">
+          </Link>
+          <Link to="/cart" class="footer-links">
             Meus Pedidos
-          </a>
+          </Link>
         </div>
 
         <div class="footer-items">
           <h2>Contato</h2>
           <p>erikscarcela@gmail.com</p>
-          <p>+55 (11) 940080990</p>
+          <p>+55 (11) 94008-0990</p>
         </div>
 
         <div class="social-icons-wrapper">

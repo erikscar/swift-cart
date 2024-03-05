@@ -38,7 +38,7 @@ export default function ProductCard({ products }) {
                   alt="product-card"
                 />
               </Link>
-              <span className="product-name text-align-center">{product.name}</span>
+              <span className="product-name-card text-align-center">{product.name}</span>
               <p className="product-desc is-grey">{product.description}</p>
               <div className="price-star-wrapper">
                 <p>R$ {product.price}</p>
@@ -50,9 +50,9 @@ export default function ProductCard({ products }) {
                   const totalStars = 5;
                   for (let i = 0; i < totalStars; i++) {
                     if (i < filledStars) {
-                      stars.push(<FaStar className="star-icon" key={i} />);
+                      stars.push(<FaStar color="#fdc62e" size={22} key={i} />);
                     } else {
-                      stars.push(<FaRegStar className="star-icon" key={i} />);
+                      stars.push(<FaRegStar size={22} key={i} />);
                     }
                   }
                   return (

@@ -1,6 +1,6 @@
 import "./style.css"
 
-import SellCard from "../../components/productCard";
+import ProductCard from "../../components/IndividualCards/productCard"
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import { MdAttachMoney } from "react-icons/md";
 import { useOutletContext } from "react-router-dom";
@@ -153,7 +153,7 @@ export default function Search() {
           <h1 className="search-text">Você Pesquisou por: "{searchContext[1]}"</h1>
 
           <div className="product-card-container">
-            <SellCard products={searchContext[0]} />
+            <ProductCard products={searchContext[0]} />
           </div>
         </div>
       </div>

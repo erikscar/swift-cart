@@ -18,6 +18,21 @@ button:hover {
   transform: scale(1.1);
 }
 
+a {
+  text-decoration: none;
+  color: #000;
+  transition: 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+a:hover {
+  transform: scale(1.1);
+  color: rgb(158, 158, 158);
+}
+
 .section-title {
   margin: 4rem 0;
   font-weight: 200;

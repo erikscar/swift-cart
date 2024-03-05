@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { FaPercent, FaBarcode, FaTruck, FaMoneyBill1Wave } from "react-icons/fa6";
 import Card from "../../components/card";
-import ProductCard from "../../components/productCard";
+import ProductCard from "../../components/IndividualCards/productCard"
 import SearchPage from "../SearchPage/search";
 
 export default function Home() {

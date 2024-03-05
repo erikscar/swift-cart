@@ -1,24 +1,9 @@
-a {
-  text-decoration: none;
-  color: #000;
-  transition: 1s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-a:hover {
-  transform: scale(1.1);
-  color: rgb(158, 158, 158);
-}
-
 .departments-nav {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 9rem;
-  padding: 1rem 0 2rem 0;
+  padding: 3rem 0;
   font-size: 24px;
   border-bottom: 1px solid rgb(158, 158, 158);
 }

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import "./index.css"
 import axios from "axios"
-import AdminForm from "../../components/adminForm"
-import AdminCard from "../../components/adminCard"
+import AdminForm from "../../components/Forms/adminForm.jsx"
+import AdminCard from "../../components/IndividualCards/adminCard.jsx"
 import { Link } from "react-router-dom"
 
 const Admin = () => {
@@ -25,16 +25,16 @@ const Admin = () => {
 
     return (
         <>
-            <div className="logo">
+            <div className="admin-logo">
                 <Link to="/">
                     <img src="/logo.png" alt="logo-img" className="logo-img" />
                     <h1>SwiftCart</h1>
                 </Link>
             </div>
             <div className="admin-container">
-                <h1 className="best-seller-title last-release">Página do Administrador</h1>
+                <h1 className="section-title">Página do Administrador</h1>
                 <AdminForm products={products} getProducts={getProducts} />
-                <div className="sell-card-container">
+                <div className="product-card-container">
                     <AdminCard products={products} getProducts={getProducts} setProductId={setProductId} />
                 </div>
             </div>

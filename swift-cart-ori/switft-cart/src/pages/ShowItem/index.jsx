@@ -7,8 +7,8 @@ import axios from "axios";
 import "./index.css";
 import { useState, useEffect } from "react";
 import { useOutletContext, useParams } from "react-router-dom";
-import ModalForm from "../../components/modalForm";
-import { toast, Slide } from "react-toastify";
+import ModalForm from "../../components/Forms/rateForm";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Search from "../SearchPage/search";
 
@@ -177,9 +177,11 @@ export default function ShowItem() {
                     }
                   }
                   return (
-                    <p className="rate-counter">
-                      {stars} {counter} Avaliações
-                    </p>
+                    <div className="rate-counter">
+                      <p >{stars}</p>
+                      <p>{counter} Avaliações</p>
+                    </div>
+
                   );
                 })()}
               </div>
@@ -204,7 +206,6 @@ export default function ShowItem() {
                   getProduct={getProduct}
                   getComments={getComments}
                   product={product}
-                  className="add-rate"
                 />
               </div>
             </div>

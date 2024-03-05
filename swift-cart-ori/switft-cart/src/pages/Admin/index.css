@@ -1,12 +1,14 @@
-/* .logo {
-    justify-content: center;
-    margin: 2rem 0;
-} */
-.logo img {
-  width: 8rem;
+.admin-logo {
+  justify-content: center;
+  margin: 2rem 0;
 }
-.logo h1 {
+
+.admin-logo img {
+  width: 10rem;
+}
+.admin-logo h1 {
   font-size: 100px;
+  font-family: "Caveat", sans-serif;
 }
 
 .admin-container {

@@ -1,9 +1,9 @@
+import "./style.css"
 import { useEffect, useState } from "react"
-import "./index.css"
 import axios from "axios"
+import { Link } from "react-router-dom"
 import AdminForm from "../../components/Forms/adminForm.jsx"
 import AdminCard from "../../components/IndividualCards/adminCard.jsx"
-import { Link } from "react-router-dom"
 
 const Admin = () => {
     const [products, setProducts] = useState([])

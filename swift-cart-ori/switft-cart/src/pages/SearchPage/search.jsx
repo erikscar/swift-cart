@@ -1,12 +1,11 @@
 import "./style.css"
-
-import ProductCard from "../../components/IndividualCards/productCard"
+import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
+import { toast } from "react-toastify";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import { MdAttachMoney } from "react-icons/md";
-import { useOutletContext } from "react-router-dom";
 import CheckboxFilter from "../../components/checkboxFilter";
-import { useState } from "react";
-import { toast } from "react-toastify";
+import ProductCard from "../../components/IndividualCards/productCard"
 
 export default function Search() {
   const searchContext = useOutletContext();
@@ -91,7 +90,7 @@ export default function Search() {
             <FaStar color="#f9c522" />
             <FaStar color="#f9c522" />
             <FaStar color="#f9c522" />
-            <FaRegStar color="#f9c522" />
+            <FaRegStar />
           </div>
           <div className="input-wrapper">
             <input
@@ -101,8 +100,8 @@ export default function Search() {
             <FaStar color="#f9c522" />
             <FaStar color="#f9c522" />
             <FaStar color="#f9c522" />
-            <FaRegStar color="#f9c522" />
-            <FaRegStar color="#f9c522" />
+            <FaRegStar />
+            <FaRegStar />
           </div>
           <div className="input-wrapper">
             <input
@@ -111,9 +110,9 @@ export default function Search() {
             />
             <FaStar color="#f9c522" />
             <FaStar color="#f9c522" />
-            <FaRegStar color="#f9c522" />
-            <FaRegStar color="#f9c522" />
-            <FaRegStar color="#f9c522" />
+            <FaRegStar />
+            <FaRegStar />
+            <FaRegStar />
           </div>
           <div className="input-wrapper">
             <input
@@ -121,10 +120,10 @@ export default function Search() {
               onClick={(ev) => handleFilter(ev, 1)}
             />
             <FaStar color="#f9c522" />
-            <FaRegStar color="#f9c522" />
-            <FaRegStar color="#f9c522" />
-            <FaRegStar color="#f9c522" />
-            <FaRegStar color="#f9c522" />
+            <FaRegStar />
+            <FaRegStar />
+            <FaRegStar />
+            <FaRegStar />
           </div>
 
           <p className="filter-title">Preço <MdAttachMoney /></p>

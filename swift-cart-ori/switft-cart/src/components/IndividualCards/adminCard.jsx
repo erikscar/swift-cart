@@ -1,10 +1,9 @@
-import { FaStar } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import "./style.css"
 import axios from "axios";
-import { FaRegStar, FaTrashCan } from "react-icons/fa6";
-import AdminForm from "../Forms/adminForm";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import { FaRegStar, FaTrashCan, FaStar } from "react-icons/fa6";
+import AdminForm from "../Forms/adminForm";
 
 export default function AdminCard({ products, getProducts }) {
 

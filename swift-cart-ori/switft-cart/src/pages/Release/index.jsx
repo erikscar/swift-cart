@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
 import axios from "axios";
+import { useOutletContext } from "react-router-dom";
+import { PiSmileySadDuotone } from "react-icons/pi";
 import ProductCard from "../../components/IndividualCards/productCard.jsx"
 import SearchPage from "../SearchPage/search.jsx";
-import { PiSmileySadDuotone } from "react-icons/pi";
-
 
 function Release() {
   const [lastRelease, setLastrelease] = useState([]);

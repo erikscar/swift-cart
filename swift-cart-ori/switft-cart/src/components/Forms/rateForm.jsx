@@ -1,9 +1,8 @@
+import "./style.css";
 import { useRef, useState } from "react";
-import "./index.css";
-import { FaStar } from "react-icons/fa6";
-import { TiDeleteOutline } from "react-icons/ti";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { FaStar, FaWindowClose } from "react-icons/fa";
 
 export default function ModalForm({ getComments, product }) {
   const [modal, setModal] = useState(false);
@@ -49,7 +48,7 @@ export default function ModalForm({ getComments, product }) {
           <div className="modal-overlay" >
             <div className="form-content" >
               <div className="close-btn-wrapper">
-                <TiDeleteOutline className="close-btn" onClick={toggleModal} />
+                <FaWindowClose size={35} className="close-btn" onClick={toggleModal} />
               </div>
               <h1 className="form-title">FAÇA SUA AVALIAÇÃO</h1>
 

@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import "./index.css";
+import "./style.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export default function DepartmentsNav({ setFound, setSearchValue }) {

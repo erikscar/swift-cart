@@ -1,12 +1,10 @@
-import { FaTrash } from "react-icons/fa";
-import { IoMdHeartEmpty } from "react-icons/io";
-import { IoSearchOutline } from "react-icons/io5";
+import "./style.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./style.css";
 import { Link, useOutletContext } from "react-router-dom";
-import { toast, Slide } from "react-toastify";
-import Search from "../SearchPage/search";
+import { toast } from "react-toastify";
+import { IoSearchOutline, IoHeart, IoTrashSharp } from "react-icons/io5";
+import SearchPage from "../SearchPage/search";
 
 export default function Cart() {
   const [products, setProducts] = useState([]);
@@ -77,11 +75,11 @@ export default function Cart() {
                               className="icon-wrapper"
                               onClick={() => handleDelete(product.product_id)}
                             >
-                              <FaTrash size={14} />
+                              < IoTrashSharp size={16} />
                               <p className="is-grey">Remover Item</p>
                             </div>
                             <div className="icon-wrapper">
-                              <IoMdHeartEmpty size={14} color="red" />
+                              <IoHeart size={16} color="red" />
                               <p className="is-grey">Adicionar aos Favoritos</p>
                             </div>
                           </div>
@@ -118,7 +116,7 @@ export default function Cart() {
           </>
         )
       ) : (
-        <Search />
+        <SearchPage />
       )
       }
     </>

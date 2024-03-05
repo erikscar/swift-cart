@@ -1,13 +1,12 @@
-import { FaHeart, FaTrash } from "react-icons/fa6";
-import { BsCart4 } from "react-icons/bs";
-import axios from "axios";
-import "./index.css";
+import "./style.css";
 import { useEffect, useState } from "react";
+import axios from "axios";
 import { useOutletContext, Link } from "react-router-dom";
-import Search from "../SearchPage/search";
 import { toast } from "react-toastify";
+import { BsCart3 } from "react-icons/bs";
 import { GiDesert } from "react-icons/gi";
-import { IoSearchOutline } from "react-icons/io5";
+import { IoSearchOutline, IoHeart, IoTrashSharp, } from "react-icons/io5";
+import SearchPage from "../SearchPage/search";
 
 export default function WishList() {
   const [products, setProducts] = useState([]);
@@ -63,7 +62,7 @@ export default function WishList() {
           ) : (
             <>
               <h1 className="section-title">
-                LISTA DE FAVORITOS <FaHeart size={60} color="red" />
+                LISTA DE FAVORITOS <IoHeart size={60} color="red" />
               </h1>
               <div className="wishlist-table-container">
                 <table cellSpacing="80">
@@ -89,13 +88,13 @@ export default function WishList() {
                             onClick={() => postToCart(product.product_id)}
                             className="add-btn"
                           >
-                            <BsCart4 /> Adicionar ao Carrinho{" "}
+                            <BsCart3 /> Adicionar ao Carrinho{" "}
                           </button>
                           <button
                             onClick={() => handleDelete(product.product_id)}
                             className="rmv-fav-btn"
                           >
-                            <FaTrash /> Remover dos Favoritos
+                            <IoTrashSharp /> Remover dos Favoritos
                           </button>
                         </td>
                       </tr>
@@ -107,7 +106,7 @@ export default function WishList() {
           )}
         </>
       ) : (
-        <Search />
+        <SearchPage />
       )}
     </>
   );

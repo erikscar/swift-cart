@@ -1,7 +1,7 @@
-import { useOutletContext } from "react-router-dom";
-import "./index.css";
-import { toast } from "react-toastify";
+import "./style.css";
 import axios from "axios";
+import { useOutletContext } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function Card() {
   const searchContext = useOutletContext();

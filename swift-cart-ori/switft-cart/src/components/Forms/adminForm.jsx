@@ -1,14 +1,12 @@
-import { useEffect, useRef, useState } from "react";
-import { TiDeleteOutline } from "react-icons/ti";
-import "./index.css"
+import "./style.css"
 import axios from "axios";
-import { FaEdit } from "react-icons/fa";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
+import { FaEdit, FaWindowClose } from "react-icons/fa";
 
 const AdminForm = ({ getProducts, onEdit, productId, productToUpdate }) => {
     const [modal, setModal] = useState(false);
     const [shouldCloseModal, setShouldCloseModal] = useState(false); // Novo estado
-
     const ref = useRef();
 
     useEffect(() => {
@@ -79,7 +77,7 @@ const AdminForm = ({ getProducts, onEdit, productId, productToUpdate }) => {
                     <div className="modal-overlay">
                         <div className="form-content">
                             <div className="close-btn-wrapper">
-                                <TiDeleteOutline className="close-btn" onClick={toggleModal} />
+                                <FaWindowClose size={35} className="close-btn" onClick={toggleModal} />
                             </div>
                             {onEdit ? (
                                 <h1 className="form-title">ATUALIZAR PRODUTO</h1>

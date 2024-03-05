@@ -1,10 +1,8 @@
 import "./style.css";
-import { IoMdHeartEmpty } from "react-icons/io";
-import { GiShoppingCart } from "react-icons/gi";
-import { Link, Outlet } from "react-router-dom";
-import { FaGithub, FaLinkedin } from "react-icons/fa6";
-import SearchInput from "../../components/searchInput";
 import { useState } from "react";
+import { Link, Outlet } from "react-router-dom";
+import { BsCart3, BsLinkedin, BsHeart, BsGithub } from "react-icons/bs";
+import SearchInput from "../../components/searchInput";
 import DepartmentsNav from "../../components/departmentsNav";
 
 export default function Header() {
@@ -30,7 +28,7 @@ export default function Header() {
 
 
         <div className="nav-item">
-          <IoMdHeartEmpty className="nav-icon" />
+          <BsHeart className="nav-icon" />
           <Link to="/wishlist" className="link-anchor" onClick={clearSearchValues}>
             <p className="is-grey">Favoritos</p>
             <p>Lista de Desejos</p>
@@ -38,7 +36,7 @@ export default function Header() {
         </div>
 
         <div className="nav-item">
-          <GiShoppingCart className="nav-icon" />
+          <BsCart3 className="nav-icon" />
           <Link to="/cart" className="link-anchor" onClick={clearSearchValues}>
             <p className="is-grey">Carrinho</p>
             <p>Meus Pedidos</p>
@@ -78,8 +76,8 @@ export default function Header() {
         </div>
 
         <div class="social-icons-wrapper">
-          <a href="https://github.com/erikscar" target="_blank"><FaGithub /></a>
-          <a href="https://www.linkedin.com/in/erik-scarcela/" target="_blank"><FaLinkedin /></a>
+          <a href="https://github.com/erikscar" target="_blank"><BsGithub /></a>
+          <a href="https://www.linkedin.com/in/erik-scarcela/" target="_blank"><BsLinkedin /></a>
         </div>
       </footer>
     </>

@@ -1,16 +1,13 @@
-import { FaRegStar, FaStar } from "react-icons/fa6";
-import { BsCart4, BsTruck } from "react-icons/bs";
-import { IoMdHeartEmpty } from "react-icons/io";
-import { AiOutlineLike, AiFillLike } from "react-icons/ai";
-import { IoPersonCircleOutline } from "react-icons/io5";
-import axios from "axios";
-import "./index.css";
+import "./style.css";
 import { useState, useEffect } from "react";
+import axios from "axios";
 import { useOutletContext, useParams } from "react-router-dom";
-import ModalForm from "../../components/Forms/rateForm";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import Search from "../SearchPage/search";
+import { FaRegStar, FaStar } from "react-icons/fa6";
+import { BsCartFill, BsTruck, BsPersonCircle, BsHeartFill } from "react-icons/bs";
+import { AiOutlineLike, AiFillLike } from "react-icons/ai";
+import ModalForm from "../../components/Forms/rateForm";
+import SearchPage from "../SearchPage/search";
 
 export default function ShowItem() {
   const [product, setProduct] = useState([]);
@@ -113,7 +110,7 @@ export default function ShowItem() {
                   return (
                     <>
                       <div className="comment" key={id}>
-                        <IoPersonCircleOutline size={80} />
+                        <BsPersonCircle size={65} />
                         <div>
                           <p className="profile-name">{item.username}</p>
                           <p className="rate-time">
@@ -194,11 +191,11 @@ export default function ShowItem() {
               </div>
               <div className="function-btns">
                 <button onClick={addToCart} className="add-cart-btn">
-                  <BsCart4 />
+                  <BsCartFill />
                   Adicionar ao Carrinho
                 </button>
                 <button onClick={addToWishList} className="fav-btn">
-                  <IoMdHeartEmpty />
+                  <BsHeartFill />
                   Adicionar aos Favoritos
                 </button>
 
@@ -212,7 +209,7 @@ export default function ShowItem() {
           </div>
         </div>
       ) : (
-        <Search />
+        <SearchPage />
       )}
     </>
   );

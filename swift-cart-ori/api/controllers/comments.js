@@ -1,5 +1,6 @@
 import { db } from "../db.js";
 
+//Obter Todos os Comentários de um Determinado Produto
 export const getComments = (req, res) => {
   const q = "SELECT * FROM comments WHERE product_id = ?"
 
@@ -10,6 +11,7 @@ export const getComments = (req, res) => {
   })
 }
 
+//Inserir um Comentário em um Determinado Produto
 export const postComments = (req, res) => {
   const q = "INSERT INTO comments(`username`, `content`, `stars`, `product_id`) VALUES (?, ?, ?, ?)"
   const { username, content, stars } = req.body

@@ -1,5 +1,6 @@
 import { db } from "../db.js";
 
+//Obter Todos os Produtos e a Soma das Estrelas e Quantidade de Comentários
 export const getProducts = (_, res) => {
   const query = `
     SELECT 
@@ -21,6 +22,19 @@ export const getProducts = (_, res) => {
   });
 };
 
+//Obter Apenas um Produto
+export const getOneProduct = (req, res) => {
+  const q = "SELECT * FROM products WHERE product_id = ?";
+  const productId = req.params.id;
+
+  db.query(q, [productId], (err, data) => {
+    if (err) return res.json(err);
+
+    return res.status(200).json(data[0]);
+  });
+};
+
+//Inserir um Produto no Sistema
 export const postProduct = (req, res) => {
   const q = "INSERT INTO products(`name`, `description`, `image`, `price`, `brand`, `category`) VALUES (?, ?, ?, ?, ?, ?)"
   const { name, description, image, price, brand, category } = req.body
@@ -32,6 +46,7 @@ export const postProduct = (req, res) => {
   })
 }
 
+//Atualizar um Produto no Sistema
 export const updateProduct = (req, res) => {
   const q = `
       UPDATE products
@@ -46,9 +61,10 @@ export const updateProduct = (req, res) => {
   })
 }
 
+//Excluir um Produto do Sistema 
 export const deleteProduct = (req, res) => {
   const q = "DELETE FROM products WHERE product_id = ? LIMIT 1"
-  
+
   db.query(q, [req.params.id], (err) => {
     if (err) return res.json(err)
 
@@ -56,17 +72,7 @@ export const deleteProduct = (req, res) => {
   })
 }
 
-export const getOneProduct = (req, res) => {
-  const q = "SELECT * FROM products WHERE product_id = ?";
-  const productId = req.params.id;
-
-  db.query(q, [productId], (err, data) => {
-    if (err) return res.json(err);
-
-    return res.status(200).json(data[0]);
-  });
-};
-
+//Buscar por um Produto Inserido pelo Usuário no Input e a Soma de suas Estrelas e Quantidade de Comentários 
 export const searchProducts = (req, res) => {
   const { searchInput } = req.query;
   const q = `
@@ -85,6 +91,8 @@ export const searchProducts = (req, res) => {
   });
 };
 
+
+//Obter os 4 Últimos Produtos Adicionado e a Soma de suas Estrelas e Quantidade de Comentários 
 export const lastReleases = (_, res) => {
   const q = `SELECT products.*, 
     SUM(comments.stars) AS total_stars, 
@@ -103,6 +111,7 @@ export const lastReleases = (_, res) => {
   });
 };
 
+//Obter os 4 Produtos Mais Populares (Razão da Soma de suas Estrelas pela Quantidade de Comentários) 
 export const mostPopular = (_, res) => {
   const q = `SELECT products.*, 
     SUM(comments.stars) AS total_stars, 
@@ -121,6 +130,7 @@ export const mostPopular = (_, res) => {
   });
 };
 
+//Buscar Produtos por uma Determinada Categoria e a Soma de suas Estrelas e Quantidade de Comentários 
 export const searchByCategory = (req, res) => {
   const q = `
   SELECT p.*, 

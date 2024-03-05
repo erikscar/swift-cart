@@ -1,5 +1,7 @@
 import { db } from "../db.js";
 
+
+//Obter todos os Produtos da Lista de Favoritos/Desejos
 export const getWishList = (_, res) => {
   const q = "SELECT * FROM wishlist LEFT JOIN products ON wishlist.product_id = products.product_id"
 
@@ -10,6 +12,7 @@ export const getWishList = (_, res) => {
   })
 }
 
+//Inserir Produtos na Lista de Favoritos/Desejos
 export const postWishList = (req, res) => {
   const q = "INSERT INTO wishlist(`product_id`) VALUES (?)"
 
@@ -20,6 +23,7 @@ export const postWishList = (req, res) => {
   })
 }
 
+//Excluir Produtos da Lista de Favoritos/Desejos
 export const deleteWishList = (req, res) => {
   const q = "DELETE FROM wishlist WHERE product_id = ? LIMIT 1"
 

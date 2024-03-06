@@ -20,6 +20,16 @@ export default function RateForm({ getComments, product }) {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     const rate = ref.current;
+
+    if (
+      !rate.username.value ||
+      !rate.content.value ||
+      !starsValue
+    ) {
+      toast.error("Por Favor, Preencha Todos os Campos")
+      return
+    }
+
     try {
       const res = await axios.post(
         `http://localhost:8800/comments/${product.product_id}`,
@@ -32,6 +42,7 @@ export default function RateForm({ getComments, product }) {
       toast.success(res.data);
       getComments();
       toggleModal();
+      setStarsValue(0)
     } catch (error) {
       toast.error("Erro ao inserir avaliação");
     }

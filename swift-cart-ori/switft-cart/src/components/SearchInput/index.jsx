@@ -11,6 +11,12 @@ export default function SearchInput({ setProductFound, setSearchValue }) {
     setInputValue(e.target.value);
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      searchProducts()
+    }
+  }
+
   const searchProducts = async () => {
     try {
       const res = await axios.get(`http://localhost:8800/products/search`, {
@@ -41,6 +47,7 @@ export default function SearchInput({ setProductFound, setSearchValue }) {
           placeholder="Encontre Produtos..."
           value={inputValue}
           onChange={(e) => handleChange(e)}
+          onKeyDown={(e) => handleKeyPress(e)}
         />
         <div>
           <IoSearchOutline

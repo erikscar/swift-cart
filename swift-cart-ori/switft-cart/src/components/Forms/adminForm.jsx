@@ -17,8 +17,19 @@ const AdminForm = ({ getProducts, onEdit, productId, productToUpdate }) => {
     }, [shouldCloseModal]);
 
     const postProduct = async (ev) => {
-        const form = ref.current;
         ev.preventDefault();
+        const form = ref.current;
+        if (
+            !form.name.value ||
+            !form.description.value ||
+            !form.image.value ||
+            !form.price.value ||
+            !form.brand.value ||
+            !form.category.value
+        ) {
+            toast.error("Por Favor, Preencha Todos os Campos")
+            return
+        }
         try {
             await axios.post("http://localhost:8800/products", {
                 name: form.name.value,

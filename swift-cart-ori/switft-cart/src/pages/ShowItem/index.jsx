@@ -10,11 +10,11 @@ import SearchPage from "../SearchPage/search";
 import useProductsCRUD from "../../hooks/useProductsCRUD";
 
 export default function ShowItem() {
+  const { id } = useParams();
   const [comments, setComments] = useState([]);
   const [order, setOrder] = useState(false);
-  const searchContext = useOutletContext();
-  const { id } = useParams();
   const { products, postProducts } = useProductsCRUD(`http://localhost:8800/products/${id}`)
+  const searchContext = useOutletContext();
   let counter = 0;
   let allStars = 0;
 

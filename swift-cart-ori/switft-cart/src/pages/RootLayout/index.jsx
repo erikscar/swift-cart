@@ -26,7 +26,6 @@ export default function Header() {
 
         <SearchInput setFound={setFound} setSearchValue={setSearchValue} />
 
-
         <div className="nav-item">
           <BsHeart className="nav-icon" />
           <Link to="/wishlist" className="link-anchor" onClick={clearSearchValues}>

@@ -5,34 +5,11 @@ import { Link, useOutletContext } from "react-router-dom";
 import { toast } from "react-toastify";
 import { IoSearchOutline, IoHeart, IoTrashSharp } from "react-icons/io5";
 import SearchPage from "../SearchPage/search";
+import useFetchProducts from "../../hooks/useFetchProducts";
 
 export default function Cart() {
-  const [products, setProducts] = useState([]);
+  const { products, deleteProducts } = useFetchProducts("http://localhost:8800/cart")
   const searchContext = useOutletContext();
-
-  const getProducts = async () => {
-    try {
-      const res = await axios.get("http://localhost:8800/cart");
-      setProducts(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getProducts();
-  }, []);
-
-  const handleDelete = async (id) => {
-    try {
-      await axios.delete(`http://localhost:8800/cart/${id}`);
-      toast.warning("Item removido do carrinho");
-      getProducts();
-    } catch (error) {
-      toast.error("Erro ao excluir item do carrinho");
-    }
-  };
-
   const subtotal = products.reduce((acum, product) => acum + product.price, 0);
 
   return (
@@ -73,7 +50,7 @@ export default function Cart() {
                             <p>{product.name}</p>
                             <div
                               className="icon-wrapper"
-                              onClick={() => handleDelete(product.product_id)}
+                              onClick={() => deleteProducts(`http://localhost:8800/cart/${product.product_id}`)}
                             >
                               < IoTrashSharp size={16} />
                               <p className="is-grey">Remover Item</p>

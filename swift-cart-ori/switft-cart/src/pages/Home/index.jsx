@@ -9,7 +9,7 @@ import SearchPage from "../SearchPage/search";
 import useFetchProducts from "../../hooks/useFetchProducts";
 
 export default function Home() {
-  const products = useFetchProducts("http://localhost:8800/products")
+  const { products } = useFetchProducts("http://localhost:8800/products")
   const productsFoundContext = useOutletContext();
   const productsFound = productsFoundContext[0]
 

@@ -4,10 +4,10 @@ import { useOutletContext } from "react-router-dom";
 import { PiSmileySadDuotone } from "react-icons/pi";
 import ProductCard from "../../components/IndividualCards/productCard.jsx"
 import SearchPage from "../SearchPage/search.jsx";
-import useFetchProducts from "../../hooks/useFetchProducts.js";
+import useProductsCRUD from "../../hooks/useProductsCRUD.js";
 
 function Popular() {
-  const popularProduct = useFetchProducts("http://localhost:8800/products/popular")
+  const popularProduct = useProductsCRUD("http://localhost:8800/products/popular")
   const searchContext = useOutletContext()
 
   return (

@@ -10,23 +10,13 @@ import SearchPage from "../SearchPage/search";
 import useProductsCRUD from "../../hooks/useProductsCRUD";
 
 export default function ShowItem() {
-  const [product, setProduct] = useState([]);
   const [comments, setComments] = useState([]);
   const [order, setOrder] = useState(false);
   const searchContext = useOutletContext();
-  const { postProducts } = useProductsCRUD()
   const { id } = useParams();
+  const { products, postProducts } = useProductsCRUD(`http://localhost:8800/products/${id}`)
   let counter = 0;
   let allStars = 0;
-
-  const getProduct = async () => {
-    try {
-      const res = await axios.get(`http://localhost:8800/products/${id}`);
-      setProduct(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   const getComments = async () => {
     try {
@@ -36,28 +26,20 @@ export default function ShowItem() {
       console.error(error);
     }
   };
-  useEffect(
-    () => {
-      getProduct();
-      getComments();
-    },
-    [setProduct],
-    [getComments]
-  );
+  useEffect(() => {
+    getComments();
+  }, []);
 
-  let sortComment = [...comments];
   const switchOrder = () => {
-    if (order) {
-      sortComment = comments.sort(
-        (a, b) => new Date(a.created_at) - new Date(b.created_at)
-      );
-      setOrder(false);
-    } else {
-      sortComment = comments.sort(
-        (a, b) => new Date(b.created_at) - new Date(a.created_at)
-      );
-      setOrder(true);
-    }
+    setOrder(!order);
+    const sorted = [...comments].sort((a, b) => {
+      if (order) {
+        return new Date(a.created_at) - new Date(b.created_at);
+      } else {
+        return new Date(b.created_at) - new Date(a.created_at);
+      }
+    });
+    setComments(sorted);
   };
 
   const formatDate = (date) => {
@@ -72,9 +54,9 @@ export default function ShowItem() {
           <div className="product-img-wrapper">
 
             <p className="product-path">
-              {product.category} &gt; {product.brand} &gt; {product.name}
+              {products.category} &gt; {products.brand} &gt; {products.name}
             </p>
-            <img src={product.image} className="product-img" />
+            <img src={products.image} className="product-img" />
 
             <div className="comments-section">
               <h2>Comentários e Avaliações</h2>
@@ -87,7 +69,7 @@ export default function ShowItem() {
               </select>
 
               <div className="all-comments">
-                {sortComment.map((item, id) => {
+                {comments.map((item, id) => {
                   allStars += item.stars;
                   counter++;
                   return (
@@ -141,9 +123,9 @@ export default function ShowItem() {
           <div className="item-information">
             <div>
               <div className="brand">
-                <img src={`/${product.brand}.png`} alt={product.brand} className="product-brand" />
+                <img src={`/${products.brand}.png`} alt={products.brand} className="product-brand" />
               </div>
-              <h1 className="product-name">{product.name}</h1>
+              <h1 className="product-name">{products.name}</h1>
               <div>
                 {(() => {
                   const stars = [];
@@ -166,7 +148,7 @@ export default function ShowItem() {
                 })()}
               </div>
               <div className="price-wrapper-show">
-                <h1 className="price">R$ {product.price}</h1>
+                <h1 className="price">R$ {products.price}</h1>
                 <p className="truck">
                   <BsTruck />
                   Frete Grátis{" "}
@@ -183,11 +165,9 @@ export default function ShowItem() {
                   <BsHeartFill />
                   Adicionar aos Favoritos
                 </button>
-
                 <ModalForm
-                  getProduct={getProduct}
                   getComments={getComments}
-                  product={product}
+                  product={products}
                 />
               </div>
             </div>

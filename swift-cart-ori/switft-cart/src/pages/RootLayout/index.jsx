@@ -6,11 +6,11 @@ import SearchInput from "../../components/searchInput";
 import DepartmentsNav from "../../components/departmentsNav";
 
 export default function Header() {
-  const [found, setFound] = useState([]);
+  const [productFound, setProductFound] = useState([]);
   const [searchValue, setSearchValue] = useState("");
 
   const clearSearchValues = () => {
-    setFound([]);
+    setProductFound([]);
     setSearchValue("");
   };
 
@@ -24,7 +24,7 @@ export default function Header() {
           </Link>
         </div>
 
-        <SearchInput setFound={setFound} setSearchValue={setSearchValue} />
+        <SearchInput setProductFound={setProductFound} setSearchValue={setSearchValue} />
 
         <div className="nav-item">
           <BsHeart className="nav-icon" />
@@ -43,9 +43,9 @@ export default function Header() {
         </div>
       </header>
 
-      <DepartmentsNav setFound={setFound} setSearchValue={setSearchValue} />
+      <DepartmentsNav setProductFound={setProductFound} setSearchValue={setSearchValue} />
 
-      <Outlet context={[found, searchValue, setFound, setSearchValue, clearSearchValues]} />
+      <Outlet context={[productFound, searchValue, setProductFound, setSearchValue, clearSearchValues]} />
 
       <footer>
         <div class="footer-items">

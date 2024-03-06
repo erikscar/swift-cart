@@ -6,7 +6,6 @@ import AdminForm from "../../components/Forms/adminForm.jsx"
 import AdminCard from "../../components/IndividualCards/adminCard.jsx"
 
 const Admin = () => {
-    const [productId, setProductId] = useState(0)
     const [products, setProducts] = useState([])
 
     const getProducts = async () => {
@@ -34,7 +33,7 @@ const Admin = () => {
                 <h1 className="section-title">Página do Administrador</h1>
                 <AdminForm products={products} getProducts={getProducts} />
                 <div className="product-card-container">
-                    <AdminCard products={products} getProducts={getProducts} setProductId={setProductId} />
+                    <AdminCard products={products} getProducts={getProducts} />
                 </div>
             </div>
         </>

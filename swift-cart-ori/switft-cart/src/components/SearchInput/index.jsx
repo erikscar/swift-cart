@@ -4,7 +4,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { IoSearchOutline } from "react-icons/io5";
 
-export default function SearchInput({ setFound, setSearchValue }) {
+export default function SearchInput({ setProductFound, setSearchValue }) {
   const [inputValue, setInputValue] = useState("");
 
   const handleChange = (e) => {
@@ -19,7 +19,7 @@ export default function SearchInput({ setFound, setSearchValue }) {
         },
       });
       if (res.data.length !== 0) {
-        setFound(res.data);
+        setProductFound(res.data);
         setSearchValue(inputValue);
         setInputValue("");
       } else {

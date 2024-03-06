@@ -8,11 +8,12 @@ import useProductsCRUD from "../../hooks/useProductsCRUD";
 
 export default function WishList() {
   const { products, deleteProducts, postProducts } = useProductsCRUD("http://localhost:8800/wishlist")
-  const searchContext = useOutletContext();
+  const productsFoundContext = useOutletContext()
+  const productsFound = productsFoundContext[0]
 
   return (
     <>
-      {searchContext[0].length === 0 ? (
+      {productsFound.length === 0 ? (
         <>
           {products.length === 0 ? (
             <div className="blank-products">

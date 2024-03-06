@@ -8,11 +8,11 @@ import CheckboxFilter from "../../components/checkboxFilter";
 import ProductCard from "../../components/IndividualCards/productCard"
 
 export default function Search() {
-  const searchContext = useOutletContext();
-  const [initialProducts, setInitialProducts] = useState([...searchContext[0]]);
+  const productsFoundContext = useOutletContext();
+  const [initialProducts, setInitialProducts] = useState([...productsFoundContext[0]]);
   const [minValue, setMinValue] = useState("");
   const [maxValue, setMaxValue] = useState("");
-  const setFound = searchContext[2];
+  const setProductFound = productsFoundContext[2];
 
   const handleFilter = (ev, stars) => {
     if (ev.target.checked) {
@@ -20,10 +20,10 @@ export default function Search() {
         (product) =>
           Math.round(product.total_stars / product.total_comments) === stars
       );
-      if (filterProducts.length > 0) setFound(filterProducts);
+      if (filterProducts.length > 0) setProductFound(filterProducts);
       else toast.error("Não Há Produtos Pesquisados com essa Avaliação");
     } else {
-      setFound(initialProducts);
+      setProductFound(initialProducts);
     }
   };
 
@@ -34,10 +34,10 @@ export default function Search() {
     if (maxValue < minValue)
       toast.error("O Valor Mínimo Excede o Valor Máximo Mude o Preço");
     if (filterProducts.length > 0) {
-      setFound(filterProducts);
+      setProductFound(filterProducts);
     } else {
       toast.error("Nenhum Produto Encontrado nessa Faixa de Preço");
-      setFound(initialProducts);
+      setProductFound(initialProducts);
     }
   };
 
@@ -149,10 +149,10 @@ export default function Search() {
         </aside>
 
         <div className="items-container">
-          <h1 className="search-text">Você Pesquisou por: "{searchContext[1]}"</h1>
+          <h1 className="search-text">Você Pesquisou por: "{productsFoundContext[1]}"</h1>
 
           <div className="product-card-container">
-            <ProductCard products={searchContext[0]} />
+            <ProductCard products={productsFoundContext[0]} />
           </div>
         </div>
       </div>

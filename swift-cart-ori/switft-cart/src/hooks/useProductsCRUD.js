@@ -4,8 +4,6 @@ import { toast } from "react-toastify"
 
 const useProductsCRUD = (url) => {
   const [products, setProducts] = useState([])
-  const [comments, setComments] = useState([])
-
 
     const getProducts = async () => {
       try {
@@ -13,15 +11,6 @@ const useProductsCRUD = (url) => {
         setProducts(res.data);
       } catch (error) {
         console.log(error);
-      }
-    }
-
-    const getComments = async () => {
-      try {
-        const res = await axios.get(url)
-        setComments(res.data)
-      } catch (error) {
-        console.log(error)
       }
     }
 
@@ -47,11 +36,10 @@ const useProductsCRUD = (url) => {
     }
     
     useEffect(() => {
-      getProducts(),
-      getComments()
+      getProducts()
     }, [url])
 
-  return { products, comments, deleteProducts, postProducts}
+  return { products, deleteProducts, postProducts}
 }
 
 export default useProductsCRUD

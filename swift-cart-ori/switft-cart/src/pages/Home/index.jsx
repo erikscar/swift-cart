@@ -1,6 +1,4 @@
 import "./style.css"
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { FaPercent, FaBarcode, FaTruck, FaMoneyBill1Wave } from "react-icons/fa6";
 import Card from "../../components/card";

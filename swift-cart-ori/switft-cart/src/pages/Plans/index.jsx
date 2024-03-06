@@ -4,10 +4,11 @@ import { FaCheck } from "react-icons/fa";
 import SearchPage from "../SearchPage/search.jsx";
 
 function Plans() {
-  const searchContext = useOutletContext()
+  const productsFoundContext = useOutletContext()
+  const productsFound = productsFoundContext[0]
   return (
     <>
-      {searchContext[0].length === 0 ? (
+      {productsFound.length === 0 ? (
         <div className="plans-cards-container">
           <div className="plan-card">
             <h1 className="essencial">Essencial</h1>

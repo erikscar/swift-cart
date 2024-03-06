@@ -5,7 +5,7 @@ import { useOutletContext, useParams } from "react-router-dom";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import { BsCartFill, BsTruck, BsPersonCircle, BsHeartFill } from "react-icons/bs";
 import { AiOutlineLike, AiFillLike } from "react-icons/ai";
-import ModalForm from "../../components/Forms/rateForm";
+import RateForm from "../../components/Forms/rateForm";
 import SearchPage from "../SearchPage/search";
 import useProductsCRUD from "../../hooks/useProductsCRUD";
 
@@ -14,7 +14,8 @@ export default function ShowItem() {
   const [comments, setComments] = useState([]);
   const [order, setOrder] = useState(false);
   const { products, postProducts } = useProductsCRUD(`http://localhost:8800/products/${id}`)
-  const searchContext = useOutletContext();
+  const productsFoundContext = useOutletContext()
+  const productsFound = productsFoundContext[0]
   let counter = 0;
   let allStars = 0;
 
@@ -48,7 +49,7 @@ export default function ShowItem() {
 
   return (
     <>
-      {searchContext[0].length === 0 ? (
+      {productsFound.length === 0 ? (
         <div className="show-item-container">
 
           <div className="product-img-wrapper">
@@ -165,7 +166,7 @@ export default function ShowItem() {
                   <BsHeartFill />
                   Adicionar aos Favoritos
                 </button>
-                <ModalForm
+                <RateForm
                   getComments={getComments}
                   product={products}
                 />

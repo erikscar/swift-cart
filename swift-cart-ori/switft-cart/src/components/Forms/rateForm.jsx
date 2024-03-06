@@ -4,7 +4,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { FaStar, FaWindowClose } from "react-icons/fa";
 
-export default function ModalForm({ getComments, product }) {
+export default function RateForm({ getComments, product }) {
   const [modal, setModal] = useState(false);
   const [starsValue, setStarsValue] = useState(0);
   const ref = useRef();

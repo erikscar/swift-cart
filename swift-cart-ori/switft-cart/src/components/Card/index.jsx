@@ -4,9 +4,9 @@ import { useOutletContext } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export default function Card() {
-  const searchContext = useOutletContext();
-  const setFound = searchContext[2]
-  const setSearchValue = searchContext[3]
+  const productsFoundContext = useOutletContext();
+  const setProductFound = productsFoundContext[2]
+  const setSearchValue = productsFoundContext[3]
 
   const getProductByCategory = async (category) => {
     try {
@@ -19,7 +19,7 @@ export default function Card() {
         }
       );
       if (res.data.length !== 0) {
-        setFound(res.data);
+        setProductFound(res.data);
         setSearchValue(category);
       } else {
         toast.error(`Não foi Encontrado Produtos com a Categoria "${category}"`)
@@ -29,7 +29,7 @@ export default function Card() {
     }
   };
 
-  const handleClick = (e) => {
+  const handleCategory = (e) => {
     getProductByCategory(e.target.value)
   };
 
@@ -41,7 +41,7 @@ export default function Card() {
           <h1>Faça Seus</h1>
           <h2>Clicks</h2>
           <h3>MOUSE</h3>
-          <button value="Mouses" onClick={(e) => handleClick(e)}>
+          <button value="Mouses" onClick={(e) => handleCategory(e)}>
             Navegar
           </button>
         </div>
@@ -53,7 +53,7 @@ export default function Card() {
           <h1>Procure</h1>
           <h2>Pelos</h2>
           <h3>CELULARES</h3>
-          <button value="Celulares" onClick={(e) => handleClick(e)}>Navegar</button>
+          <button value="Celulares" onClick={(e) => handleCategory(e)}>Navegar</button>
         </div>
       </div>
 
@@ -63,7 +63,7 @@ export default function Card() {
           <h1>MELHORES</h1>
           <h2>Dispositivos</h2>
           <h3>MONITORES</h3>
-          <button value="Monitores" onClick={(e) => handleClick(e)}>Navegar</button>
+          <button value="Monitores" onClick={(e) => handleCategory(e)}>Navegar</button>
         </div>
       </div>
 
@@ -73,7 +73,7 @@ export default function Card() {
           <h1>Mais</h1>
           <h2>Populares</h2>
           <h3>NOTEBOOKS</h3>
-          <button value="Notebooks" onClick={(e) => handleClick(e)}>Navegar</button>
+          <button value="Notebooks" onClick={(e) => handleCategory(e)}>Navegar</button>
         </div>
       </div>
 
@@ -83,7 +83,7 @@ export default function Card() {
           <h1>Escute</h1>
           <h2>Músicas</h2>
           <h3>FONES</h3>
-          <button value="Fones de Ouvido" onClick={(e) => handleClick(e)}>Navegar</button>
+          <button value="Fones de Ouvido" onClick={(e) => handleCategory(e)}>Navegar</button>
         </div>
       </div>
 
@@ -93,7 +93,7 @@ export default function Card() {
           <h1>Divirta-se</h1>
           <h2>Jogue</h2>
           <h3>CONTROLES</h3>
-          <button value="Controles" onClick={(e) => handleClick(e)}>Navegar</button>
+          <button value="Controles" onClick={(e) => handleCategory(e)}>Navegar</button>
         </div>
       </div>
     </>

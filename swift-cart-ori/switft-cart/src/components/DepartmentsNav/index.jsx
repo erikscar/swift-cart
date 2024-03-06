@@ -3,13 +3,13 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
-export default function DepartmentsNav({ setFound, setSearchValue }) {
+export default function DepartmentsNav({ setProductFound, setSearchValue }) {
   const handleChange = (e) => {
     getProductByCategory(e.target.value);
   };
 
   const clearSearchValues = () => {
-    setFound([]);
+    setProductFound([]);
     setSearchValue("");
   };
 
@@ -24,7 +24,7 @@ export default function DepartmentsNav({ setFound, setSearchValue }) {
         }
       );
       if (res.data.length !== 0) {
-        setFound(res.data);
+        setProductFound(res.data);
         setSearchValue(category);
       } else {
         toast.error(`Não foi Encontrado Produtos com a Categoria "${category}"`)

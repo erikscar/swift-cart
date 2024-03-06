@@ -1,14 +1,11 @@
 import "./style.css";
-import { useState, useEffect } from "react";
-import axios from "axios";
 import { Link, useOutletContext } from "react-router-dom";
-import { toast } from "react-toastify";
 import { IoSearchOutline, IoHeart, IoTrashSharp } from "react-icons/io5";
 import SearchPage from "../SearchPage/search";
-import useFetchProducts from "../../hooks/useFetchProducts";
+import useProductsCRUD from "../../hooks/useProductsCRUD";
 
 export default function Cart() {
-  const { products, deleteProducts } = useFetchProducts("http://localhost:8800/cart")
+  const { products, deleteProducts } = useProductsCRUD("http://localhost:8800/cart")
   const searchContext = useOutletContext();
   const subtotal = products.reduce((acum, product) => acum + product.price, 0);
 

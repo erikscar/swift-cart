@@ -4,12 +4,11 @@ import { useOutletContext } from "react-router-dom";
 import { PiSmileySadDuotone } from "react-icons/pi";
 import ProductCard from "../../components/IndividualCards/productCard.jsx"
 import SearchPage from "../SearchPage/search.jsx";
-import useFetchProducts from "../../hooks/useFetchProducts.js";
+import useFetchProducts from "../../hooks/useProductsCRUD.js";
 
 function Release() {
   const lastRelease = useFetchProducts("http://localhost:8800/products/releases")
   const searchContext = useOutletContext()
-
 
   return (
     <>

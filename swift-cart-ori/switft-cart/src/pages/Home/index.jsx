@@ -6,10 +6,10 @@ import { FaPercent, FaBarcode, FaTruck, FaMoneyBill1Wave } from "react-icons/fa6
 import Card from "../../components/card";
 import ProductCard from "../../components/IndividualCards/productCard"
 import SearchPage from "../SearchPage/search";
-import useFetchProducts from "../../hooks/useFetchProducts";
+import useProductsCRUD from "../../hooks/useProductsCRUD";
 
 export default function Home() {
-  const { products } = useFetchProducts("http://localhost:8800/products")
+  const { products } = useProductsCRUD("http://localhost:8800/products")
   const productsFoundContext = useOutletContext();
   const productsFound = productsFoundContext[0]
 

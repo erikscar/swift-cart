@@ -1,49 +1,15 @@
 import "./style.css";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import { useOutletContext, Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import { BsCart3 } from "react-icons/bs";
 import { GiDesert } from "react-icons/gi";
 import { IoSearchOutline, IoHeart, IoTrashSharp, } from "react-icons/io5";
 import SearchPage from "../SearchPage/search";
+import useProductsCRUD from "../../hooks/useProductsCRUD";
 
 export default function WishList() {
-  const [products, setProducts] = useState([]);
+  const { products, deleteProducts, postProducts } = useProductsCRUD("http://localhost:8800/wishlist")
   const searchContext = useOutletContext();
 
-  const getProducts = async () => {
-    const res = await axios.get("http://localhost:8800/wishlist");
-    setProducts(res.data);
-  };
-
-  useEffect(() => {
-    getProducts();
-  }, [setProducts]);
-
-  const postToCart = async (id) => {
-    try {
-      await axios.post(`http://localhost:8800/cart/${id}`, {
-        product_id: id,
-      });
-      toast.success("Produto Adicionado ao Carrinho");
-    } catch (error) {
-      toast.error("Ocorreu um Erro Inesperado");
-    }
-  };
-
-  const handleDelete = async (id) => {
-    try {
-      await axios
-        .delete(`http://localhost:8800/wishlist/${id}`)
-        .then(({ data }) => {
-          toast.warning(data);
-          getProducts();
-        });
-    } catch (error) {
-      toast.error(error);
-    }
-  };
   return (
     <>
       {searchContext[0].length === 0 ? (
@@ -85,13 +51,13 @@ export default function WishList() {
                         <td>R$ {product.price}</td>
                         <td>
                           <button
-                            onClick={() => postToCart(product.product_id)}
+                            onClick={() => postProducts(`http://localhost:8800/cart/${product.product_id}`, product.product_id)}
                             className="add-btn"
                           >
                             <BsCart3 /> Adicionar ao Carrinho{" "}
                           </button>
                           <button
-                            onClick={() => handleDelete(product.product_id)}
+                            onClick={() => deleteProducts(`http://localhost:8800/wishlist/${product.product_id}`)}
                             className="rmv-fav-btn"
                           >
                             <IoTrashSharp /> Remover dos Favoritos

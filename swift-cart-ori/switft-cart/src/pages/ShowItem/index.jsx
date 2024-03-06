@@ -2,19 +2,19 @@ import "./style.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useOutletContext, useParams } from "react-router-dom";
-import { toast } from "react-toastify";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import { BsCartFill, BsTruck, BsPersonCircle, BsHeartFill } from "react-icons/bs";
 import { AiOutlineLike, AiFillLike } from "react-icons/ai";
 import ModalForm from "../../components/Forms/rateForm";
 import SearchPage from "../SearchPage/search";
+import useProductsCRUD from "../../hooks/useProductsCRUD";
 
 export default function ShowItem() {
   const [product, setProduct] = useState([]);
   const [comments, setComments] = useState([]);
   const [order, setOrder] = useState(false);
   const searchContext = useOutletContext();
-
+  const { postProducts } = useProductsCRUD()
   const { id } = useParams();
   let counter = 0;
   let allStars = 0;
@@ -27,6 +27,7 @@ export default function ShowItem() {
       console.log(err);
     }
   };
+
   const getComments = async () => {
     try {
       const res = await axios.get(`http://localhost:8800/comments/${id}`);
@@ -61,24 +62,6 @@ export default function ShowItem() {
 
   const formatDate = (date) => {
     return new Date(date).toLocaleString();
-  };
-
-  const addToCart = async () => {
-    await axios
-      .post(`http://localhost:8800/cart/${id}`, {
-        product_id: id,
-      })
-      .then(({ data }) => toast.success(data))
-      .catch(({ data }) => toast.error(data));
-  };
-
-  const addToWishList = async () => {
-    await axios
-      .post(`http://localhost:8800/wishlist/${id}`, {
-        product_id: id,
-      })
-      .then(({ data }) => toast.success(data))
-      .catch(({ data }) => toast.error(data));
   };
 
   return (
@@ -190,11 +173,13 @@ export default function ShowItem() {
                 </p>
               </div>
               <div className="function-btns">
-                <button onClick={addToCart} className="add-cart-btn">
+                <button onClick={() => postProducts(`http://localhost:8800/cart/${id}`, id)}
+                  className="add-cart-btn">
                   <BsCartFill />
                   Adicionar ao Carrinho
                 </button>
-                <button onClick={addToWishList} className="fav-btn">
+                <button onClick={() => postProducts(`http://localhost:8800/wishlist/${id}`, id)}
+                  className="fav-btn">
                   <BsHeartFill />
                   Adicionar aos Favoritos
                 </button>

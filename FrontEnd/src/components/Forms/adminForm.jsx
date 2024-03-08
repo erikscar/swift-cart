@@ -109,11 +109,11 @@ const AdminForm = ({ getProducts, onEdit, productId, productToUpdate }) => {
                             </div>
                             <div className="form-input-wrapper">
                                 <label htmlFor="">Preço: </label>
-                                <input type="number" name="price" placeholder="Preço..." defaultValue={onEdit ? productToUpdate.price : ""} />
+                                <input type="text" name="price" placeholder="Preço..." defaultValue={onEdit ? productToUpdate.price : ""} />
                             </div>
                             <div className="form-input-wrapper">
                                 <label htmlFor="">Marca</label>
-                                <select name="brand" id="brand" className="select-form">
+                                <select name="brand" id="brand" className="select-form" defaultValue={onEdit ? productToUpdate.brand : ""}>
                                     <option selected disabled>Marca</option>
                                     <option value="Logitech">Logitech</option>
                                     <option value="Razer">Razer</option>
@@ -131,7 +131,7 @@ const AdminForm = ({ getProducts, onEdit, productId, productToUpdate }) => {
                             </div>
                             <div className="form-input-wrapper">
                                 <label htmlFor="">Categoria</label>
-                                <select name="category" id="category" className="select-form">
+                                <select name="category" id="category" className="select-form" defaultValue={onEdit ? productToUpdate.category : ""}>
                                     <option value="" selected disabled>Categorias</option>
                                     <option value="Mouses">Mouses</option>
                                     <option value="Celulares">Celulares</option>

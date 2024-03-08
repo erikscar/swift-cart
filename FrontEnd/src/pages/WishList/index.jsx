@@ -49,7 +49,7 @@ export default function WishList() {
                           <p>{product.name}</p>
                         </td>
                         <td>Disponível</td>
-                        <td>R$ {product.price}</td>
+                        <td>R$ {product.price},00</td>
                         <td>
                           <button
                             onClick={() => postProducts(`http://localhost:8800/cart/${product.product_id}`, product.product_id)}

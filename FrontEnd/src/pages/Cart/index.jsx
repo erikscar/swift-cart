@@ -5,11 +5,15 @@ import SearchPage from "../SearchPage/search";
 import useProductsCRUD from "../../hooks/useProductsCRUD";
 
 export default function Cart() {
-  const { products, deleteProducts } = useProductsCRUD("http://localhost:8800/cart")
+  const { products, deleteProducts, postProducts } = useProductsCRUD("http://localhost:8800/cart")
   const productsFoundContext = useOutletContext();
   const productsFound = productsFoundContext[0]
 
-  const subtotal = products.reduce((acum, product) => acum + product.price, 0);
+  const subtotal = products.reduce((acum, product) => {
+    console.log(acum, product.price)
+    return acum + parseFloat(product.price)
+  }, 0);
+
 
   return (
     <>
@@ -55,14 +59,15 @@ export default function Cart() {
                               <p className="is-grey">Remover Item</p>
                             </div>
                             <div className="icon-wrapper">
-                              <IoHeart size={16} color="red" />
+                              <IoHeart size={16} color="red"
+                                onClick={() => postProducts(`http://localhost:8800/wishlist/${product.product_id}`, product.product_id)} />
                               <p className="is-grey">Adicionar aos Favoritos</p>
                             </div>
                           </div>
                         </td>
                         <td>{product.brand}</td>
                         <td>1</td>
-                        <td>R$ {product.price}</td>
+                        <td>R$ {product.price},00</td>
                       </tr>
                     ))}
                   </tbody>
@@ -74,7 +79,7 @@ export default function Cart() {
 
                 <div className="order-info-wrapper">
                   <p className="is-grey">SubTotal: </p>
-                  <p>R$ {subtotal.toFixed(2)}</p>
+                  <p>R$ {subtotal},00</p>
                 </div>
 
                 <div className="order-info-wrapper">
@@ -84,7 +89,7 @@ export default function Cart() {
 
                 <div className="order-info-wrapper">
                   <p className="is-grey">Total: </p>
-                  <p>R$ {subtotal.toFixed(2)}</p>
+                  <p>R$ {subtotal},00</p>
                 </div>
                 <button className="finish-order-btn">Finalizar Compra</button>
               </div>

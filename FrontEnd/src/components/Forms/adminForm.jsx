@@ -142,18 +142,15 @@ const AdminForm = ({ getProducts, onEdit, productId, productToUpdate }) => {
                                 </select>
                             </div>
 
-
-                            <div className="save-btn-wrapper">
-                                {onEdit ? (
-                                    <button onClick={(ev) => updateProduct(ev)} className="save-btn">
-                                        Atualizar
-                                    </button>
-                                ) : (
-                                    <button onClick={(ev) => postProduct(ev)} className="save-btn">
-                                        Salvar
-                                    </button>
-                                )}
-                            </div>
+                            {onEdit ? (
+                                <button onClick={(ev) => updateProduct(ev)} className="save-btn">
+                                    Atualizar
+                                </button>
+                            ) : (
+                                <button onClick={(ev) => postProduct(ev)} className="save-btn">
+                                    Salvar
+                                </button>
+                            )}
                         </div>
                     </div>
                 </form>

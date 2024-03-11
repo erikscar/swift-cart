@@ -1,11 +1,11 @@
 .admin-logo {
-  justify-content: center;
   margin: 2rem 0;
 }
 
 .admin-logo img {
   width: 10rem;
 }
+
 .admin-logo h1 {
   font-size: 100px;
   font-family: "Caveat", sans-serif;
@@ -15,10 +15,12 @@
   text-align: center;
 }
 
-.add-product-btn {
-  margin: 2rem 0;
-  padding: 0.75rem 3rem;
-  font-size: 24px;
-  border-radius: 1rem;
-  background-color: #54be96;
+@media only screen and (max-width: 530px) and (min-width: 320px) {
+  .admin-logo img {
+    width: 5rem;
+  }
+
+  .admin-logo h1 {
+    font-size: 60px;
+  }
 }

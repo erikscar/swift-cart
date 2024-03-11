@@ -6,7 +6,7 @@ import { FaEdit, FaWindowClose } from "react-icons/fa";
 
 const AdminForm = ({ getProducts, onEdit, productId, productToUpdate }) => {
     const [modal, setModal] = useState(false);
-    const [shouldCloseModal, setShouldCloseModal] = useState(false); // Novo estado
+    const [shouldCloseModal, setShouldCloseModal] = useState(false);
     const ref = useRef();
 
     useEffect(() => {
@@ -132,7 +132,7 @@ const AdminForm = ({ getProducts, onEdit, productId, productToUpdate }) => {
                             <div className="form-input-wrapper">
                                 <label htmlFor="">Categoria</label>
                                 <select name="category" id="category" className="select-form" defaultValue={onEdit ? productToUpdate.category : ""}>
-                                    <option value="" selected disabled>Categorias</option>
+                                    <option selected disabled>Categorias</option>
                                     <option value="Mouses">Mouses</option>
                                     <option value="Celulares">Celulares</option>
                                     <option value="Monitores">Monitores</option>

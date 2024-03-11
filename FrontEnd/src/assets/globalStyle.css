@@ -93,3 +93,12 @@ a:hover {
   font-size: 20px;
   width: 26rem;
 }
+
+@media only screen and (max-width: 560px) and (min-width: 320px) {
+  .section-title {
+    font-size: 30px;
+    letter-spacing: 0;
+    font-weight: bold;
+    width: auto;
+  }
+}

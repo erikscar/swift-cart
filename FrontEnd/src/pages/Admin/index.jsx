@@ -30,7 +30,7 @@ const Admin = () => {
                 </Link>
             </div>
             <div className="admin-container">
-                <h1 className="section-title">Página do Administrador</h1>
+                <h1 className="section-title">PÁGINA DO ADMINISTRADOR</h1>
                 <AdminForm products={products} getProducts={getProducts} />
                 <div className="product-card-container">
                     <AdminCard products={products} getProducts={getProducts} />

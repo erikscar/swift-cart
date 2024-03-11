@@ -20,8 +20,8 @@ export default function Cart() {
       {productsFound.length === 0 ? (
         products.length === 0 ? (
           <div className="blank-products">
-            <h1>Parece que o seu carrinho está um pouco solitário.</h1>
-            <p>
+            <h1 className="text-align-center">Parece que o seu carrinho está um pouco solitário.</h1>
+            <p className="text-align-center">
               Vamos explorar juntos e encontrar algo especial para preencher
               esse espaço vazio?
             </p>
@@ -31,7 +31,7 @@ export default function Cart() {
           </div>
         ) : (
           <>
-            <h1 className="section-title">PRODUTOS DO CARRINHO</h1>
+            <h1 className="section-title text-align-center">PRODUTOS DO CARRINHO</h1>
             <div className="cart-container">
 
               <div className="cart-table-container">

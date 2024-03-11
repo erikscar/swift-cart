@@ -17,22 +17,23 @@ export default function WishList() {
         <>
           {products.length === 0 ? (
             <div className="blank-products">
-              <h1>
+              <h1 className="text-align-center">
                 Ops! Parece que sua lista de favoritos está tão vazia quanto um
-                deserto. <GiDesert fontSize={60} />
+                deserto.
               </h1>
-              <p>Que tal adicionar produtos?</p>
+              <GiDesert className="desert-icon" />
+              <p className="text-align-center">Que tal adicionar produtos?</p>
               <Link to="/" className="home-btn">
                 <IoSearchOutline /> Explorar
               </Link>
             </div>
           ) : (
             <>
-              <h1 className="section-title">
+              <h1 className="section-title text-align-center">
                 LISTA DE FAVORITOS <IoHeart size={60} color="red" />
               </h1>
               <div className="wishlist-table-container">
-                <table cellSpacing="80">
+                <table>
                   <thead>
                     <tr>
                       <th>Produto</th>

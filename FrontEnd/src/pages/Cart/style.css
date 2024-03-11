@@ -63,3 +63,14 @@ tbody img {
   border: 0;
   border-radius: 1rem;
 }
+
+@media only screen and (max-width: 1150px) {
+  .cart-container {
+    flex-direction: column;
+  }
+
+  .order-container {
+    margin-top: 2rem;
+    width: 100%;
+  }
+}

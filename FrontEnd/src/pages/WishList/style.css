@@ -1,6 +1,12 @@
+.desert-icon {
+  margin-top: 2rem;
+  font-size: 70px;
+}
+
 .wishlist-table-container {
   max-height: 40rem;
   overflow-y: auto;
+  overflow-x: auto;
   margin: 1rem;
 }
 
@@ -10,7 +16,7 @@ table {
   font-size: 22px;
   border-radius: 1rem;
   border-collapse: collapse;
-  padding: 3rem;
+  padding: 1rem;
 }
 
 th {
@@ -47,9 +53,10 @@ tbody img {
 .rmv-fav-btn {
   border: 0;
   margin: 0 1rem;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.75rem;
   font-size: 20px;
   border-radius: 1rem;
+  margin-top: 1rem;
 }
 
 .add-btn {
@@ -59,4 +66,22 @@ tbody img {
 
 .rmv-fav-btn {
   background-color: #eeee;
+}
+
+@media only screen and (max-width: 1006px) {
+  .add-btn,
+  .rmv-fav-btn {
+    font-size: 16px;
+    border-radius: 1rem;
+  }
+
+  table {
+    font-size: 18px;
+  }
+
+  th,
+  td {
+    padding: 1rem;
+    margin: 1rem;
+  }
 }

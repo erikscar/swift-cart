@@ -26,21 +26,22 @@ export default function Header() {
 
         <SearchInput setProductFound={setProductFound} setSearchValue={setSearchValue} />
 
-        <div className="nav-item">
-          <BsHeart className="nav-icon" />
-          <Link to="/wishlist" className="link-anchor" onClick={clearSearchValues}>
-            <p className="is-grey">Favoritos</p>
-            <p>Lista de Desejos</p>
-          </Link>
-        </div>
-
-        <div className="nav-item">
-          <BsCart3 className="nav-icon" />
-          <Link to="/cart" className="link-anchor" onClick={clearSearchValues}>
-            <p className="is-grey">Carrinho</p>
-            <p>Meus Pedidos</p>
-          </Link>
-        </div>
+        <nav>
+          <div className="nav-item">
+            <BsHeart className="nav-icon" />
+            <Link to="/wishlist" className="link-anchor" onClick={clearSearchValues}>
+              <p className="is-grey">Favoritos</p>
+              <p>Lista de Desejos</p>
+            </Link>
+          </div>
+          <div className="nav-item">
+            <BsCart3 className="nav-icon" />
+            <Link to="/cart" className="link-anchor" onClick={clearSearchValues}>
+              <p className="is-grey">Carrinho</p>
+              <p>Meus Pedidos</p>
+            </Link>
+          </div>
+        </nav>
       </header>
 
       <DepartmentsNav setProductFound={setProductFound} setSearchValue={setSearchValue} />

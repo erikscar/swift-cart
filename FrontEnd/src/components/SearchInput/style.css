@@ -1,6 +1,5 @@
 .search-input-wrapper {
   position: relative;
-  width: 40rem;
 }
 
 .search-input-wrapper input {
@@ -9,7 +8,7 @@
   background-color: rgba(0, 0, 0, 0.1);
   position: relative;
   padding: 1rem;
-  width: 100%;
+  width: 40rem;
   border-radius: 1rem;
   font-size: 18px;
 }
@@ -17,8 +16,32 @@
 .search-icon {
   position: absolute;
   top: 2rem;
-  right: 1rem;
+  left: 90%;
   border: 0;
   background-color: transparent;
   font-size: 22px;
+}
+
+@media only screen and (max-width: 1440px) {
+  .search-input-wrapper input {
+    width: 25rem;
+  }
+}
+
+@media only screen and (max-width: 1220px) {
+  .search-input-wrapper input {
+    width: 15rem;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .search-input-wrapper input {
+    width: 35rem;
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  .search-input-wrapper input {
+    width: 15rem;
+  }
 }

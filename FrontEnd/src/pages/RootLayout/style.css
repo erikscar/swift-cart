@@ -18,11 +18,18 @@ header {
   font-size: 80px;
 }
 
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
 .nav-item {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  text-align: center;
+  gap: 0.5rem;
   font-size: 18px;
 }
 
@@ -33,17 +40,18 @@ header {
 .link-anchor {
   display: flex;
   flex-direction: column;
-  text-align: start;
+  text-align: center;
 }
 
 footer {
   background-color: #f0efeb;
-  padding: 6rem;
+  padding: 5rem;
   border-radius: 2rem;
   margin-top: 6rem;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 3rem;
 }
 
 .footer-items {
@@ -69,4 +77,36 @@ footer {
 .footer-links:hover {
   color: rgba(0, 0, 0, 0.3);
   transform: scale(1.1);
+}
+
+@media only screen and (max-width: 1050px) {
+  .social-icons-wrapper {
+    flex-direction: column;
+  }
+  header {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .logo {
+    margin: 0 auto;
+  }
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+  .social-icons-wrapper {
+    flex-direction: row;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .logo-img {
+    width: 4rem;
+  }
+  .logo-title {
+    font-size: 50px;
+  }
 }

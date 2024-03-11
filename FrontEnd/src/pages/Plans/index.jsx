@@ -90,7 +90,7 @@ function Plans() {
                 Personalização Completa.
               </p>
               <p>
-                <FaCheck fontSize={25} color="#34e868" />
+                <FaCheck fontSize={25} color="#34e868" className="teste" />
                 Integração com Sistemas de Pagamento.
               </p>
               <p>

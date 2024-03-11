@@ -151,7 +151,7 @@ export default function Search() {
         <div className="items-container">
           <h1 className="search-text">Você Pesquisou por: "{productsFoundContext[1]}"</h1>
 
-          <div className="product-card-container">
+          <div className="product-card-container max-height">
             <ProductCard products={productsFoundContext[0]} />
           </div>
         </div>

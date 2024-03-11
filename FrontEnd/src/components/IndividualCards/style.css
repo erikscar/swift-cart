@@ -54,7 +54,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  width: 45%;
+  width: 100%;
   font-size: 18px;
   border-radius: 1rem;
   border: 1px solid;
@@ -78,7 +78,24 @@
   }
   .product-card-img {
     width: 17rem;
-    height: 10;
+    height: 10rem;
     max-width: 17rem;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .product-card {
+    text-align: center;
+  }
+  .price-star-wrapper {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .product-btn-wrapper {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .product-card-img {
+    width: 12rem;
   }
 }

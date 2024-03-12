@@ -1,7 +1,7 @@
 import "./style.css"
 import { useOutletContext } from "react-router-dom";
 import { FaPercent, FaBarcode, FaTruck, FaMoneyBill1Wave } from "react-icons/fa6";
-import Card from "../../components/card";
+import Card from "../../components/Card";
 import ProductCard from "../../components/IndividualCards/productCard"
 import SearchPage from "../SearchPage/search";
 import useProductsCRUD from "../../hooks/useProductsCRUD";
@@ -20,10 +20,11 @@ export default function Home() {
               <span className="best-offer-btn">Melhor Oferta</span>
               <h1 className="section-title">EDIÇÃO ESPECIAL</h1>
               <p className="best-offer-subtitle">A MELHOR ESCOLHA DO ANO</p>
+              <p className="best-offer-subtitle">EM FONES DE OUVIDOS</p>
               <p>Desconto de até R$30 e Frete Grátis!</p>
               <button className="best-offer-buy-btn">Compre Agora</button>
             </div>
-            <img src="/headphone.png" alt="headphone-img" />
+            <img src="/headphone.png" alt="headphone-img" className="headphone-img" />
           </div>
 
           <div className="advantages">

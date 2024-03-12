@@ -1,44 +1,26 @@
-.mouse-card {
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-  background: linear-gradient(to right, #222222, #333333);
-  border-radius: 1rem;
-  position: relative;
-  width: 22%;
-  height: 22rem;
-  overflow: hidden;
-}
-
-.mouse-card img {
-  width: 14rem;
-  position: absolute;
-  top: 0rem;
-  right: 0rem;
-  transform: translateX(50%);
-}
-
-.mouse-card-desc {
+.product-card-main-desc {
   margin-top: 3rem;
   padding: 2rem;
 }
 
-.mouse-card-desc h1 {
+.product-card-main-desc h1 {
   margin: 0.4rem 0;
   font-size: 20px;
   color: #fff;
 }
 
-.mouse-card-desc h2 {
+.product-card-main-desc h2 {
   font-size: 40px;
   color: #fff;
 }
 
-.mouse-card-desc h3 {
+.product-card-main-desc h3 {
   font-size: 60px;
   letter-spacing: 0.5rem;
-  color: rgba(255, 254, 254, 0.1);
+  color: rgba(255, 254, 254, 0.3);
 }
 
-.mouse-card-desc button {
+.product-card-main-desc button {
   font-size: 18px;
   padding: 0.75rem 2rem;
   border-radius: 2rem;
@@ -48,263 +30,149 @@
   font-weight: bold;
 }
 
-.is-big {
-  width: 35%;
+.mouse-card,
+.phone-card,
+.monitor-card,
+.notebook-card,
+.earphone-card,
+.control-card {
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
+  width: 26rem;
+  height: 22rem;
+}
+
+.mouse-img,
+.phone-img,
+.monitor-img,
+.notebook-img,
+.earphone-img,
+.control-img {
+  position: absolute;
+  top: 0rem;
+  bottom: 0rem;
+  right: 0rem;
+  width: 25rem;
+  transform: translateX(30%);
+}
+
+.mouse-card {
+  background: linear-gradient(to right, #222222, #333333);
 }
 
 .phone-card {
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   background: linear-gradient(to right, #013256, #1e4a72);
-  border-radius: 1rem;
-  position: relative;
-  width: 22%;
-  overflow: hidden;
-  height: 22rem;
-}
-
-.phone-card img {
-  width: 25rem;
-  position: absolute;
-  top: 0rem;
-  bottom: 0rem;
-  right: 0rem;
-  transform: translateX(58%);
-}
-
-.phone-card-desc {
-  margin-top: 3rem;
-  padding: 2rem;
-}
-
-.phone-card-desc h1 {
-  margin: 0.4rem 0;
-  font-size: 20px;
-  color: #fff;
-}
-
-.phone-card-desc h2 {
-  font-size: 40px;
-  color: #fff;
-}
-
-.phone-card-desc h3 {
-  font-size: 55px;
-  color: rgba(255, 254, 254, 0.1);
-
-  left: 0;
-}
-
-.phone-card-desc button {
-  font-size: 18px;
-  padding: 0.75rem 2rem;
-  border-radius: 2rem;
-  background-color: #fff;
-  border: 0;
-  margin: 1rem;
-  font-weight: bold;
-  color: #013256;
 }
 
 .monitor-card {
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-  background: linear-gradient(to right, #170d43, rgba(23, 13, 67, 0.8));
-  border-radius: 1rem;
-  position: relative;
+  background: linear-gradient(to right, #170d43, #170d43cc);
   width: 40%;
-  overflow: hidden;
-  height: 22rem;
-}
-
-.monitor-card img {
-  width: 25rem;
-  position: absolute;
-  top: 0rem;
-  bottom: 0rem;
-  right: 0rem;
-  transform: translateX(10%);
-}
-
-.monitor-card-desc {
-  margin-top: 3rem;
-  padding: 2rem;
-}
-
-.monitor-card-desc h1 {
-  margin: 0.4rem 0;
-  font-size: 20px;
-  color: #fff;
-}
-
-.monitor-card-desc h2 {
-  font-size: 40px;
-  color: #fff;
-}
-
-.monitor-card-desc h3 {
-  font-size: 60px;
-  color: rgba(255, 254, 254, 0.1);
-}
-
-.monitor-card-desc button {
-  font-size: 18px;
-  padding: 0.75rem 2rem;
-  border-radius: 2rem;
-  background-color: #fff;
-  border: 0;
-  margin: 1rem;
-  font-weight: bold;
-  color: #170d43;
 }
 
 .notebook-card {
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   background: linear-gradient(to right, #f52d37, #f93f4d);
-  border-radius: 1rem;
-  position: relative;
   width: 40%;
-  overflow: hidden;
-  height: 22rem;
-}
-
-.notebook-card img {
-  width: 30rem;
-  position: absolute;
-  top: 0rem;
-  bottom: 0rem;
-  right: 0rem;
-  transform: translateX(30%);
-}
-
-.notebook-card-desc {
-  margin-top: 3rem;
-  padding: 2rem;
-}
-
-.notebook-card-desc h1 {
-  margin: 0.4rem 0;
-  font-size: 20px;
-  color: #fff;
-}
-
-.notebook-card-desc h2 {
-  font-size: 40px;
-  color: #fff;
-}
-
-.notebook-card-desc h3 {
-  font-size: 60px;
-  color: rgba(255, 254, 254, 0.3);
-}
-
-.notebook-card-desc button {
-  font-size: 18px;
-  padding: 0.75rem 2rem;
-  border-radius: 2rem;
-  background-color: #fff;
-  border: 0;
-  margin: 1rem;
-  font-weight: bold;
-  color: #f52d37;
 }
 
 .earphone-card {
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   background: linear-gradient(to right, #f9c522, #f8cb42);
-  border-radius: 1rem;
-  position: relative;
-  width: 22%;
-  overflow: hidden;
-  height: 22rem;
-}
-
-.earphone-card img {
-  width: 25rem;
-  position: absolute;
-  top: 3rem;
-  bottom: 0rem;
-  right: 0rem;
-  transform: translateX(30%);
-}
-
-.earphone-card-desc {
-  margin-top: 3rem;
-  padding: 2rem;
-}
-
-.earphone-card-desc h1 {
-  margin: 0.4rem 0;
-  font-size: 20px;
-  color: #fff;
-}
-
-.earphone-card-desc h2 {
-  font-size: 40px;
-  color: #fff;
-}
-
-.earphone-card-desc h3 {
-  font-size: 55px;
-  color: rgba(255, 254, 254, 0.3);
-}
-
-.earphone-card-desc button {
-  font-size: 18px;
-  padding: 0.75rem 2rem;
-  border-radius: 2rem;
-  background-color: #fff;
-  border: 0;
-  margin: 1rem;
-  font-weight: bold;
-  color: #f9c522;
 }
 
 .control-card {
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   background: linear-gradient(to right, #c9e337, #8fa90e);
-  border-radius: 1rem;
-  position: relative;
-  width: 22%;
-  overflow: hidden;
-  height: 22rem;
 }
 
-.control-card img {
-  width: 18rem;
-  position: absolute;
+.mouse-img {
+  width: 14rem;
+}
+
+.phone-img {
+  transform: translate(55%);
+}
+
+.notebook-img {
+  top: 2rem;
+}
+
+.earphone-img {
   top: 3rem;
-  bottom: 0rem;
-  right: 0rem;
+}
+
+.control-img {
+  width: 18rem;
+  top: 3rem;
   transform: translateX(50%);
 }
 
-.control-card-desc {
-  margin-top: 3rem;
-  padding: 2rem;
+@media only screen and (max-width: 1560px) {
+  .monitor-card,
+  .notebook-card {
+    width: 26rem;
+  }
+  .monitor-img {
+    width: 22rem;
+    top: 2rem;
+  }
 }
 
-.control-card-desc h1 {
-  margin: 0.4rem 0;
-  font-size: 20px;
-  color: #fff;
+@media only screen and (max-width: 1375px) {
+  .notebook-img {
+    transform: translate(45%);
+  }
+
+  .monitor-img {
+    transform: translate(38%);
+  }
+
+  .monitor-img {
+    top: 0.5rem;
+    width: 20rem;
+  }
 }
 
-.control-card-desc h2 {
-  font-size: 40px;
-  color: #fff;
-}
+@media only screen and (max-width: 450px) {
+  .product-card-main-desc h2 {
+    font-size: 30px;
+  }
 
-.control-card-desc h3 {
-  font-size: 55px;
-  color: rgba(255, 254, 254, 0.3);
-}
+  .product-card-main-desc h3 {
+    margin: 2rem 0;
+    font-size: 36px;
+    letter-spacing: 0;
+  }
 
-.control-card-desc button {
-  font-size: 18px;
-  padding: 0.75rem 2rem;
-  border-radius: 2rem;
-  background-color: #fff;
-  border: 0;
-  margin: 1rem;
-  font-weight: bold;
-  color: #c9e337;
+  .mouse-img {
+    top: 3rem;
+    width: 10rem;
+    transform: translate(50%);
+  }
+
+  .phone-img {
+    width: 20rem;
+    top: 1rem;
+    transform: translate(65%);
+  }
+
+  .monitor-img {
+    transform: translate(50%);
+  }
+
+  .notebook-img {
+    top: 3rem;
+    width: 20rem;
+    transform: translate(60%);
+  }
+
+  .earphone-img {
+    top: 3rem;
+    width: 20rem;
+    transform: translate(30%);
+  }
+
+  .control-img {
+    top: 2rem;
+    width: 15rem;
+  }
 }
